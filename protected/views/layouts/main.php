@@ -34,7 +34,7 @@
                         array('url' => Yii::app()->getModule('user')->registrationUrl, 'label' => Yii::app()->getModule('user')->t("Registo"), 'visible' => Yii::app()->user->isGuest),
                         array('url' => Yii::app()->getModule('user')->logoutUrl, 'label' => Yii::app()->getModule('user')->t("Logout") . ' (' . Yii::app()->user->name . ')', 'visible' => !Yii::app()->user->isGuest),
                         array('url' => Yii::app()->getModule('user')->profileUrl, 'label' => Yii::app()->getModule('user')->t("Perfil"), 'visible' => !Yii::app()->user->isGuest),
-                        array('label' => Yii::t('app', 'Direitos'), 'url' => array('/rights')),
+                        array('label' => 'Direitos', 'url' => array('/rights'), 'visible' => Yii::app()->user->checkAccess(Rights::module()->superuserName)),
                         array('label' => 'Alterações', 'url' => array('/alteracao/index')),
                         array('label' => 'Caso_Uso', 'url' => array('/casouso/index')),
                         array('label' => 'Cliente', 'url' => array('/cliente/index')),
