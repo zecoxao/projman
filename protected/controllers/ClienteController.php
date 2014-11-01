@@ -1,6 +1,6 @@
 <?php
 
-class ClienteController extends RController
+class ClienteController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -12,12 +12,12 @@ class ClienteController extends RController
 	 * @return array action filters
 	 */
 	public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
 
 	/**
 	 * Specifies the access control rules.
@@ -37,8 +37,7 @@ class ClienteController extends RController
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('@'),
-				'expression'=>"Yii::app()->getModule('user')->isAdmin()",
+				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

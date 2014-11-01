@@ -44,18 +44,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$model->search(),
     'filter'=>$model,
     'columns'=>array(
-        //'projecto',
-        //'membro',
-        array(
-            'header' => 'Nome de Membro',
-            'name' => 'nome_membro',
-            'value' => '$data->membro0->pessoa0->username',
-        ),
-        array(
-            'header' => 'Descricao de Projecto',
-            'name' => 'projecto0.descricao',
-            'filter' => CHtml::activeTextField($model, 'descricao_projecto'),
-        ),
+        'projecto',
+        'membro',
         array(
             'class'=>'CButtonColumn',
             'template'=>'{view}{update}{delete}',

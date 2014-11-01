@@ -44,19 +44,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$model->search(),
     'filter'=>$model,
     'columns'=>array(
-        //'stakeholder',
-        //'membro',
-        array(
-            'header' => 'Nome de Stakeholder',
-            'name' => 'nome_stakeholder',
-            'value' => '$data->stakeholder1->pessoa0->username',
-        ),
-        array(
-            'header' => 'Nome de Membro',
-            'name' => 'nome_membro',
-            'value' => '$data->membro1->pessoa0->username',
-        ),
-        
+        'stakeholder',
+        'membro',
         array(
             'class'=>'CButtonColumn',
             'template'=>'{view}{update}{delete}',

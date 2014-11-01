@@ -1,5 +1,5 @@
 <?php
-class AlteracoesRequisitoController extends RController
+class AlteracoesRequisitoController extends Controller
 {
 	public $layout='//layouts/column2';
 	
@@ -10,14 +10,6 @@ class AlteracoesRequisitoController extends RController
 			'dataProvider'=>$dataProvider,
 		));
 	}
-        
-        public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
 	
 	public function accessRules()
 	{

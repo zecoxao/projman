@@ -22,9 +22,9 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'cod_stakeholder',
-		'pessoa',
 		'descricao',
 		'grupo',
 		'cliente',
+		'user',
 	),
 )); ?>

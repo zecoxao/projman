@@ -1,17 +1,9 @@
 
 <?php
-class EcraCasoController extends RController
+class EcraCasoController extends Controller
 {
 	public $layout='//layouts/column2';
 	
-        public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
-        
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('EcraCaso');

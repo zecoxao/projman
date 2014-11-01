@@ -22,7 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'cod_cliente',
-		'pessoa',
 		'descricao',
+		'user',
 	),
 )); ?>

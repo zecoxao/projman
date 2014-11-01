@@ -1,6 +1,6 @@
 
 <?php
-class EntidadeCasoController extends RController
+class EntidadeCasoController extends Controller
 {
 	public $layout='//layouts/column2';
 	
@@ -12,14 +12,6 @@ class EntidadeCasoController extends RController
 		));
 	}
 	
-        public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
-        
 	public function accessRules()
 	{
 		return array(

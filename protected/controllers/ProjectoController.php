@@ -1,6 +1,6 @@
 <?php
 
-class ProjectoController extends RController
+class ProjectoController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -12,12 +12,12 @@ class ProjectoController extends RController
 	 * @return array action filters
 	 */
 	public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
+	{
+		return array(
+			'accessControl', // perform access control for CRUD operations
+			'postOnly + delete', // we only allow deletion via POST request
+		);
+	}
 
 	/**
 	 * Specifies the access control rules.

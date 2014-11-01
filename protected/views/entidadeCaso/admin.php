@@ -44,18 +44,8 @@ $this->widget('zii.widgets.grid.CGridView', array(
     'dataProvider'=>$model->search(),
     'filter'=>$model,
     'columns'=>array(
-        //'entidade',
-        //'caso_uso',
-        array(
-            'header' => 'Descrição de Entidade',
-            'name' => 'entidade0.descricao',
-            'filter' => CHtml::activeTextField($model, 'descricao_entidade'),
-        ),
-        array(
-            'header' => 'Nome de Caso de Uso',
-            'name' => 'caso_uso0.nome',
-            'filter' => CHtml::activeTextField($model, 'nome_caso'),
-        ),
+        'entidade',
+        'caso_uso',
         array(
             'class'=>'CButtonColumn',
             'template'=>'{view}{update}{delete}',

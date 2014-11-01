@@ -1,6 +1,6 @@
 
 <?php
-class MembrosCasoUsoController extends RController
+class MembrosCasoUsoController extends Controller
 {
 	public $layout='//layouts/column2';
 	
@@ -12,14 +12,6 @@ class MembrosCasoUsoController extends RController
 		));
 	}
 	
-        public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
-        
 	public function accessRules()
 	{
 		return array(
