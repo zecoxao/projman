@@ -16,6 +16,9 @@ class RequisitosStakeholders extends CActiveRecord
 	{
 		return 'requisitos_stakeholders';
 	}
+        
+        public $nome_stakeholder;
+	public $descricao_requisito;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,6 +33,8 @@ class RequisitosStakeholders extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('requisito, stakeholder', 'safe', 'on'=>'search'),
+                        array('nome_stakeholder', 'safe'),
+			array('descricao_requisito', 'safe'),
 		);
 	}
 
@@ -41,6 +46,9 @@ class RequisitosStakeholders extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'stakeholder1' => array(self::BELONGS_TO, 'Stakeholder', 'stakeholder'),
+			'requisitoses1' => array(self::BELONGS_TO, 'Requisitos', 'requisito'),
+                        'pessoa1'    => array(self::HAS_MANY, 'Pessoa', array('pessoa'=>'cod_pessoa'),'through'=>'stakeholder1'),
 		);
 	}
 
@@ -75,6 +83,11 @@ class RequisitosStakeholders extends CActiveRecord
 
 		$criteria->compare('requisito',$this->requisito);
 		$criteria->compare('stakeholder',$this->stakeholder);
+                
+                $criteria->with = array('stakeholder1','pessoa1','requisitoses1');
+		$criteria->together=true;
+		$criteria->compare('pessoa1.nome',$this->nome_stakeholder,true);
+                $criteria->addSearchCondition('requisitoses1.descricao', $this->descricao_requisito);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

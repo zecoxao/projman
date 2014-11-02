@@ -16,6 +16,9 @@ class AlteracoesRequisito extends CActiveRecord
 	{
 		return 'alteracoes_requisito';
 	}
+	
+	public $descricao_alteracao;
+	public $descricao_requisito;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,6 +33,8 @@ class AlteracoesRequisito extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('alteracao, requisito', 'safe', 'on'=>'search'),
+			array('descricao_alteracao', 'safe'),
+			array('descricao_requisito', 'safe'),
 		);
 	}
 
@@ -41,6 +46,8 @@ class AlteracoesRequisito extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'alteracao0' => array(self::BELONGS_TO, 'Alteracao', 'alteracao'),
+			'requisitoses0' => array(self::BELONGS_TO, 'Requisitos', 'requisito'),
 		);
 	}
 
@@ -51,7 +58,7 @@ class AlteracoesRequisito extends CActiveRecord
 	{
 		return array(
 			'alteracao' => 'Alteracao',
-			'requisito' => 'Requisito',
+			'requisitos' => 'Requisitos',
 		);
 	}
 
@@ -75,6 +82,10 @@ class AlteracoesRequisito extends CActiveRecord
 
 		$criteria->compare('alteracao',$this->alteracao);
 		$criteria->compare('requisito',$this->requisito);
+		
+		$criteria->with = array('alteracao0','requisitoses0');
+		$criteria->addSearchCondition('alteracao0.descricao', $this->descricao_alteracao);
+		$criteria->addSearchCondition('requisitoses0.descricao', $this->descricao_requisito);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

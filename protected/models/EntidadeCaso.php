@@ -16,6 +16,9 @@ class EntidadeCaso extends CActiveRecord
 	{
 		return 'entidade_caso';
 	}
+        
+        public $descricao_entidade;
+	public $nome_caso;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,6 +33,8 @@ class EntidadeCaso extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('entidade, caso_uso', 'safe', 'on'=>'search'),
+                        array('descricao_entidade', 'safe'),
+			array('nome_caso', 'safe'),
 		);
 	}
 
@@ -41,6 +46,8 @@ class EntidadeCaso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'entidade0' => array(self::BELONGS_TO, 'Entidade', 'entidade'),
+			'caso_uso0' => array(self::BELONGS_TO, 'CasoUso', 'caso_uso'),
 		);
 	}
 
@@ -75,6 +82,10 @@ class EntidadeCaso extends CActiveRecord
 
 		$criteria->compare('entidade',$this->entidade);
 		$criteria->compare('caso_uso',$this->caso_uso);
+                
+                $criteria->with = array('entidade0','caso_uso0');
+		$criteria->addSearchCondition('entidade0.descricao', $this->descricao_entidade);
+		$criteria->addSearchCondition('caso_uso0.nome', $this->nome_caso);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

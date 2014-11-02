@@ -3,11 +3,32 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/layouts/main.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/EntidadeCaso.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/stakeholder/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/Membro.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/projecto/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/entidadeCaso/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/pessoa/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/grupoAnalise/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/ecraCaso/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/membro/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/stakeholderMembro/admin.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/models/AlteracoesRequisito.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/site/index.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Alteracao.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/alteracao/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/StakeholderMembro.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/entidade/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/casoUso/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/estado/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/cliente/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/membrosProjecto/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/Cliente.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/CasoUso.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/alteracoesRequisito/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/Ecra.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/requisitosStakeholders/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/requisitos/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/ContactForm.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/membrosCasoUso/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/ecra/admin.php</file>
         </group>
     </open-files>
 </project-private>

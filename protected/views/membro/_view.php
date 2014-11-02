@@ -9,12 +9,12 @@
 	<?php echo CHtml::link(CHtml::encode($data->cod_membro), array('view', 'id'=>$data->cod_membro)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('pessoa')); ?>:</b>
+	<?php echo CHtml::encode($data->pessoa); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user')); ?>:</b>
-	<?php echo CHtml::encode($data->user); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+	<?php echo CHtml::encode($data->descricao); ?>
 	<br />
 
 

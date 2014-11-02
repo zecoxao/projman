@@ -5,11 +5,11 @@
  *
  * The followings are the available columns in table 'cliente':
  * @property integer $cod_cliente
+ * @property integer $pessoa
  * @property string $descricao
- * @property integer $user
  *
  * The followings are the available model relations:
- * @property Users $user0
+ * @property Pessoa $pessoa0
  * @property Stakeholder[] $stakeholders
  */
 class Cliente extends CActiveRecord
@@ -21,6 +21,8 @@ class Cliente extends CActiveRecord
 	{
 		return 'cliente';
 	}
+        
+        public $nome_cliente;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,12 +32,13 @@ class Cliente extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('descricao, user', 'required'),
-			array('user', 'numerical', 'integerOnly'=>true),
+			array('pessoa, descricao', 'required'),
+			array('pessoa', 'numerical', 'integerOnly'=>true),
 			array('descricao', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cod_cliente, descricao, user', 'safe', 'on'=>'search'),
+			array('cod_cliente, pessoa, descricao', 'safe', 'on'=>'search'),
+                        array('nome_cliente', 'safe'),
 		);
 	}
 
@@ -47,7 +50,7 @@ class Cliente extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user0' => array(self::BELONGS_TO, 'Users', 'user'),
+			'pessoa0' => array(self::BELONGS_TO, 'Pessoa', 'pessoa'),
 			'stakeholders' => array(self::HAS_MANY, 'Stakeholder', 'cliente'),
 		);
 	}
@@ -59,8 +62,8 @@ class Cliente extends CActiveRecord
 	{
 		return array(
 			'cod_cliente' => 'Cod Cliente',
+			'pessoa' => 'Pessoa',
 			'descricao' => 'Descricao',
-			'user' => 'User',
 		);
 	}
 
@@ -83,8 +86,11 @@ class Cliente extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('cod_cliente',$this->cod_cliente);
+		$criteria->compare('pessoa',$this->pessoa);
 		$criteria->compare('descricao',$this->descricao,true);
-		$criteria->compare('user',$this->user);
+                
+                $criteria->with = array('pessoa0',);
+                $criteria->addSearchCondition('pessoa0.nome', $this->nome_cliente);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

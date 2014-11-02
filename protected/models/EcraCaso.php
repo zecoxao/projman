@@ -16,6 +16,9 @@ class EcraCaso extends CActiveRecord
 	{
 		return 'ecra_caso';
 	}
+        
+        public $descricao_ecra;
+	public $nome_caso;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -30,6 +33,8 @@ class EcraCaso extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('ecra, caso_uso', 'safe', 'on'=>'search'),
+                        array('descricao_ecra', 'safe'),
+			array('nome_caso', 'safe'),
 		);
 	}
 
@@ -41,6 +46,8 @@ class EcraCaso extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'ecra0' => array(self::BELONGS_TO, 'Ecra', 'ecra'),
+			'caso_uso0' => array(self::BELONGS_TO, 'CasoUso', 'caso_uso'),
 		);
 	}
 
@@ -75,6 +82,10 @@ class EcraCaso extends CActiveRecord
 
 		$criteria->compare('ecra',$this->ecra);
 		$criteria->compare('caso_uso',$this->caso_uso);
+                
+                $criteria->with = array('ecra0','caso_uso0');
+		$criteria->addSearchCondition('ecra0.descricao', $this->descricao_ecra);
+		$criteria->addSearchCondition('caso_uso0.nome', $this->nome_caso);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -22,6 +22,8 @@ class Alteracao extends CActiveRecord
 	{
 		return 'alteracao';
 	}
+	
+	public $nome_stakeholder;
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -37,6 +39,7 @@ class Alteracao extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('cod_alteracao, stakeholder, data_alteracao, descricao', 'safe', 'on'=>'search'),
+			array('nome_stakeholder', 'safe'),
 		);
 	}
 
@@ -50,6 +53,7 @@ class Alteracao extends CActiveRecord
 		return array(
 			'stakeholder0' => array(self::BELONGS_TO, 'Stakeholder', 'stakeholder'),
 			'requisitoses' => array(self::MANY_MANY, 'Requisitos', 'alteracoes_requisito(alteracao, requisito)'),
+			'pessoa1'    => array(self::HAS_MANY, 'Pessoa', array('pessoa'=>'cod_pessoa'),'through'=>'stakeholder0'),
 		);
 	}
 
@@ -63,6 +67,7 @@ class Alteracao extends CActiveRecord
 			'stakeholder' => 'Stakeholder',
 			'data_alteracao' => 'Data Alteracao',
 			'descricao' => 'Descricao',
+			'nome_stakeholder' => 'Nome de Stakeholder',
 		);
 	}
 
@@ -87,7 +92,11 @@ class Alteracao extends CActiveRecord
 		$criteria->compare('cod_alteracao',$this->cod_alteracao);
 		$criteria->compare('stakeholder',$this->stakeholder);
 		$criteria->compare('data_alteracao',$this->data_alteracao,true);
-		$criteria->compare('descricao',$this->descricao,true);
+		$criteria->compare('t.descricao',$this->descricao,true);
+		
+		$criteria->with = array('stakeholder0','pessoa1');
+		$criteria->together=true;
+		$criteria->compare('pessoa1.nome',$this->nome_stakeholder,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
