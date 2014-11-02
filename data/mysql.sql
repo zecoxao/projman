@@ -28,7 +28,7 @@ CREATE TABLE `alteracao` (
   PRIMARY KEY (`cod_alteracao`),
   KEY `stakeholder` (`stakeholder`),
   CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`cod_stakeholder`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `alteracao` */
 
@@ -62,7 +62,7 @@ CREATE TABLE `authassignment` (
 
 /*Data for the table `authassignment` */
 
-insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Admin','1',NULL,'N;'),('Admin','3',NULL,'N;');
+insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Admin','1',NULL,'N;'),('Authenticated','3',NULL,'N;'),('Guest','2',NULL,'N;');
 
 /*Table structure for table `authitem` */
 
@@ -110,9 +110,11 @@ CREATE TABLE `caso_uso` (
   `iniciador` varchar(100) NOT NULL,
   `cenario_sucesso` varchar(500) NOT NULL,
   PRIMARY KEY (`cod_caso_uso`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `caso_uso` */
+
+insert  into `caso_uso`(`cod_caso_uso`,`nome`,`dominio`,`nivel`,`actor_primario`,`pre_condicao`,`iniciador`,`cenario_sucesso`) values (1,'1','1','1','1','1','1','1');
 
 /*Table structure for table `cliente` */
 
@@ -124,8 +126,8 @@ CREATE TABLE `cliente` (
   `pessoa` int(11) NOT NULL,
   PRIMARY KEY (`cod_cliente`),
   KEY `cliente_ibfk_1` (`pessoa`),
-  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `cliente` */
 
@@ -138,9 +140,11 @@ CREATE TABLE `ecra` (
   `descricao` varchar(100) NOT NULL,
   `modelo_ecra` varchar(500) NOT NULL,
   PRIMARY KEY (`cod_ecra`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ecra` */
+
+insert  into `ecra`(`cod_ecra`,`descricao`,`modelo_ecra`) values (1,'1','1');
 
 /*Table structure for table `ecra_caso` */
 
@@ -157,6 +161,8 @@ CREATE TABLE `ecra_caso` (
 
 /*Data for the table `ecra_caso` */
 
+insert  into `ecra_caso`(`ecra`,`caso_uso`) values (1,1);
+
 /*Table structure for table `entidade` */
 
 DROP TABLE IF EXISTS `entidade`;
@@ -166,9 +172,11 @@ CREATE TABLE `entidade` (
   `nome` varchar(100) NOT NULL,
   `descricao` varchar(150) NOT NULL,
   PRIMARY KEY (`cod_entidade`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `entidade` */
+
+insert  into `entidade`(`cod_entidade`,`nome`,`descricao`) values (1,'1','1');
 
 /*Table structure for table `entidade_caso` */
 
@@ -184,6 +192,8 @@ CREATE TABLE `entidade_caso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `entidade_caso` */
+
+insert  into `entidade_caso`(`entidade`,`caso_uso`) values (1,1);
 
 /*Table structure for table `estado` */
 
@@ -207,9 +217,11 @@ CREATE TABLE `grupo_analise` (
   `cod_grupo` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   PRIMARY KEY (`cod_grupo`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `grupo_analise` */
+
+insert  into `grupo_analise`(`cod_grupo`,`descricao`) values (1,'1');
 
 /*Table structure for table `membro` */
 
@@ -221,8 +233,8 @@ CREATE TABLE `membro` (
   `pessoa` int(11) NOT NULL,
   PRIMARY KEY (`cod_membro`),
   KEY `membro_ibfk_1` (`pessoa`),
-  CONSTRAINT `membro_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `membro_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `membro` */
 
@@ -255,6 +267,21 @@ CREATE TABLE `membros_projecto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `membros_projecto` */
+
+/*Table structure for table `pessoa` */
+
+DROP TABLE IF EXISTS `pessoa`;
+
+CREATE TABLE `pessoa` (
+  `cod_pessoa` int(11) NOT NULL,
+  `nome` varchar(100) NOT NULL,
+  `morada` varchar(150) NOT NULL,
+  `tlm` int(11) NOT NULL,
+  `data_nascimento` date NOT NULL,
+  PRIMARY KEY (`cod_pessoa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `pessoa` */
 
 /*Table structure for table `profiles` */
 
@@ -313,9 +340,11 @@ CREATE TABLE `projecto` (
   `duracao` int(11) NOT NULL,
   `ambito` varchar(100) NOT NULL,
   PRIMARY KEY (`cod_projecto`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `projecto` */
+
+insert  into `projecto`(`cod_projecto`,`descricao`,`data_inicio`,`data_fim`,`duracao`,`ambito`) values (1,'1','0000-00-00','0000-00-00',1,'1');
 
 /*Table structure for table `requisitos` */
 
@@ -331,9 +360,11 @@ CREATE TABLE `requisitos` (
   KEY `estado` (`estado`),
   CONSTRAINT `requisitos_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`cod_projecto`),
   CONSTRAINT `requisitos_ibfk_2` FOREIGN KEY (`estado`) REFERENCES `estado` (`cod_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `requisitos` */
+
+insert  into `requisitos`(`cod_requisito`,`projecto`,`descricao`,`estado`) values (1,1,'1',1);
 
 /*Table structure for table `requisitos_stakeholders` */
 
@@ -380,8 +411,8 @@ CREATE TABLE `stakeholder` (
   KEY `stakeholder_ibfk_4` (`pessoa`),
   CONSTRAINT `stakeholder_ibfk_2` FOREIGN KEY (`grupo`) REFERENCES `grupo_analise` (`cod_grupo`),
   CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`cod_cliente`),
-  CONSTRAINT `stakeholder_ibfk_4` FOREIGN KEY (`pessoa`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `stakeholder_ibfk_4` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `stakeholder` */
 
@@ -423,7 +454,7 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`password`,`email`,`activkey`,`create_at`,`lastvisit_at`,`superuser`,`status`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','webmaster@example.com','9a24eff8c15a6a141ece27eb6947da0f','2014-10-31 22:52:59','2014-11-01 01:40:16',1,1),(2,'demo','fe01ce2a7fbac8fafaed7c982a04e229','demo@example.com','618497a9b5963eb8d1366e39b768720a','2014-10-31 22:52:59','2014-11-01 01:40:36',0,1),(3,'zecoxao','4c4999ac17adcef1a5a75fab71e5c857','zecoxao1@gmail.com','e0f7428dad7167a80a4d8f183083b605','2014-10-31 23:58:41','2014-11-01 01:41:24',1,1);
+insert  into `users`(`id`,`username`,`password`,`email`,`activkey`,`create_at`,`lastvisit_at`,`superuser`,`status`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','webmaster@example.com','9a24eff8c15a6a141ece27eb6947da0f','2014-10-31 22:52:59','2014-11-02 15:16:57',1,1),(2,'demo','fe01ce2a7fbac8fafaed7c982a04e229','demo@example.com','618497a9b5963eb8d1366e39b768720a','2014-10-31 22:52:59','2014-11-01 19:16:13',0,1),(3,'zecoxao','4c4999ac17adcef1a5a75fab71e5c857','zecoxao1@gmail.com','e0f7428dad7167a80a4d8f183083b605','2014-10-31 23:58:41','2014-11-02 14:57:57',1,1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
