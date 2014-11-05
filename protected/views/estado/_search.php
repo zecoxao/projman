@@ -1,30 +1,18 @@
-<?php
-/* @var $this EstadoController */
-/* @var $model Estado */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cod_estado'); ?>
-		<?php echo $form->textField($model,'cod_estado'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cod_estado',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'descricao'); ?>
-		<?php echo $form->textField($model,'descricao',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'descricao',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

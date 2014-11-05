@@ -7,22 +7,70 @@ $this->breadcrumbs=array(
 	$model->cod_membro,
 );
 
-$this->menu=array(
-	array('label'=>'List Membro', 'url'=>array('index')),
-	array('label'=>'Create Membro', 'url'=>array('create')),
-	array('label'=>'Update Membro', 'url'=>array('update', 'id'=>$model->cod_membro)),
-	array('label'=>'Delete Membro', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->cod_membro),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Membro', 'url'=>array('admin')),
+$menu=array();
+require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
+
+
+$menu2=array(
+	array('label'=>'Membro','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
+
+if(!isset($_GET['asModal'])){
+?>
+<?php $box = $this->beginWidget(
+    'bootstrap.widgets.TbBox',
+    array(
+        'title' => 'View Membros #'.$model->cod_membro,
+        'headerIcon' => 'icon- fa fa-eye',
+        'headerButtons' => array(
+            array(
+                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'type' => 'success',
+                // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+                'buttons' => $menu2
+            ),
+        ) 
+    )
+);?>
+<?php
+}
 ?>
 
-<h1>View Membro #<?php echo $model->cod_membro; ?></h1>
-
-<?php $this->widget('zii.widgets.CDetailView', array(
+		<?php $this->widget('bootstrap.widgets.TbAlert', array(
+		    'block'=>false, // display a larger alert block?
+		    'fade'=>true, // use transitions?
+		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+		    'alerts'=>array( // configurations per alert type
+		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		    ),
+		));
+		?>		
+<?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
-		'cod_membro',
-		'pessoa',
+			'cod_membro',
 		'descricao',
+		'pessoa',
+		/*
+		//CONTOH
+		array(
+	        'header' => 'Level',
+	        'name'=> 'ref_level_id',
+	        'type'=>'raw',
+	        'value' => ($model->Level->name),
+	        // 'value' => ($model->status)?"on":"off",
+	        // 'value' => @Admin::model()->findByPk($model->createdBy)->username,
+	    ),
+
+	    */
 	),
 )); ?>
+
+<?php
+if(!isset($_GET['asModal'])){
+	$this->endWidget();}
+?>

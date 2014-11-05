@@ -1,40 +1,35 @@
-<?php
-/* @var $this AlteracaoController */
-/* @var $model Alteracao */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cod_alteracao'); ?>
-		<?php echo $form->textField($model,'cod_alteracao'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cod_alteracao',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'stakeholder'); ?>
-		<?php echo $form->textField($model,'stakeholder'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'stakeholder',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'data_alteracao'); ?>
-		<?php echo $form->textField($model,'data_alteracao'); ?>
-	</div>
+		<?php echo $form->datepickerRow($model,'data_alteracao',
+								array(
+					                'options' => array(
+					                    'language' => 'id',
+					                    'format' => 'yyyy-mm-dd', 
+					                    'weekStart'=> 1,
+					                    'autoclose'=>'true',
+					                    'keyboardNavigation'=>true,
+					                ), 
+					            ),
+					            array(
+					                'prepend' => '<i class="icon-calendar"></i>'
+					            )
+			);; ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'descricao'); ?>
-		<?php echo $form->textField($model,'descricao',array('size'=>60,'maxlength'=>250)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'descricao',array('class'=>'span5','maxlength'=>250)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

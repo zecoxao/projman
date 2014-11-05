@@ -1,50 +1,52 @@
-<?php
-/* @var $this ProjectoController */
-/* @var $model Projecto */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cod_projecto'); ?>
-		<?php echo $form->textField($model,'cod_projecto'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cod_projecto',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'descricao'); ?>
-		<?php echo $form->textField($model,'descricao',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'descricao',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'data_inicio'); ?>
-		<?php echo $form->textField($model,'data_inicio'); ?>
-	</div>
+		<?php echo $form->datepickerRow($model,'data_inicio',
+								array(
+					                'options' => array(
+					                    'language' => 'id',
+					                    'format' => 'yyyy-mm-dd', 
+					                    'weekStart'=> 1,
+					                    'autoclose'=>'true',
+					                    'keyboardNavigation'=>true,
+					                ), 
+					            ),
+					            array(
+					                'prepend' => '<i class="icon-calendar"></i>'
+					            )
+			);; ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'data_fim'); ?>
-		<?php echo $form->textField($model,'data_fim'); ?>
-	</div>
+		<?php echo $form->datepickerRow($model,'data_fim',
+								array(
+					                'options' => array(
+					                    'language' => 'id',
+					                    'format' => 'yyyy-mm-dd', 
+					                    'weekStart'=> 1,
+					                    'autoclose'=>'true',
+					                    'keyboardNavigation'=>true,
+					                ), 
+					            ),
+					            array(
+					                'prepend' => '<i class="icon-calendar"></i>'
+					            )
+			);; ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'duracao'); ?>
-		<?php echo $form->textField($model,'duracao'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'duracao',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'ambito'); ?>
-		<?php echo $form->textField($model,'ambito',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'ambito',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

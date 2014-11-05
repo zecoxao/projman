@@ -50,7 +50,6 @@
 				array('label'=>'Membros', 'url'=>array('/membro/index')),
 				array('label'=>'Membros de Caso de Uso', 'url'=>array('/membroscasouso/index')),
 				array('label'=>'Membros de Projecto', 'url'=>array('/membrosprojecto/index')),
-				array('label'=>'Permissões', 'url'=>array('/permissao/index')),
 				array('label'=>'Pessoas', 'url'=>array('/pessoa/index')),
 				array('label'=>'Projectos', 'url'=>array('/projecto/index')),
 				array('label'=>'Requisitos', 'url'=>array('/requisitos/index')),

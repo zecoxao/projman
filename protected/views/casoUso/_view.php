@@ -1,12 +1,7 @@
-<?php
-/* @var $this CasoUsoController */
-/* @var $data CasoUso */
-?>
-
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_caso_uso')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_caso_uso), array('view', 'id'=>$data->cod_caso_uso)); ?>
+		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_caso_uso')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->cod_caso_uso),array('view','id'=>$data->cod_caso_uso)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>

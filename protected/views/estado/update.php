@@ -1,21 +1,43 @@
 <?php
-/* @var $this EstadoController */
-/* @var $model Estado */
-
 $this->breadcrumbs=array(
 	'Estados'=>array('index'),
 	$model->cod_estado=>array('view','id'=>$model->cod_estado),
 	'Update',
 );
 
+$menu=array();
+require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'List Estado', 'url'=>array('index')),
-	array('label'=>'Create Estado', 'url'=>array('create')),
-	array('label'=>'View Estado', 'url'=>array('view', 'id'=>$model->cod_estado)),
-	array('label'=>'Manage Estado', 'url'=>array('admin')),
+	array('label'=>'Estado','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
 );
 ?>
 
-<h1>Update Estado <?php echo $model->cod_estado; ?></h1>
-
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $box = $this->beginWidget(
+    'bootstrap.widgets.TbBox',
+    array(
+        'title' => 'Update Estados #'.$model->cod_estado,
+        'headerIcon' => 'icon- fa fa-pencil',
+        'headerButtons' => array(
+            array(
+                'class' => 'bootstrap.widgets.TbButtonGroup',
+                'type' => 'success',
+                // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
+                'buttons' => $this->menu
+            ),
+        ) 
+    )
+);?>
+		<?php $this->widget('bootstrap.widgets.TbAlert', array(
+		    'block'=>false, // display a larger alert block?
+		    'fade'=>true, // use transitions?
+		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+		    'alerts'=>array( // configurations per alert type
+		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
+		    ),
+		));
+		?><?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
+<?php $this->endWidget(); ?>

@@ -1,60 +1,30 @@
-<?php
-/* @var $this CasoUsoController */
-/* @var $model CasoUso */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cod_caso_uso'); ?>
-		<?php echo $form->textField($model,'cod_caso_uso'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cod_caso_uso',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'nome'); ?>
-		<?php echo $form->textField($model,'nome',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'nome',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'dominio'); ?>
-		<?php echo $form->textField($model,'dominio',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'dominio',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'nivel'); ?>
-		<?php echo $form->textField($model,'nivel',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'nivel',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'actor_primario'); ?>
-		<?php echo $form->textField($model,'actor_primario',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'actor_primario',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'pre_condicao'); ?>
-		<?php echo $form->textField($model,'pre_condicao',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'pre_condicao',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'iniciador'); ?>
-		<?php echo $form->textField($model,'iniciador',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'iniciador',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cenario_sucesso'); ?>
-		<?php echo $form->textField($model,'cenario_sucesso',array('size'=>60,'maxlength'=>500)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cenario_sucesso',array('class'=>'span5','maxlength'=>500)); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

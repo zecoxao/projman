@@ -1,60 +1,47 @@
 <?php
 
-class MembroController extends Controller
+class MembroController extends RController
 {
+	
+	
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='//layouts/column2';
-
-	/**
+		
+	public $layout='//layouts/column1';		
+		/**
 	 * @return array action filters
 	 */
 	public function filters()
 	{
 		return array(
-			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
+						
+			'rights - index, view',
+						
 		);
 	}
-
-	/**
-	 * Specifies the access control rules.
-	 * This method is used by the 'accessControl' filter.
-	 * @return array access control rules
-	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('@'),
-				'expression'=>"Yii::app()->getModule('user')->isAdmin()",
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
-
+	
+		
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
 	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+		
+		if(isset($_GET['asModal'])){
+			$this->renderPartial('view',array(
+				'model'=>$this->loadModel($id),
+			));
+		}
+		else{
+						
+			$this->render('view',array(
+				'model'=>$this->loadModel($id),
+			));
+			
+		}
 	}
 
 	/**
@@ -63,6 +50,7 @@ class MembroController extends Controller
 	 */
 	public function actionCreate()
 	{
+				
 		$model=new Membro;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -70,14 +58,50 @@ class MembroController extends Controller
 
 		if(isset($_POST['Membro']))
 		{
-			$model->attributes=$_POST['Membro'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->cod_membro));
+			$transaction = Yii::app()->db->beginTransaction();
+			try{
+				$messageType='warning';
+				$message = "There are some errors ";
+				$model->attributes=$_POST['Membro'];
+				//$uploadFile=CUploadedFile::getInstance($model,'filename');
+				if($model->save()){
+					$messageType = 'success';
+					$message = "<strong>Well done!</strong> You successfully create data ";
+					/*
+					$model2 = Membro::model()->findByPk($model->cod_membro);						
+					if(!empty($uploadFile)) {
+						$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
+						if(!empty($uploadFile)) {
+							if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'membro'.DIRECTORY_SEPARATOR.$model2->cod_membro.DIRECTORY_SEPARATOR.$model2->cod_membro.'.'.$extUploadFile)){
+								$model2->filename=$model2->cod_membro.'.'.$extUploadFile;
+								$model2->save();
+								$message .= 'and file uploded';
+							}
+							else{
+								$messageType = 'warning';
+								$message .= 'but file not uploded';
+							}
+						}						
+					}
+					*/
+					$transaction->commit();
+					Yii::app()->user->setFlash($messageType, $message);
+					$this->redirect(array('view','id'=>$model->cod_membro));
+				}				
+			}
+			catch (Exception $e){
+				$transaction->rollBack();
+				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+				//$this->refresh();
+			}
+			
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-		));
+					));
+		
+				
 	}
 
 	/**
@@ -87,6 +111,7 @@ class MembroController extends Controller
 	 */
 	public function actionUpdate($id)
 	{
+		
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
@@ -94,6 +119,43 @@ class MembroController extends Controller
 
 		if(isset($_POST['Membro']))
 		{
+			$messageType='warning';
+			$message = "There are some errors ";
+			$transaction = Yii::app()->db->beginTransaction();
+			try{
+				$model->attributes=$_POST['Membro'];
+				$messageType = 'success';
+				$message = "<strong>Well done!</strong> You successfully update data ";
+
+				/*
+				$uploadFile=CUploadedFile::getInstance($model,'filename');
+				if(!empty($uploadFile)) {
+					$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
+					if(!empty($uploadFile)) {
+						if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'membro'.DIRECTORY_SEPARATOR.$model->cod_membro.DIRECTORY_SEPARATOR.$model->cod_membro.'.'.$extUploadFile)){
+							$model->filename=$model->cod_membro.'.'.$extUploadFile;
+							$message .= 'and file uploded';
+						}
+						else{
+							$messageType = 'warning';
+							$message .= 'but file not uploded';
+						}
+					}						
+				}
+				*/
+
+				if($model->save()){
+					$transaction->commit();
+					Yii::app()->user->setFlash($messageType, $message);
+					$this->redirect(array('view','id'=>$model->cod_membro));
+				}
+			}
+			catch (Exception $e){
+				$transaction->rollBack();
+				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+				// $this->refresh(); 
+			}
+
 			$model->attributes=$_POST['Membro'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->cod_membro));
@@ -101,8 +163,9 @@ class MembroController extends Controller
 
 		$this->render('update',array(
 			'model'=>$model,
-		));
-	}
+					));
+		
+			}
 
 	/**
 	 * Deletes a particular model.
@@ -111,11 +174,17 @@ class MembroController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -123,17 +192,30 @@ class MembroController extends Controller
 	 */
 	public function actionIndex()
 	{
+		/*
 		$dataProvider=new CActiveDataProvider('Membro');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
-	}
+		*/
+		
+		$model=new Membro('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Membro']))
+			$model->attributes=$_GET['Membro'];
+
+		$this->render('index',array(
+			'model'=>$model,
+					));
+		
+			}
 
 	/**
 	 * Manages all models.
 	 */
 	public function actionAdmin()
 	{
+		
 		$model=new Membro('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Membro']))
@@ -141,8 +223,9 @@ class MembroController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
-		));
-	}
+					));
+		
+			}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -171,4 +254,115 @@ class MembroController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function actionExport()
+    {
+        $model=new Membro;
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_POST['Membro']))
+			$model->attributes=$_POST['Membro'];
+
+		$exportType = $_POST['fileType'];
+        $this->widget('ext.heart.export.EHeartExport', array(
+            'title'=>'List of Membro',
+            'dataProvider' => $model->search(),
+            'filter'=>$model,
+            'grid_mode'=>'export',
+            'exportType'=>$exportType,
+            'columns' => array(
+	                
+					'cod_membro',
+					'descricao',
+					'pessoa',
+	            ),
+        ));
+    }
+
+    /**
+	* Creates a new model.
+	* If creation is successful, the browser will be redirected to the 'view' page.
+	*/
+	public function actionImport()
+	{
+		
+		$model=new Membro;
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Membro']))
+		{
+			if (!empty($_FILES)) {
+				$tempFile = $_FILES['Membro']['tmp_name']['fileImport'];
+				$fileTypes = array('xls','xlsx'); // File extensions
+				$fileParts = pathinfo($_FILES['Membro']['name']['fileImport']);
+				if (in_array(@$fileParts['extension'],$fileTypes)) {
+
+					Yii::import('ext.heart.excel.EHeartExcel',true);
+	        		EHeartExcel::init();
+	        		$inputFileType = PHPExcel_IOFactory::identify($tempFile);
+					$objReader = PHPExcel_IOFactory::createReader($inputFileType);
+					$objPHPExcel = $objReader->load($tempFile);
+					$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+					$baseRow = 2;
+					$inserted=0;
+					$read_status = false;
+					while(!empty($sheetData[$baseRow]['A'])){
+						$read_status = true;						
+						//$cod_membro=  $sheetData[$baseRow]['A'];
+						$descricao=  $sheetData[$baseRow]['B'];
+						$pessoa=  $sheetData[$baseRow]['C'];
+
+						$model2=new Membro;
+						//$model2->cod_membro=  $cod_membro;
+						$model2->descricao=  $descricao;
+						$model2->pessoa=  $pessoa;
+
+						try{
+							if($model2->save()){
+								$inserted++;
+							}
+						}
+						catch (Exception $e){
+							Yii::app()->user->setFlash('error', "{$e->getMessage()}");
+							//$this->refresh();
+						} 
+						$baseRow++;
+					}	
+					Yii::app()->user->setFlash('success', ($inserted).' row inserted');	
+				}	
+				else
+				{
+					Yii::app()->user->setFlash('warning', 'Wrong file type (xlsx, xls, and ods only)');
+				}
+			}
+
+
+			$this->render('admin',array(
+				'model'=>$model,
+			));
+		}
+		else{
+			$this->render('admin',array(
+				'model'=>$model,
+			));
+		}
+	}
+
+	public function actionEditable(){
+		Yii::import('bootstrap.widgets.TbEditableSaver'); 
+	    $es = new TbEditableSaver('Membro'); 
+			    $es->update();
+	}
+
+	public function actions()
+	{
+    	return array(
+        		'toggle' => array(
+                	'class'=>'bootstrap.actions.TbToggleAction',
+                	'modelName' => 'Membro',
+        		)
+    	);
+	}
+
+	
 }

@@ -1,45 +1,37 @@
-<?php
-/* @var $this PessoaController */
-/* @var $model Pessoa */
-/* @var $form CActiveForm */
-?>
-
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'action'=>Yii::app()->createUrl($this->route),
 	'method'=>'get',
 )); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'cod_pessoa'); ?>
-		<?php echo $form->textField($model,'cod_pessoa'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'cod_pessoa',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'nome'); ?>
-		<?php echo $form->textField($model,'nome',array('size'=>60,'maxlength'=>100)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'nome',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'morada'); ?>
-		<?php echo $form->textField($model,'morada',array('size'=>60,'maxlength'=>150)); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'morada',array('class'=>'span5','maxlength'=>150)); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'tlm'); ?>
-		<?php echo $form->textField($model,'tlm'); ?>
-	</div>
+		<?php echo $form->textFieldRow($model,'tlm',array('class'=>'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'data_nascimento'); ?>
-		<?php echo $form->textField($model,'data_nascimento'); ?>
-	</div>
+		<?php echo $form->datepickerRow($model,'data_nascimento',
+								array(
+					                'options' => array(
+					                    'language' => 'id',
+					                    'format' => 'yyyy-mm-dd', 
+					                    'weekStart'=> 1,
+					                    'autoclose'=>'true',
+					                    'keyboardNavigation'=>true,
+					                ), 
+					            ),
+					            array(
+					                'prepend' => '<i class="icon-calendar"></i>'
+					            )
+			);; ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
+	<div class="form-actions">
+		<?php $this->widget('bootstrap.widgets.TbButton', array(
+			'buttonType' => 'submit',
+			'type'=>'primary',
+			'label'=>'Search',
+		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

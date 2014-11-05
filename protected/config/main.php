@@ -8,7 +8,7 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'ProjMan',
     // preloading 'log' component
-    'preload' => array('log'),
+    'preload' => array('log','bootstrap'),
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -17,6 +17,8 @@ return array(
         'application.modules.user.components.*',
         'application.modules.rights.*',
         'application.modules.rights.components.*',
+        'ext.pdffactory.*',
+        'application.pdf.docs.*',
     ),
     'modules' => array(
 // uncomment the following to enable the Gii tool
@@ -26,65 +28,85 @@ return array(
             'password' => 'root',
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '::1'),
+			'generatorPaths' => array('ext.heart.gii'),
         ),
-        'user'=>array(
-                'tableUsers' => 'users',
-                'tableProfiles' => 'profiles',
-                'tableProfileFields' => 'profiles_fields',
-                     # encrypting method (php hash function)
-                'hash' => 'md5',
- 
-                # send activation email
-                'sendActivationMail' => true,
- 
-                # allow access for non-activated users
-                'loginNotActiv' => false,
- 
-                # activate user on registration (only sendActivationMail = false)
-                'activeAfterRegister' => false,
- 
-                # automatically login from registration
-                'autoLogin' => true,
- 
-                # registration path
-                'registrationUrl' => array('/user/registration'),
- 
-                # recovery password path
-                'recoveryUrl' => array('/user/recovery'),
- 
-                # login form path
-                'loginUrl' => array('/user/login'),
- 
-                # page after login
-                'returnUrl' => array('/user/profile'),
- 
-                # page after logout
-                'returnLogoutUrl' => array('/user/login'),
+        'user' => array(
+            'tableUsers' => 'users',
+            'tableProfiles' => 'profiles',
+            'tableProfileFields' => 'profiles_fields',
+            # encrypting method (php hash function)
+            'hash' => 'md5',
+            # send activation email
+            'sendActivationMail' => true,
+            # allow access for non-activated users
+            'loginNotActiv' => false,
+            # activate user on registration (only sendActivationMail = false)
+            'activeAfterRegister' => false,
+            # automatically login from registration
+            'autoLogin' => true,
+            # registration path
+            'registrationUrl' => array('/user/registration'),
+            # recovery password path
+            'recoveryUrl' => array('/user/recovery'),
+            # login form path
+            'loginUrl' => array('/user/login'),
+            # page after login
+            'returnUrl' => array('/user/profile'),
+            # page after logout
+            'returnLogoutUrl' => array('/user/login'),
         ),
- 
         //Modules Rights
-   'rights'=>array(
- 
-                'superuserName'=>'Admin', // Name of the role with super user privileges. 
-               'authenticatedName'=>'Authenticated',  // Name of the authenticated user role. 
-               'userIdColumn'=>'id', // Name of the user id column in the database. 
-               'userNameColumn'=>'username',  // Name of the user name column in the database. 
-               'enableBizRule'=>true,  // Whether to enable authorization item business rules. 
-               'enableBizRuleData'=>true,   // Whether to enable data for business rules. 
-               'displayDescription'=>true,  // Whether to use item description instead of name. 
-               'flashSuccessKey'=>'RightsSuccess', // Key to use for setting success flash messages. 
-               'flashErrorKey'=>'RightsError', // Key to use for setting error flash messages. 
- 
-               'baseUrl'=>'/rights', // Base URL for Rights. Change if module is nested. 
-               'layout'=>'rights.views.layouts.main',  // Layout to use for displaying Rights. 
-               'appLayout'=>'application.views.layouts.main', // Application layout. 
-               'cssFile'=>'rights.css', // Style sheet file to use for Rights. 
-               'install'=>false,  // Whether to enable installer. 
-               'debug'=>false, 
+        'rights' => array(
+            'superuserName' => 'Admin', // Name of the role with super user privileges. 
+            'authenticatedName' => 'Authenticated', // Name of the authenticated user role. 
+            'userIdColumn' => 'id', // Name of the user id column in the database. 
+            'userNameColumn' => 'username', // Name of the user name column in the database. 
+            'enableBizRule' => true, // Whether to enable authorization item business rules. 
+            'enableBizRuleData' => true, // Whether to enable data for business rules. 
+            'displayDescription' => true, // Whether to use item description instead of name. 
+            'flashSuccessKey' => 'RightsSuccess', // Key to use for setting success flash messages. 
+            'flashErrorKey' => 'RightsError', // Key to use for setting error flash messages. 
+            'baseUrl' => '/rights', // Base URL for Rights. Change if module is nested. 
+            'layout' => 'rights.views.layouts.main', // Layout to use for displaying Rights. 
+            'appLayout' => 'application.views.layouts.main', // Application layout. 
+            'cssFile' => 'rights.css', // Style sheet file to use for Rights. 
+            'install' => false, // Whether to enable installer. 
+            'debug' => false,
         ),
     ),
     // application components
     'components' => array(
+		'bootstrap' => array(
+            'class' => 'ext.yiibooster.components.Bootstrap',
+			'fontAwesomeCss'=> true,
+		    'minify'=>true,
+        ),
+        'pdfFactory' => array(
+            'class' => 'ext.pdffactory.EPdfFactory',
+            'tcpdfPath' => 'ext.pdffactory.vendors.tcpdf', //=default: the path to the tcpdf library
+            'fpdiPath' => 'ext.pdffactory.vendors.fpdi', //=default: the path to the fpdi library
+            //the cache duration
+            'cacheHours' => 5, //-1 = cache disabled, 0 = never expires, hours if >0
+            //The alias path to the directory, where the pdf files should be created
+            'pdfPath' => 'application.runtime.pdf',
+            //The alias path to the *.pdf template files
+            'templatesPath'=>'application.pdf.templates', //= default
+            //the params for the constructor of the TCPDF class  
+            // see: http://www.tcpdf.org/doc/code/classTCPDF.html 
+            'tcpdfOptions' => array(
+                //default values
+                'format' => 'A4',
+                'orientation' => 'P', //=Portrait or 'L' = landscape
+                'unit' => 'mm', //measure unit: mm, cm, inch, or point
+                'unicode' => true,
+                'encoding' => 'UTF-8',
+                'diskcache' => false,
+                'pdfa' => false,
+            )
+        ),
+		'themeManager' => array(
+			'basePath' => 'protected/extensions',
+		), 
         // uncomment the following to use a MySQL database
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=root',
@@ -96,22 +118,22 @@ return array(
         'user' => array(
             'class' => 'RWebUser',
             'behaviors' => array(
-            'ext.web-user-behavior.WebUserBehavior'
+                'ext.web-user-behavior.WebUserBehavior'
             ),
             // enable cookie-based authentication
             'allowAutoLogin' => true,
             'loginUrl' => array('/user/login'),
         ),
-        'authManager'=>array(
-            'class'=>'RDbAuthManager',
-            'connectionID'=>'db',
-            'itemTable'=>'authitem',
-            'itemChildTable'=>'authitemchild',
-            'assignmentTable'=>'authassignment',
-            'rightsTable'=>'rights',
+        'authManager' => array(
+            'class' => 'RDbAuthManager',
+            'connectionID' => 'db',
+            'itemTable' => 'authitem',
+            'itemChildTable' => 'authitemchild',
+            'assignmentTable' => 'authassignment',
+            'rightsTable' => 'rights',
         ),
         'errorHandler' => array(
-// use 'site/error' action to display errors
+            // use 'site/error' action to display errors
             'errorAction' => 'site/error',
         ),
         'log' => array(

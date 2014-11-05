@@ -1,12 +1,7 @@
-<?php
-/* @var $this ProjectoController */
-/* @var $data Projecto */
-?>
-
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cod_projecto')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_projecto), array('view', 'id'=>$data->cod_projecto)); ?>
+		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_projecto')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->cod_projecto),array('view','id'=>$data->cod_projecto)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
