@@ -19,6 +19,7 @@ return array(
         'application.modules.rights.components.*',
         'ext.pdffactory.*',
         'application.pdf.docs.*',
+		'ext.AweCrud.components.*',
     ),
     'modules' => array(
 // uncomment the following to enable the Gii tool
@@ -28,7 +29,7 @@ return array(
             'password' => 'root',
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
             'ipFilters' => array('127.0.0.1', '::1'),
-			'generatorPaths' => array('ext.heart.gii'),
+			'generatorPaths' => array('ext.AweCrud.generators'),
         ),
         'user' => array(
             'tableUsers' => 'users',
@@ -151,6 +152,11 @@ return array(
              */
             ),
         ),
+		'messages' => array (
+        'extensionPaths' => array(
+            'AweCrud' => 'ext.AweCrud.messages', // AweCrud messages directory.
+        ),
+    ),
     ),
     // application-level parameters that can be accessed
 // using Yii::app()->params['paramName']

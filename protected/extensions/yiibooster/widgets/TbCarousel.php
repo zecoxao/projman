@@ -164,33 +164,7 @@ class TbCarousel extends CWidget
 					$item['imageOptions'] = array();
 				}
 
-                /**
-                 * Is this image should be a link?
-                 * @since 2.1.0
-                 */
-                if (isset($item['link'])) {
-                    // Any kind of link options
-                    if (!isset($item['linkOptions']) || !is_array($item['linkOptions'])) {
-                        $item['linkOptions'] = array();
-                    }
-
-                    // URL
-                    if(is_array($item['link'])) {
-                        $route = isset($item['link'][0]) ? $item['link'][0] : '';
-                        $item['linkOptions']['href'] = Yii::app()->createUrl($route, array_splice($item['link'], 1));
-                    } else {
-                        $item['linkOptions']['href'] = $item['link'];
-                    }
-
-                    // Print out 'A' tag
-                    echo CHtml::openTag('a', $item['linkOptions']);
-                }
-
 				echo CHtml::image($item['image'], $item['alt'], $item['imageOptions']);
-
-                if (isset($item['link'])) {
-                    echo '</a>';
-                }
 			}
 
 			if (!empty($item['caption']) && (isset($item['label']) || isset($item['caption']))) {

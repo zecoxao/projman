@@ -2,18 +2,13 @@
 
 class ClienteController extends RController
 {
-	
-	
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-		
-	public $layout='//layouts/column1';		
-		/**
-	 * @return array action filters
-	 */
-	public function filters()
+    public $layout = '//layouts/column2';
+
+    public function filters()
 	{
 		return array(
 						
@@ -21,27 +16,37 @@ class ClienteController extends RController
 						
 		);
 	}
-	
-		
+    
+        public function actionExport() {
+        $model = new Cliente;
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_POST['Cliente']))
+            $model->attributes = $_POST['Cliente'];
+
+        $exportType = $_POST['fileType'];
+        $this->widget('ext.heart.export.EHeartExport', array(
+            'title' => 'List of Cliente',
+            'dataProvider' => $model->search(),
+            'filter' => $model,
+            'grid_mode' => 'export',
+            'exportType' => $exportType,
+            'columns' => array(
+                'cod_cliente',
+                'descricao',
+                'pessoa',
+            ),
+        ));
+    }
+        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
 	public function actionView($id)
 	{
-		
-		if(isset($_GET['asModal'])){
-			$this->renderPartial('view',array(
-				'model'=>$this->loadModel($id),
-			));
-		}
-		else{
-						
-			$this->render('view',array(
-				'model'=>$this->loadModel($id),
-			));
-			
-		}
+		$this->render('view', array(
+			'model' => $this->loadModel($id),
+		));
 	}
 
 	/**
@@ -50,58 +55,21 @@ class ClienteController extends RController
 	 */
 	public function actionCreate()
 	{
-				
-		$model=new Cliente;
+		$model = new Cliente;
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model, 'cliente-form');
 
-		if(isset($_POST['Cliente']))
+        if(isset($_POST['Cliente']))
 		{
-			$transaction = Yii::app()->db->beginTransaction();
-			try{
-				$messageType='warning';
-				$message = "There are some errors ";
-				$model->attributes=$_POST['Cliente'];
-				//$uploadFile=CUploadedFile::getInstance($model,'filename');
-				if($model->save()){
-					$messageType = 'success';
-					$message = "<strong>Well done!</strong> You successfully create data ";
-					/*
-					$model2 = Cliente::model()->findByPk($model->cod_cliente);						
-					if(!empty($uploadFile)) {
-						$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
-						if(!empty($uploadFile)) {
-							if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'cliente'.DIRECTORY_SEPARATOR.$model2->cod_cliente.DIRECTORY_SEPARATOR.$model2->cod_cliente.'.'.$extUploadFile)){
-								$model2->filename=$model2->cod_cliente.'.'.$extUploadFile;
-								$model2->save();
-								$message .= 'and file uploded';
-							}
-							else{
-								$messageType = 'warning';
-								$message .= 'but file not uploded';
-							}
-						}						
-					}
-					*/
-					$transaction->commit();
-					Yii::app()->user->setFlash($messageType, $message);
-					$this->redirect(array('view','id'=>$model->cod_cliente));
-				}				
-			}
-			catch (Exception $e){
-				$transaction->rollBack();
-				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
-				//$this->refresh();
-			}
-			
+			$model->attributes = $_POST['Cliente'];
+			if($model->save()) {
+                $this->redirect(array('view', 'id' => $model->cod_cliente));
+            }
 		}
 
 		$this->render('create',array(
-			'model'=>$model,
-					));
-		
-				
+			'model' => $model,
+		));
 	}
 
 	/**
@@ -111,61 +79,22 @@ class ClienteController extends RController
 	 */
 	public function actionUpdate($id)
 	{
-		
-		$model=$this->loadModel($id);
+		$model = $this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model, 'cliente-form');
 
 		if(isset($_POST['Cliente']))
 		{
-			$messageType='warning';
-			$message = "There are some errors ";
-			$transaction = Yii::app()->db->beginTransaction();
-			try{
-				$model->attributes=$_POST['Cliente'];
-				$messageType = 'success';
-				$message = "<strong>Well done!</strong> You successfully update data ";
-
-				/*
-				$uploadFile=CUploadedFile::getInstance($model,'filename');
-				if(!empty($uploadFile)) {
-					$extUploadFile = substr($uploadFile, strrpos($uploadFile, '.')+1);
-					if(!empty($uploadFile)) {
-						if($uploadFile->saveAs(Yii::app()->basePath.DIRECTORY_SEPARATOR.'files'.DIRECTORY_SEPARATOR.'cliente'.DIRECTORY_SEPARATOR.$model->cod_cliente.DIRECTORY_SEPARATOR.$model->cod_cliente.'.'.$extUploadFile)){
-							$model->filename=$model->cod_cliente.'.'.$extUploadFile;
-							$message .= 'and file uploded';
-						}
-						else{
-							$messageType = 'warning';
-							$message .= 'but file not uploded';
-						}
-					}						
-				}
-				*/
-
-				if($model->save()){
-					$transaction->commit();
-					Yii::app()->user->setFlash($messageType, $message);
-					$this->redirect(array('view','id'=>$model->cod_cliente));
-				}
-			}
-			catch (Exception $e){
-				$transaction->rollBack();
-				Yii::app()->user->setFlash('error', "{$e->getMessage()}");
-				// $this->refresh(); 
-			}
-
-			$model->attributes=$_POST['Cliente'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->cod_cliente));
+			$model->attributes = $_POST['Cliente'];
+			if($model->save()) {
+				$this->redirect(array('view','id' => $model->cod_cliente));
+            }
 		}
 
 		$this->render('update',array(
-			'model'=>$model,
-					));
-		
-			}
+			'model' => $model,
+		));
+	}
 
 	/**
 	 * Deletes a particular model.
@@ -184,7 +113,7 @@ class ClienteController extends RController
 				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 		}
 		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+			throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -192,177 +121,50 @@ class ClienteController extends RController
 	 */
 	public function actionIndex()
 	{
-		/*
 		$dataProvider=new CActiveDataProvider('Cliente');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+		$this->render('index', array(
+			'dataProvider' => $dataProvider,
 		));
-		*/
-		
-		$model=new Cliente('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Cliente']))
-			$model->attributes=$_GET['Cliente'];
-
-		$this->render('index',array(
-			'model'=>$model,
-					));
-		
-			}
+	}
 
 	/**
 	 * Manages all models.
 	 */
 	public function actionAdmin()
 	{
-		
-		$model=new Cliente('search');
-		$model->unsetAttributes();  // clear any default values
+		$model = new Cliente('search');
+		$model->unsetAttributes(); // clear any default values
 		if(isset($_GET['Cliente']))
-			$model->attributes=$_GET['Cliente'];
+			$model->attributes = $_GET['Cliente'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-					));
-		
-			}
+		$this->render('admin', array(
+			'model' => $model,
+		));
+	}
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return Cliente the loaded model
-	 * @throws CHttpException
+	 * @param integer the ID of the model to be loaded
 	 */
-	public function loadModel($id)
+	public function loadModel($id, $modelClass=__CLASS__)
 	{
-		$model=Cliente::model()->findByPk($id);
-		if($model===null)
+		$model = Cliente::model()->findByPk($id);
+		if($model === null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Cliente $model the model to be validated
+	 * @param CModel the model to be validated
 	 */
-	protected function performAjaxValidation($model)
+	protected function performAjaxValidation($model, $form=null)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='cliente-form')
+		if(isset($_POST['ajax']) && $_POST['ajax'] === 'cliente-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
 	}
-	
-	public function actionExport()
-    {
-        $model=new Cliente;
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_POST['Cliente']))
-			$model->attributes=$_POST['Cliente'];
-
-		$exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title'=>'List of Cliente',
-            'dataProvider' => $model->search(),
-            'filter'=>$model,
-            'grid_mode'=>'export',
-            'exportType'=>$exportType,
-            'columns' => array(
-	                
-					'cod_cliente',
-					'descricao',
-					'pessoa',
-	            ),
-        ));
-    }
-
-    /**
-	* Creates a new model.
-	* If creation is successful, the browser will be redirected to the 'view' page.
-	*/
-	public function actionImport()
-	{
-		
-		$model=new Cliente;
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
-		if(isset($_POST['Cliente']))
-		{
-			if (!empty($_FILES)) {
-				$tempFile = $_FILES['Cliente']['tmp_name']['fileImport'];
-				$fileTypes = array('xls','xlsx'); // File extensions
-				$fileParts = pathinfo($_FILES['Cliente']['name']['fileImport']);
-				if (in_array(@$fileParts['extension'],$fileTypes)) {
-
-					Yii::import('ext.heart.excel.EHeartExcel',true);
-	        		EHeartExcel::init();
-	        		$inputFileType = PHPExcel_IOFactory::identify($tempFile);
-					$objReader = PHPExcel_IOFactory::createReader($inputFileType);
-					$objPHPExcel = $objReader->load($tempFile);
-					$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
-					$baseRow = 2;
-					$inserted=0;
-					$read_status = false;
-					while(!empty($sheetData[$baseRow]['A'])){
-						$read_status = true;						
-						//$cod_cliente=  $sheetData[$baseRow]['A'];
-						$descricao=  $sheetData[$baseRow]['B'];
-						$pessoa=  $sheetData[$baseRow]['C'];
-
-						$model2=new Cliente;
-						//$model2->cod_cliente=  $cod_cliente;
-						$model2->descricao=  $descricao;
-						$model2->pessoa=  $pessoa;
-
-						try{
-							if($model2->save()){
-								$inserted++;
-							}
-						}
-						catch (Exception $e){
-							Yii::app()->user->setFlash('error', "{$e->getMessage()}");
-							//$this->refresh();
-						} 
-						$baseRow++;
-					}	
-					Yii::app()->user->setFlash('success', ($inserted).' row inserted');	
-				}	
-				else
-				{
-					Yii::app()->user->setFlash('warning', 'Wrong file type (xlsx, xls, and ods only)');
-				}
-			}
-
-
-			$this->render('admin',array(
-				'model'=>$model,
-			));
-		}
-		else{
-			$this->render('admin',array(
-				'model'=>$model,
-			));
-		}
-	}
-
-	public function actionEditable(){
-		Yii::import('bootstrap.widgets.TbEditableSaver'); 
-	    $es = new TbEditableSaver('Cliente'); 
-			    $es->update();
-	}
-
-	public function actions()
-	{
-    	return array(
-        		'toggle' => array(
-                	'class'=>'bootstrap.actions.TbToggleAction',
-                	'modelName' => 'Cliente',
-        		)
-    	);
-	}
-
-	
 }

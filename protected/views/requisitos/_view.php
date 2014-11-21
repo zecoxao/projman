@@ -1,20 +1,42 @@
+<?php
+/** @var RequisitosController $this */
+/** @var Requisitos $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->projecto0->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('projecto')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->projecto0->descricao); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_requisito')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_requisito),array('view','id'=>$data->cod_requisito)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('projecto')); ?>:</b>
-	<?php echo CHtml::encode($data->projecto); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->estado0->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('estado')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->estado0->descricao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('estado')); ?>:</b>
-	<?php echo CHtml::encode($data->estado); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

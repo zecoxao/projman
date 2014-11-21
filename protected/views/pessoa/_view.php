@@ -1,24 +1,56 @@
+<?php
+/** @var PessoaController $this */
+/** @var Pessoa $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->nome); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_pessoa')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_pessoa),array('view','id'=>$data->cod_pessoa)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->morada)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('morada')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->morada); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::encode($data->nome); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->tlm)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('tlm')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->tlm); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('morada')); ?>:</b>
-	<?php echo CHtml::encode($data->morada); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->data_nascimento)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('data_nascimento')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo Yii::app()->getDateFormatter()->formatDateTime($data->data_nascimento, 'medium', 'medium'); ?>
+            <br/>
+                 <?php echo date('D, d M y H:i:s', strtotime($data->data_nascimento)); ?>
+                            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('tlm')); ?>:</b>
-	<?php echo CHtml::encode($data->tlm); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_nascimento')); ?>:</b>
-	<?php echo CHtml::encode($data->data_nascimento); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

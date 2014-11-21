@@ -138,20 +138,6 @@ class TbButton extends CWidget
 	 */
 	public $visible = true;
 
-    /**
-     * Tooltip for button
-     * @var bool
-     * @since 2.1.0
-     */
-    public $tooltip = false;
-
-    /**
-     * Tooltip options
-     * @var array
-     * @since 2.1.0
-     */
-    public $tooltipOptions = array();
-
 	/**
 	 *### .init()
 	 *
@@ -240,7 +226,7 @@ class TbButton extends CWidget
 		}
 
 		if (isset($this->icon)) {
-			if (strpos($this->icon, 'icon') === false && strpos($this->icon, 'fa') === false) {
+			if (strpos($this->icon, 'icon') === false) {
 				$this->icon = 'icon-' . implode(' icon-', explode(' ', $this->icon));
 			}
 
@@ -262,25 +248,6 @@ class TbButton extends CWidget
 		if (isset($this->completeText)) {
 			$this->htmlOptions['data-complete-text'] = $this->completeText;
 		}
-
-        if (!empty($this->tooltip) && !$this->toggle) {
-            if (!is_array($this->tooltipOptions)) {
-                $this->tooltipOptions = array();
-            }
-
-            $this->htmlOptions['data-toggle'] = 'tooltip';
-            foreach ($this->tooltipOptions as $key => $value) {
-                $this->htmlOptions['data-' . $key] = $value;
-            }
-
-            /**
-             * Encode delay option
-             * @link http://getbootstrap.com/2.3.2/javascript.html#tooltips
-             */
-            if (isset($this->htmlOptions['data-delay']) && is_array($this->htmlOptions['data-delay'])) {
-                $this->htmlOptions['data-delay'] = CJSON::encode($this->htmlOptions['data-delay']);
-            }
-        }
 	}
 
 	/**

@@ -1,12 +1,18 @@
+<?php
+/** @var GrupoanaliseController $this */
+/** @var GrupoAnalise $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_grupo')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_grupo),array('view','id'=>$data->cod_grupo)); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

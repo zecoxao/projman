@@ -1,43 +1,22 @@
 <?php
+/** @var EstadoController $this */
+/** @var Estado $model */
 $this->breadcrumbs=array(
-	'Estados'=>array('index'),
-	$model->cod_estado=>array('view','id'=>$model->cod_estado),
-	'Update',
+	$model->label(2) => array('index'),
+	Yii::t('app', $model->cod_estado) => array('view', 'id'=>$model->cod_estado),
+	Yii::t('AweCrud.app', 'Update'),
 );
 
-$menu=array();
-require(dirname(__FILE__).DIRECTORY_SEPARATOR.'_menu.php');
 $this->menu=array(
-	array('label'=>'Estado','url'=>array('index'),'icon'=>'fa fa-list-alt', 'items' => $menu)	
+    //array('label' => Yii::t('AweCrud.app', 'List') . ' ' . Estado::label(2), 'icon' => 'list', 'url' => array('index')),
+	//array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . Estado::label(), 'icon' => 'plus', 'url' => array('create')),
+	//array('label' => Yii::t('AweCrud.app', 'View'), 'icon' => 'eye-open', 'url'=>array('view', 'id' => $model->cod_estado)),
+    array('label' => Yii::t('AweCrud.app', 'Delete'), 'icon' => 'trash', 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->cod_estado), 'confirm' => Yii::t('AweCrud.app', 'Are you sure you want to delete this item?'))),
+	array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<?php $box = $this->beginWidget(
-    'bootstrap.widgets.TbBox',
-    array(
-        'title' => 'Update Estados #'.$model->cod_estado,
-        'headerIcon' => 'icon- fa fa-pencil',
-        'headerButtons' => array(
-            array(
-                'class' => 'bootstrap.widgets.TbButtonGroup',
-                'type' => 'success',
-                // '', 'primary', 'info', 'success', 'warning', 'danger' or 'inverse'
-                'buttons' => $this->menu
-            ),
-        ) 
-    )
-);?>
-		<?php $this->widget('bootstrap.widgets.TbAlert', array(
-		    'block'=>false, // display a larger alert block?
-		    'fade'=>true, // use transitions?
-		    'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
-		    'alerts'=>array( // configurations per alert type
-		        'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		        'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), //success, info, warning, error or danger
-		    ),
-		));
-		?><?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
-<?php $this->endWidget(); ?>
+<fieldset>
+    <legend><?php echo Yii::t('AweCrud.app', 'Update') . ' ' . Estado::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+    <?php echo $this->renderPartial('_form',array('model' => $model)); ?>
+</fieldset>

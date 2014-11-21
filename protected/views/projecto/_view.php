@@ -1,28 +1,70 @@
+<?php
+/** @var ProjectoController $this */
+/** @var Projecto $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_projecto')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_projecto),array('view','id'=>$data->cod_projecto)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->data_inicio)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('data_inicio')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo Yii::app()->getDateFormatter()->formatDateTime($data->data_inicio, 'medium', 'medium'); ?>
+            <br/>
+                 <?php echo date('D, d M y H:i:s', strtotime($data->data_inicio)); ?>
+                            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->data_fim)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('data_fim')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo Yii::app()->getDateFormatter()->formatDateTime($data->data_fim, 'medium', 'medium'); ?>
+            <br/>
+                 <?php echo date('D, d M y H:i:s', strtotime($data->data_fim)); ?>
+                            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_inicio')); ?>:</b>
-	<?php echo CHtml::encode($data->data_inicio); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->duracao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('duracao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->duracao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_fim')); ?>:</b>
-	<?php echo CHtml::encode($data->data_fim); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->ambito)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('ambito')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->ambito); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('duracao')); ?>:</b>
-	<?php echo CHtml::encode($data->duracao); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('ambito')); ?>:</b>
-	<?php echo CHtml::encode($data->ambito); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

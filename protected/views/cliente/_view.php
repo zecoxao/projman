@@ -1,16 +1,30 @@
+<?php
+/** @var ClienteController $this */
+/** @var Cliente $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_cliente')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_cliente),array('view','id'=>$data->cod_cliente)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->pessoa0->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('pessoa')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->pessoa0->nome); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pessoa')); ?>:</b>
-	<?php echo CHtml::encode($data->pessoa); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

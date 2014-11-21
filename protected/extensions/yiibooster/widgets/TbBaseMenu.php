@@ -142,8 +142,9 @@ abstract class TbBaseMenu extends CMenu
 	protected function renderMenuItem($item)
 	{
 		if (isset($item['icon'])) {
-			if (strpos($item['icon'], 'icon') === false && strpos($item['icon'], 'fa') === false) {
-				$item['icon'] = 'icon-' . implode(' icon-', explode(' ', $item['icon']));
+			if (strpos($item['icon'], 'icon') === false) {
+				$pieces = explode(' ', $item['icon']);
+				$item['icon'] = 'icon-' . implode(' icon-', $pieces);
 			}
 
 			$item['label'] = '<i class="' . $item['icon'] . '"></i> ' . $item['label'];

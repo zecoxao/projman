@@ -4,61 +4,40 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/GrupoAnaliseController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/config/main.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/entidade/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/estado/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/controllers/EntidadeController.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/AlteracaoController.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/ClienteController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/stakeholderMembro/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/grupoAnalise/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/grupoAnalise/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/controllers/RequisitosController.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/ecra/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/pessoa/index.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/MembroController.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/EcraController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/membrosCasoUso/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/alteracao/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/AlteracoesRequisito.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/SiteController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/StakeholderMembroController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/estado/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Membro.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/entidadeCaso/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Pessoa.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/membrosProjecto/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/membro/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/cliente/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/ecraCaso/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/EcraCasoController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Projecto.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/MembrosProjectoController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/EntidadeCasoController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/alteracoesRequisito/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/pessoa/_view.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/PessoaController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/extensions/yiibooster/assets/ckeditor/skins/moono/editor_iequirks.css</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/ecra/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Ecra.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/EntidadeController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/requisitos/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/RequisitosController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/StakeholderMembro.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/projecto/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Cliente.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/extensions/yiibooster/assets/ckeditor/skins/moono/editor_ie7.css</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/ContactForm.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/entidade/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/RequisitosStakeholdersController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/pessoa/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseMembro.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/alteracao/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/requisitos/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/cliente/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseCliente.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseProjecto.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/ProjectoController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/stakeholder/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/ProjectoMultipleController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/ProjectoMultiple.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/CasoUso.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/models/Requisitos.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/layouts/main.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/requisitosStakeholders/admin.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/views/casoUso/admin.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/projecto/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BasePessoa.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseStakeholder.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/casoUso/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseGrupoAnalise.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/membro/index.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/CasoUsoController.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/controllers/PessoaController.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseEcra.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseEntidade.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseCasoUso.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/EstadoController.php</file>
             <file>file:/C:/xampp/htdocs/projman/protected/controllers/StakeholderController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/AlteracoesRequisitoController.php</file>
-            <file>file:/C:/xampp/htdocs/projman/protected/controllers/MembrosCasoUsoController.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/views/stakeholder/index.php</file>
+            <file>file:/C:/xampp/htdocs/projman/protected/models/_base/BaseRequisitos.php</file>
         </group>
     </open-files>
 </project-private>

@@ -61,7 +61,7 @@ class TbDateRangePicker extends CInputWidget
 	public function run()
 	{
 		if ($this->selector) {
-            Bootstrap::getBooster()->registerDateRangePlugin($this->selector, $this->options, $this->callback);
+			Yii::app()->bootstrap->registerDateRangePlugin($this->selector, $this->options, $this->callback);
 		} else {
 			list($name, $id) = $this->resolveNameID();
 
@@ -77,7 +77,7 @@ class TbDateRangePicker extends CInputWidget
 			}
 
 			$this->setLocaleSettings();
-            Bootstrap::getBooster()->registerDateRangePlugin('#' . $id, $this->options, $this->callback);
+			Yii::app()->bootstrap->registerDateRangePlugin('#' . $id, $this->options, $this->callback);
 		}
 
 	}
@@ -126,9 +126,8 @@ class TbDateRangePicker extends CInputWidget
 	 */
 	public function registerClientScript()
 	{
-        $booster = Bootstrap::getBooster();
-        $booster->registerAssetCss('bootstrap-daterangepicker.css');
-        $booster->registerAssetJs('bootstrap.daterangepicker.js');
-        $booster->registerPackage('moment');
+		Yii::app()->bootstrap->registerAssetCss('bootstrap-daterangepicker.css');
+		Yii::app()->bootstrap->registerAssetJs('bootstrap.daterangepicker.js');
+		Yii::app()->bootstrap->registerPackage('moment');
 	}
 }

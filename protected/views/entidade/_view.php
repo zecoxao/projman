@@ -1,16 +1,30 @@
+<?php
+/** @var EntidadeController $this */
+/** @var Entidade $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->nome); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_entidade')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_entidade),array('view','id'=>$data->cod_entidade)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::encode($data->nome); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

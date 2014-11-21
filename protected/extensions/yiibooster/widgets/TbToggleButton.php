@@ -141,10 +141,8 @@ class TbToggleButton extends CInputWidget
 	{
 		$cs = Yii::app()->clientScript;
 		$cs->registerCoreScript('jquery');
-
-        $booster = Bootstrap::getBooster();
-        $booster->registerAssetCss('bootstrap-toggle-buttons.css');
-        $booster->registerAssetJs('jquery.toggle.buttons.js');
+		Yii::app()->bootstrap->registerAssetCss('bootstrap-toggle-buttons.css');
+		Yii::app()->bootstrap->registerAssetJs('jquery.toggle.buttons.js');
 
 		$config = CJavaScript::encode($this->getConfiguration());
 

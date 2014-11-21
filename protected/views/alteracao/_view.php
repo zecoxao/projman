@@ -1,20 +1,44 @@
+<?php
+/** @var AlteracaoController $this */
+/** @var Alteracao $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->stakeholder0->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('stakeholder')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->stakeholder0->descricao); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_alteracao')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_alteracao),array('view','id'=>$data->cod_alteracao)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->data_alteracao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('data_alteracao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo Yii::app()->getDateFormatter()->formatDateTime($data->data_alteracao, 'medium', 'medium'); ?>
+            <br/>
+                 <?php echo date('D, d M y H:i:s', strtotime($data->data_alteracao)); ?>
+                            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('stakeholder')); ?>:</b>
-	<?php echo CHtml::encode($data->stakeholder); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->descricao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('data_alteracao')); ?>:</b>
-	<?php echo CHtml::encode($data->data_alteracao); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('descricao')); ?>:</b>
-	<?php echo CHtml::encode($data->descricao); ?>
-	<br />
-
-
-</div>
+        <?php endif; ?>
+    </div>

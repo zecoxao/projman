@@ -149,9 +149,6 @@ class TbAlert extends CWidget
 				continue;
 
 			$alertText = $userComponent->getFlash($type);
-            if (empty($alertText)) { // null, ''
-                continue;
-            }
 
 			$this->renderSingleAlert($alert, $type, $alertText);
 		}

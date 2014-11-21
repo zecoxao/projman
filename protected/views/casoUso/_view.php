@@ -1,38 +1,90 @@
+<?php
+/** @var CasousoController $this */
+/** @var CasoUso $data */
+?>
 <div class="view">
+                    
+        <?php if (!empty($data->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->nome); ?>
+            </div>
+        </div>
 
-		<b><?php echo CHtml::encode($data->getAttributeLabel('cod_caso_uso')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->cod_caso_uso),array('view','id'=>$data->cod_caso_uso)); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->dominio)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('dominio')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->dominio); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nome')); ?>:</b>
-	<?php echo CHtml::encode($data->nome); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->nivel)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('nivel')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->nivel); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('dominio')); ?>:</b>
-	<?php echo CHtml::encode($data->dominio); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->actor_primario)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('actor_primario')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->actor_primario); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nivel')); ?>:</b>
-	<?php echo CHtml::encode($data->nivel); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->pre_condicao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('pre_condicao')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->pre_condicao); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('actor_primario')); ?>:</b>
-	<?php echo CHtml::encode($data->actor_primario); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->iniciador)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('iniciador')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->iniciador); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('pre_condicao')); ?>:</b>
-	<?php echo CHtml::encode($data->pre_condicao); ?>
-	<br />
+        <?php endif; ?>
+                
+        <?php if (!empty($data->cenario_sucesso)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('cenario_sucesso')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->cenario_sucesso); ?>
+            </div>
+        </div>
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('iniciador')); ?>:</b>
-	<?php echo CHtml::encode($data->iniciador); ?>
-	<br />
-
-	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('cenario_sucesso')); ?>:</b>
-	<?php echo CHtml::encode($data->cenario_sucesso); ?>
-	<br />
-
-	*/ ?>
-
-</div>
+        <?php endif; ?>
+    </div>

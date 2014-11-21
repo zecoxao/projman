@@ -1,26 +1,33 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'estado-form',
-	// Please note: When you enable ajax validation, make sure the corresponding
-	// controller action is handling ajax validation correctly.
-	// There is a call to performAjaxValidation() commented in generated controller code.
-	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
-	// 'htmlOptions'=>array('enctype'=>'multipart/form-data'),
-)); ?>
+<div class="form">
+    <?php
+    /** @var EstadoController $this */
+    /** @var Estado $model */
+    /** @var AweActiveForm $form */
+    $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
+    'id' => 'estado-form',
+    'enableAjaxValidation' => true,
+    'enableClientValidation'=> false,
+    )); ?>
 
-	<p class="note">Fields with <span class="required">*</span> are required.</p>
+    <p class="note">
+        <?php echo Yii::t('AweCrud.app', 'Fields with') ?> <span class="required">*</span>
+        <?php echo Yii::t('AweCrud.app', 'are required') ?>.    </p>
 
-	<?php echo $form->errorSummary($model); ?>
+    <?php echo $form->errorSummary($model) ?>
 
-<?php echo $form->textFieldRow($model,'descricao',array('class'=>'span5','maxlength'=>100)); ?>
-
-
-<div class="form-actions">
-	<?php $this->widget('bootstrap.widgets.TbButton', array(
+                            <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 100)) ?>
+                <div class="form-actions">
+                <?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
+			'label'=>$model->isNewRecord ? Yii::t('AweCrud.app', 'Create') : Yii::t('AweCrud.app', 'Save'),
 		)); ?>
-</div>
+        <?php $this->widget('bootstrap.widgets.TbButton', array(
+			//'buttonType'=>'submit',
+			'label'=> Yii::t('AweCrud.app', 'Cancel'),
+			'htmlOptions' => array('onclick' => 'javascript:history.go(-1)')
+		)); ?>
+    </div>
 
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
+</div>

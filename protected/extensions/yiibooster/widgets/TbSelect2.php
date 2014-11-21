@@ -47,18 +47,6 @@ class TbSelect2 extends CInputWidget
 	 */
 	public $options;
 
-    /**
-     * @var bool
-     * @since 2.1.0
-     */
-    public $readonly = false;
-
-    /**
-     * @var bool
-     * @since 2.1.0
-     */
-    public $disabled = false;
-
 	/**
 	 *### .init()
 	 *
@@ -73,14 +61,6 @@ class TbSelect2 extends CInputWidget
 		$this->addEmptyItemIfPlaceholderDefined();
 
 		$this->setDefaultWidthIfEmpty();
-
-        // disabled & readonly
-        if (!empty($this->htmlOptions['readonly'])) {
-            $this->readonly = true;
-        }
-        if (!empty($this->htmlOptions['disabled'])) {
-            $this->disabled = true;
-        }
 	}
 
 	/**
@@ -126,28 +106,11 @@ class TbSelect2 extends CInputWidget
 	 */
 	public function registerClientScript($id)
 	{
-        Bootstrap::getBooster()->registerPackage('select2');
+		Yii::app()->bootstrap->registerPackage('select2');
 
 		$options = !empty($this->options) ? CJavaScript::encode($this->options) : '';
 
-		if(! empty($this->val)) {
-			if(is_array($this->val)) {
-				$data = CJSON::encode($this->val);
-			} else {
-				$data = $this->val;
-			}
-
-			$defValue = ".select2('val', $data)";
-		}
-		else
-			$defValue = '';
-
-        if ($this->readonly) {
-            $defValue .= ".select2('readonly', true)";
-        }
-        elseif ($this->disabled) {
-            $defValue .= ".select2('enable', false)";
-        }
+		$defValue = !empty($this->val) ? ".select2('val', '$this->val')" : '';
 
 		ob_start();
 		echo "jQuery('#{$id}').select2({$options})$defValue";
@@ -176,7 +139,7 @@ class TbSelect2 extends CInputWidget
 		if (!empty($this->htmlOptions['placeholder']))
 			$this->options['placeholder'] = $this->htmlOptions['placeholder'];
 
-		if (!empty($this->options['placeholder']) && empty($this->htmlOptions['multiple']))
+		if (!empty($this->options['placeholder']))
 			$this->prependDataWithEmptyItem();
 	}
 
@@ -189,6 +152,6 @@ class TbSelect2 extends CInputWidget
 
 	private function prependDataWithEmptyItem()
 	{
-		$this->data = array('' => '') + $this->data;
+		$this->data[''] = '';
 	}
 }

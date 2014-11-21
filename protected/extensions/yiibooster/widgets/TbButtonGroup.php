@@ -138,8 +138,6 @@ class TbButtonGroup extends CWidget
 					'htmlOptions' => isset($button['htmlOptions']) ? $button['htmlOptions'] : array(),
 					'dropdownOptions' => isset($button['dropdownOptions']) ? $button['dropdownOptions'] : array(),
 					'encodeLabel' => isset($button['encodeLabel']) ? $button['encodeLabel'] : $this->encodeLabel,
-                    'tooltip' => isset($button['tooltip']) ? $button['tooltip'] : false,
-                    'tooltipOptions' => isset($button['tooltipOptions']) ? $button['tooltipOptions'] : array(),
 				)
 			);
 		}

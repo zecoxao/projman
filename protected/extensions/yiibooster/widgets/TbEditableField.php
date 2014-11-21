@@ -309,7 +309,7 @@ class TbEditableField extends CWidget
 	{
 		parent::init();
 
-		$this->packageRegistry = Bootstrap::getBooster();
+		$this->packageRegistry = Yii::app()->bootstrap;
 
 		if (!$this->model) {
 			throw new CException('Parameter "model" should be provided for EditableField');
@@ -565,17 +565,6 @@ class TbEditableField extends CWidget
 				$this->getOwner(),
 				'bootstrap.widgets.TbDatePicker',
 				array('options' => $this->options['datepicker'])
-			);
-			$widget->registerLanguageScript();
-		}
-		elseif ($this->type == 'datetime') {
-			$this->packageRegistry->registerPackage('datetimepicker');
-			
-			/** @var $widget TbDateTimePicker */
-			$widget = Yii::app()->widgetFactory->createWidget(
-				$this->getOwner(),
-				'bootstrap.widgets.TbDateTimePicker',
-				array('options' => $this->options['datetimepicker'])
 			);
 			$widget->registerLanguageScript();
 		}

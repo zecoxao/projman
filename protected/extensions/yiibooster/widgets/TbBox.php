@@ -213,6 +213,6 @@ class TbBox extends CWidget
 	 */
 	public function registerClientScript()
 	{
-		Bootstrap::getBooster()->registerAssetCss('bootstrap-box.css');
+		Yii::app()->bootstrap->registerAssetCss('bootstrap-box.css');
 	}
 }

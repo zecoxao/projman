@@ -14,10 +14,6 @@
  * Maintenance
  * @author Mark Safronov <hijarian@gmail.com>
  * @version 2.0.0
- *
- * Maintenance
- * @author Maksim Naumov <fromyukki@gmail.com>
- * @version 2.1.0
  */
 
 /**
@@ -183,11 +179,6 @@ class Bootstrap extends CApplicationComponent
 	 */
 	public $_assetsUrl;
 
-    /**
-     * @var Bootstrap
-     */
-    private static $_instance;
-
 	/**
 	 * Initializes the component.
 	 */
@@ -197,11 +188,9 @@ class Bootstrap extends CApplicationComponent
 		if ($this->isInConsoleMode() && !$this->isInTests())
 			return;
 
-        self::setBooster($this);
-
-        $this->setRootAliasIfUndefined();
-
 		$this->setAssetsRegistryIfNotDefined();
+
+		$this->setRootAliasIfUndefined();
 
 		$this->includeAssets();
 
@@ -267,7 +256,6 @@ class Bootstrap extends CApplicationComponent
 		foreach ($this->packages as $name => $definition) {
 			$this->assetsRegistry->addPackage($name, $definition);
 		}
-        $this->assetsRegistry->scriptMap['jquery-ui.min.js'] = $this->getAssetsUrl() . '/js/jquery-ui-no-conflict.min.js';
 	}
 
 	/**
@@ -328,7 +316,6 @@ class Bootstrap extends CApplicationComponent
 			return;
 
 		$this->registerPackage('bootstrap.js');
-        $this->registerPackage('bootstrap-noconflict');
 
 		if ($this->enableBootboxJS)
 			$this->registerPackage('bootbox');
@@ -347,7 +334,7 @@ class Bootstrap extends CApplicationComponent
 	 */
 	public function getVersion()
 	{
-		return '2.1.1';
+		return '2.0.0';
 	}
 
 	/**
@@ -408,12 +395,15 @@ class Bootstrap extends CApplicationComponent
 		}
 	}
 
+	/**
+	 *
+	 */
 	protected function setAssetsRegistryIfNotDefined()
 	{
-		if (!$this->assetsRegistry) {
-            $this->assetsRegistry = Yii::app()->getClientScript();
-        }
+		if (!$this->assetsRegistry)
+			$this->assetsRegistry = Yii::app()->getClientScript();
 	}
+
 
 	public function registerBootstrapCss()
 	{
@@ -441,6 +431,7 @@ class Bootstrap extends CApplicationComponent
 				$filename .= '.no-responsive';
 		}
 
+		$filename .= $this->fontAwesomeCss ? '.no-icons' : '';
 		$filename .= $this->minify  ? '.min.css' : '.css';
 
 		return array('bootstrap.css' => array(
@@ -465,11 +456,6 @@ class Bootstrap extends CApplicationComponent
 				$locale = 'select2_locale_'. Yii::app()->language . '.js';
 				if (@file_exists(Yii::getPathOfAlias('bootstrap.assets.select2') . DIRECTORY_SEPARATOR . $locale )) {
 					$jsFiles[] = $locale;
-				}else{
-					$locale = 'select2_locale_'. substr(Yii::app()->language, 0, 2) . '-' . strtoupper(substr(Yii::app()->language, 3, 2)) . '.js';
-					if (@file_exists(Yii::getPathOfAlias('bootstrap.assets.select2') . DIRECTORY_SEPARATOR . $locale )) {
-						$jsFiles[] = $locale;
-					}
 				}
 			}
 		}
@@ -496,7 +482,11 @@ class Bootstrap extends CApplicationComponent
 	 */
 	public function registerFontAwesomeCss()
 	{
-        $this->registerPackage('font-awesome');
+		if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE 7.0')) {
+			$this->registerPackage('font-awesome')->registerPackage('font-awesome-ie7');
+		} else {
+			$this->registerPackage('font-awesome');
+		}
 	}
 
 	//========================================================================
@@ -918,38 +908,4 @@ class Bootstrap extends CApplicationComponent
 		return null;
 	}
 
-    /**
-     * @param Bootstrap $value
-     * @since 2.1.0
-     */
-    public static function setBooster($value)
-    {
-        if ($value instanceof Bootstrap) {
-            self::$_instance = $value;
-        }
-    }
-
-    /**
-     * @return Bootstrap
-     * @since 2.1.0
-     */
-    public static function getBooster()
-    {
-        if (null === self::$_instance) {
-            // Lets find inside current module
-            $module = Yii::app()->getController()->getModule();
-            if ($module) {
-                if ($module->hasComponent('bootstrap')) {
-                    self::$_instance = $module->getComponent('bootstrap');
-                }
-            }
-            // Still nothing?
-            if (null === self::$_instance) {
-                if (Yii::app()->hasComponent('bootstrap')) {
-                    self::$_instance = Yii::app()->getComponent('bootstrap');
-                }
-            }
-        }
-        return self::$_instance;
-    }
 }

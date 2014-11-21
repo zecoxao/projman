@@ -250,7 +250,7 @@ class TbExtendedGridView extends TbGridView
 	{
 		$data = $this->dataProvider->getData();
 		
-		if (!$this->sortableRows || (isset($data[0]) && !isset($data[0]->attributes[(string)$this->sortableAttribute]))) {
+		if (!$this->sortableRows || (isset($data[0]) && !$this->getAttribute($data[0], (string)$this->sortableAttribute))) {
 			parent::renderKeys();
 		}
 
@@ -619,7 +619,7 @@ class TbExtendedGridView extends TbGridView
 
 		$fixedHeaderJs = '';
 		if ($this->fixedHeader) {
-            Bootstrap::getBooster()->registerAssetJs('jquery.stickytableheaders' . (!YII_DEBUG ? '.min' : '') . '.js');
+			Yii::app()->bootstrap->registerAssetJs('jquery.stickytableheaders' . (!YII_DEBUG ? '.min' : '') . '.js');
 			$fixedHeaderJs = "$('#{$this->id} table.items').stickyTableHeaders({fixedOffset:{$this->headerOffset}});";
 			$this->componentsAfterAjaxUpdate[] = $fixedHeaderJs;
 		}
@@ -640,7 +640,7 @@ class TbExtendedGridView extends TbGridView
 
 			$this->selectableRows = 1;
 			$cs->registerCoreScript('jquery.ui');
-            Bootstrap::getBooster()->registerAssetJs('jquery.sortable.gridview.js');
+			Yii::app()->bootstrap->registerAssetJs('jquery.sortable.gridview.js');
 
 			if ($this->sortableAjaxSave && $this->sortableAction !== null) {
 				$sortableAction = Yii::app()->createUrl(
@@ -679,7 +679,7 @@ class TbExtendedGridView extends TbGridView
 				}
 			}
 			$cs->registerCoreScript('jquery.ui');
-            Bootstrap::getBooster()->registerAssetJs('jquery.selectable.gridview.js');
+			Yii::app()->bootstrap->registerAssetJs('jquery.selectable.gridview.js');
 			$afterSelectableCells = CJavaScript::encode($afterSelectableCells);
 			$this->componentsReadyScripts[] = "$.fn.yiiGridView.selectable('{$this->id}','{$this->selectableCellsFilter}',{$afterSelectableCells});";
 			$this->componentsAfterAjaxUpdate[] = "$.fn.yiiGridView.selectable('{$this->id}','{$this->selectableCellsFilter}', {$afterSelectableCells});";
@@ -699,26 +699,23 @@ class TbExtendedGridView extends TbGridView
 				var qs = $.deparam.querystring(options.url);
 				if (qs.hasOwnProperty("ajax") && qs.ajax == "' . $this->id . '")
 				{
-				    if (typeof (options.realsuccess) == "undefined" || options.realsuccess !== options.success)
-				    {
-                        options.realsuccess = options.success;
-                        options.success = function(data)
-                        {
-                            if (options.realsuccess) {
-                                options.realsuccess(data);
-                                var $data = $("<div>" + data + "</div>");
-                                // we need to get the grid again... as it has been updated
-                                if ($(".' . $this->extendedSummaryCssClass . '", $("#' . $this->id . '")))
-                                {
-                                    $(".' . $this->extendedSummaryCssClass . '", $("#' . $this->id . '")).html($("#' . $this->id . '-extended-summary", $data).html());
-                                }
-                                ' . (count($this->componentsAfterAjaxUpdate) ? implode(
-                    PHP_EOL,
-                    $this->componentsAfterAjaxUpdate
-                ) : '') . '
-                            }
-                        }
-				    }
+					options.realsuccess = options.success;
+					options.success = function(data)
+					{
+						if (options.realsuccess) {
+							options.realsuccess(data);
+							var $data = $("<div>" + data + "</div>");
+							// we need to get the grid again... as it has been updated
+							if ($(".' . $this->extendedSummaryCssClass . '", $("#' . $this->id . '")))
+							{
+								$(".' . $this->extendedSummaryCssClass . '", $("#' . $this->id . '")).html($("#' . $this->id . '-extended-summary", $data).html());
+							}
+							' . (count($this->componentsAfterAjaxUpdate) ? implode(
+				PHP_EOL,
+				$this->componentsAfterAjaxUpdate
+			) : '') . '
+						}
+					}
 				}
 			});'
 		);
@@ -1269,9 +1266,8 @@ class TbPercentOfTypeEasyPieOperation extends TbPercentOfTypeOperation
 	 */
 	protected function registerClientScripts()
 	{
-        $booster = Bootstrap::getBooster();
-        $booster->registerAssetCss('easy-pie-chart.css');
-        $booster->registerAssetJs('jquery.easy.pie.chart.js');
+		Yii::app()->bootstrap->registerAssetCss('easy-pie-chart.css');
+		Yii::app()->bootstrap->registerAssetJs('jquery.easy.pie.chart.js');
 
 		$options = CJavaScript::encode($this->chartOptions);
 		Yii::app()->getClientScript()->registerScript(
