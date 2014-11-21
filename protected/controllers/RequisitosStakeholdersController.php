@@ -1,6 +1,6 @@
 
 <?php
-class RequisitosStakeholdersController extends Controller
+class RequisitosStakeholdersController extends RController
 {
 	public $layout='//layouts/column2';
 	
@@ -11,7 +11,17 @@ class RequisitosStakeholdersController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+						
+			'rights - index, view',
+						
+		);
+	}
 	public function accessRules()
 	{
 		return array(

@@ -1,6 +1,6 @@
 
 <?php
-class EcraCasoController extends Controller
+class EcraCasoController extends RController
 {
 	public $layout='//layouts/column2';
 	
@@ -11,7 +11,17 @@ class EcraCasoController extends Controller
 			'dataProvider'=>$dataProvider,
 		));
 	}
-	
+	/**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+						
+			'rights - index, view',
+						
+		);
+	}
 	public function accessRules()
 	{
 		return array(

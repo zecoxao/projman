@@ -1,8 +1,20 @@
 <?php
-class AlteracoesRequisitoController extends Controller
+class AlteracoesRequisitoController extends  RController
 {
 	public $layout='//layouts/column2';
 	
+        /**
+	 * @return array action filters
+	 */
+	public function filters()
+	{
+		return array(
+						
+			'rights - index, view',
+						
+		);
+	}
+        
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('AlteracoesRequisito');
