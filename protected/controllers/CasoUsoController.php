@@ -1,6 +1,6 @@
 <?php
 
-class CasousoController extends RController
+class CasoUsoController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,40 +8,6 @@ class CasousoController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-        
-        public function actionExport() {
-        $model = new CasoUso;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['CasoUso']))
-            $model->attributes = $_POST['CasoUso'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of CasoUso',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'nome',
-                'dominio',
-                'nivel',
-                'actor_primario',
-                'pre_condicao',
-                'iniciador',
-                'cenario_sucesso',
-            ),
-        ));
-    }
-    
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -70,7 +36,7 @@ class CasousoController extends RController
                 if (isset($_POST['CasoUso']['ecras'])) $model->saveManyMany('ecras', $_POST['CasoUso']['ecras']);
                 if (isset($_POST['CasoUso']['entidades'])) $model->saveManyMany('entidades', $_POST['CasoUso']['entidades']);
                 if (isset($_POST['CasoUso']['membros'])) $model->saveManyMany('membros', $_POST['CasoUso']['membros']);
-                $this->redirect(array('view', 'id' => $model->cod_caso_uso));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -100,7 +66,7 @@ class CasousoController extends RController
                 else $model->saveManyMany('entidades', array());
                 if (isset($_POST['CasoUso']['membros'])) $model->saveManyMany('membros', $_POST['CasoUso']['membros']);
                 else $model->saveManyMany('membros', array());
-				$this->redirect(array('view','id' => $model->cod_caso_uso));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

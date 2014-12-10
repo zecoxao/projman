@@ -1,6 +1,6 @@
 <?php
 
-class ProjectoController extends RController
+class ProjectoController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,39 +8,6 @@ class ProjectoController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-        
-        public function actionExport() {
-        $model = new Projecto;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Projecto']))
-            $model->attributes = $_POST['Projecto'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Projecto',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_projecto',
-                'descricao',
-                'data_inicio',
-                'data_fim',
-                'duracao',
-                'ambito',
-            ),
-        ));
-    }
-    
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -67,7 +34,7 @@ class ProjectoController extends RController
 			$model->attributes = $_POST['Projecto'];
 			if($model->save()) {
                 if (isset($_POST['Projecto']['membros'])) $model->saveManyMany('membros', $_POST['Projecto']['membros']);
-                $this->redirect(array('view', 'id' => $model->cod_projecto));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -93,7 +60,7 @@ class ProjectoController extends RController
 			if($model->save()) {
                 if (isset($_POST['Projecto']['membros'])) $model->saveManyMany('membros', $_POST['Projecto']['membros']);
                 else $model->saveManyMany('membros', array());
-				$this->redirect(array('view','id' => $model->cod_projecto));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

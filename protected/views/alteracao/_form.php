@@ -15,14 +15,14 @@
 
     <?php echo $form->errorSummary($model) ?>
 
-                            <?php echo $form->dropDownListRow($model, 'stakeholder', CHtml::listData(Stakeholder::model()->findAll(), 'cod_stakeholder', Stakeholder::representingColumn())) ?>
+                            <?php echo $form->dropDownListRow($model, 'stakeholder', CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn())) ?>
                         <?php echo $form->datepickerRow($model, 'data_alteracao', array('prepend'=>'<i class="icon-calendar"></i>')) ?>
                         <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 250)) ?>
             <div class="row nm_row">
 <label for="requisitoses"><?php echo Yii::t('app', 'Requisitoses'); ?></label>
 <?php echo CHtml::checkBoxList('Alteracao[requisitoses]', array_map('AweHtml::getPrimaryKey', $model->requisitoses),
-CHtml::listData(Requisitos::model()->findAll(), 'cod_requisito', 'descricao'),
-array('attributeitem' => 'cod_requisito', 'checkAll' => 'Select All')) ?></div>
+CHtml::listData(Requisitos::model()->findAll(), 'id', 'descricao'),
+array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
     <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(

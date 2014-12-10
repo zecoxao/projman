@@ -1,6 +1,6 @@
 <?php
 
-class EntidadeController extends RController
+class EntidadeController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,36 +8,6 @@ class EntidadeController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-    
-        public function actionExport() {
-        $model = new Entidade;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Entidade']))
-            $model->attributes = $_POST['Entidade'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Entidade',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_entidade',
-                'nome',
-                'descricao',
-            ),
-        ));
-    }
-        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -64,7 +34,7 @@ class EntidadeController extends RController
 			$model->attributes = $_POST['Entidade'];
 			if($model->save()) {
                 if (isset($_POST['Entidade']['casoUsos'])) $model->saveManyMany('casoUsos', $_POST['Entidade']['casoUsos']);
-                $this->redirect(array('view', 'id' => $model->cod_entidade));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -90,7 +60,7 @@ class EntidadeController extends RController
 			if($model->save()) {
                 if (isset($_POST['Entidade']['casoUsos'])) $model->saveManyMany('casoUsos', $_POST['Entidade']['casoUsos']);
                 else $model->saveManyMany('casoUsos', array());
-				$this->redirect(array('view','id' => $model->cod_entidade));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

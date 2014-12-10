@@ -1,6 +1,6 @@
 <?php
 
-class ClienteController extends RController
+class ClienteController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,36 +8,6 @@ class ClienteController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-    
-        public function actionExport() {
-        $model = new Cliente;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Cliente']))
-            $model->attributes = $_POST['Cliente'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Cliente',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_cliente',
-                'descricao',
-                'pessoa',
-            ),
-        ));
-    }
-        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -63,7 +33,7 @@ class ClienteController extends RController
 		{
 			$model->attributes = $_POST['Cliente'];
 			if($model->save()) {
-                $this->redirect(array('view', 'id' => $model->cod_cliente));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -87,7 +57,7 @@ class ClienteController extends RController
 		{
 			$model->attributes = $_POST['Cliente'];
 			if($model->save()) {
-				$this->redirect(array('view','id' => $model->cod_cliente));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

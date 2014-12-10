@@ -9,7 +9,7 @@
  * Columns in table "projecto" available as properties of the model,
  * followed by relations of table "projecto" available as properties of the model.
  *
- * @property integer $cod_projecto
+ * @property integer $id
  * @property string $descricao
  * @property string $data_inicio
  * @property string $data_fim
@@ -38,7 +38,7 @@ abstract class BaseProjecto extends AweActiveRecord {
             array('descricao, data_inicio, data_fim, duracao, ambito', 'required'),
             array('duracao', 'numerical', 'integerOnly'=>true),
             array('descricao, ambito', 'length', 'max'=>100),
-            array('cod_projecto, descricao, data_inicio, data_fim, duracao, ambito', 'safe', 'on'=>'search'),
+            array('id, descricao, data_inicio, data_fim, duracao, ambito', 'safe', 'on'=>'search'),
         );
     }
 
@@ -54,7 +54,7 @@ abstract class BaseProjecto extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_projecto' => Yii::t('app', 'Cod Projecto'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'data_inicio' => Yii::t('app', 'Data Inicio'),
                 'data_fim' => Yii::t('app', 'Data Fim'),
@@ -68,7 +68,7 @@ abstract class BaseProjecto extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_projecto', $this->cod_projecto);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
         $criteria->compare('data_inicio', $this->data_inicio, true);
         $criteria->compare('data_fim', $this->data_fim, true);

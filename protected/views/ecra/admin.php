@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_ecra',
+        'id',
         'descricao',
         'modelo_ecra',
 		array(

@@ -9,7 +9,7 @@
  * Columns in table "stakeholder" available as properties of the model,
  * followed by relations of table "stakeholder" available as properties of the model.
  *
- * @property integer $cod_stakeholder
+ * @property integer $id
  * @property string $descricao
  * @property integer $grupo
  * @property integer $cliente
@@ -41,7 +41,7 @@ abstract class BaseStakeholder extends AweActiveRecord {
             array('descricao, grupo, cliente, pessoa', 'required'),
             array('grupo, cliente, pessoa', 'numerical', 'integerOnly'=>true),
             array('descricao', 'length', 'max'=>100),
-            array('cod_stakeholder, descricao, grupo, cliente, pessoa', 'safe', 'on'=>'search'),
+            array('id, descricao, grupo, cliente, pessoa', 'safe', 'on'=>'search'),
         );
     }
 
@@ -61,7 +61,7 @@ abstract class BaseStakeholder extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_stakeholder' => Yii::t('app', 'Cod Stakeholder'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'grupo' => Yii::t('app', 'Grupo'),
                 'cliente' => Yii::t('app', 'Cliente'),
@@ -78,7 +78,7 @@ abstract class BaseStakeholder extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_stakeholder', $this->cod_stakeholder);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
         $criteria->compare('grupo', $this->grupo);
         $criteria->compare('cliente', $this->cliente);

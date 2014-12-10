@@ -23,8 +23,8 @@
             <div class="row nm_row">
 <label for="membros"><?php echo Yii::t('app', 'Membros'); ?></label>
 <?php echo CHtml::checkBoxList('Projecto[membros]', array_map('AweHtml::getPrimaryKey', $model->membros),
-CHtml::listData(Membro::model()->findAll(), 'cod_membro', 'descricao'),
-array('attributeitem' => 'cod_membro', 'checkAll' => 'Select All')) ?></div>
+CHtml::listData(Membro::model()->findAll(), 'id', 'descricao'),
+array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
     <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(

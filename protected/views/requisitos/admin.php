@@ -42,17 +42,17 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_requisito',
+        'id',
         array(
                     'name' => 'projecto',
                     'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
-                    'filter' => CHtml::listData(Projecto::model()->findAll(), 'cod_projecto', Projecto::representingColumn()),
+                    'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
                 ),
         'descricao',
         array(
                     'name' => 'estado',
                     'value' => 'isset($data->estado0) ? $data->estado0 : null',
-                    'filter' => CHtml::listData(Estado::model()->findAll(), 'cod_estado', Estado::representingColumn()),
+                    'filter' => CHtml::listData(Estado::model()->findAll(), 'id', Estado::representingColumn()),
                 ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

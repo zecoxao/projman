@@ -9,7 +9,7 @@
  * Columns in table "caso_uso" available as properties of the model,
  * followed by relations of table "caso_uso" available as properties of the model.
  *
- * @property integer $cod_caso_uso
+ * @property integer $id
  * @property string $nome
  * @property string $dominio
  * @property string $nivel
@@ -41,7 +41,7 @@ abstract class BaseCasoUso extends AweActiveRecord {
             array('nome, dominio, nivel, actor_primario, pre_condicao, iniciador, cenario_sucesso', 'required'),
             array('nome, dominio, nivel, actor_primario, pre_condicao, iniciador', 'length', 'max'=>100),
             array('cenario_sucesso', 'length', 'max'=>500),
-            array('cod_caso_uso, nome, dominio, nivel, actor_primario, pre_condicao, iniciador, cenario_sucesso', 'safe', 'on'=>'search'),
+            array('id, nome, dominio, nivel, actor_primario, pre_condicao, iniciador, cenario_sucesso', 'safe', 'on'=>'search'),
         );
     }
 
@@ -58,7 +58,7 @@ abstract class BaseCasoUso extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_caso_uso' => Yii::t('app', 'Cod Caso Uso'),
+                'id' => Yii::t('app', 'ID'),
                 'nome' => Yii::t('app', 'Nome'),
                 'dominio' => Yii::t('app', 'Dominio'),
                 'nivel' => Yii::t('app', 'Nivel'),
@@ -75,7 +75,7 @@ abstract class BaseCasoUso extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_caso_uso', $this->cod_caso_uso);
+        $criteria->compare('id', $this->id);
         $criteria->compare('nome', $this->nome, true);
         $criteria->compare('dominio', $this->dominio, true);
         $criteria->compare('nivel', $this->nivel, true);

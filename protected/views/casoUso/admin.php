@@ -1,5 +1,5 @@
 <?php
-/** @var CasousoController $this */
+/** @var CasoUsoController $this */
 /** @var CasoUso $model */
 $this->breadcrumbs=array(
 	'Caso Usos'=>array('index'),
@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_caso_uso',
+        'id',
         'nome',
         'dominio',
         'nivel',

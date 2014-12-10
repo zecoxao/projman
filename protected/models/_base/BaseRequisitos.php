@@ -9,7 +9,7 @@
  * Columns in table "requisitos" available as properties of the model,
  * followed by relations of table "requisitos" available as properties of the model.
  *
- * @property integer $cod_requisito
+ * @property integer $id
  * @property integer $projecto
  * @property string $descricao
  * @property integer $estado
@@ -38,7 +38,7 @@ abstract class BaseRequisitos extends AweActiveRecord {
             array('projecto, descricao, estado', 'required'),
             array('projecto, estado', 'numerical', 'integerOnly'=>true),
             array('descricao', 'length', 'max'=>100),
-            array('cod_requisito, projecto, descricao, estado', 'safe', 'on'=>'search'),
+            array('id, projecto, descricao, estado', 'safe', 'on'=>'search'),
         );
     }
 
@@ -56,7 +56,7 @@ abstract class BaseRequisitos extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_requisito' => Yii::t('app', 'Cod Requisito'),
+                'id' => Yii::t('app', 'ID'),
                 'projecto' => Yii::t('app', 'Projecto'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'estado' => Yii::t('app', 'Estado'),
@@ -70,7 +70,7 @@ abstract class BaseRequisitos extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_requisito', $this->cod_requisito);
+        $criteria->compare('id', $this->id);
         $criteria->compare('projecto', $this->projecto);
         $criteria->compare('descricao', $this->descricao, true);
         $criteria->compare('estado', $this->estado);

@@ -1,6 +1,6 @@
 <?php
 
-class MembroController extends RController
+class MembroController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,36 +8,6 @@ class MembroController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-        public function actionExport() {
-        $model = new Membro;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Membro']))
-            $model->attributes = $_POST['Membro'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Membro',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_membro',
-                'descricao',
-                'pessoa',
-            ),
-        ));
-    }
-        
-    
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -66,7 +36,7 @@ class MembroController extends RController
                 if (isset($_POST['Membro']['casoUsos'])) $model->saveManyMany('casoUsos', $_POST['Membro']['casoUsos']);
                 if (isset($_POST['Membro']['projectos'])) $model->saveManyMany('projectos', $_POST['Membro']['projectos']);
                 if (isset($_POST['Membro']['stakeholders'])) $model->saveManyMany('stakeholders', $_POST['Membro']['stakeholders']);
-                $this->redirect(array('view', 'id' => $model->cod_membro));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -96,7 +66,7 @@ class MembroController extends RController
                 else $model->saveManyMany('projectos', array());
                 if (isset($_POST['Membro']['stakeholders'])) $model->saveManyMany('stakeholders', $_POST['Membro']['stakeholders']);
                 else $model->saveManyMany('stakeholders', array());
-				$this->redirect(array('view','id' => $model->cod_membro));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

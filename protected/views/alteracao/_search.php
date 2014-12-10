@@ -6,9 +6,9 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'method' => 'get',
 )); ?>
 
-<?php echo $form->textFieldRow($model, 'cod_alteracao', array('class' => 'span5')); ?>
+<?php echo $form->textFieldRow($model, 'id', array('class' => 'span5')); ?>
 
-<?php echo $form->dropDownListRow($model, 'stakeholder', CHtml::listData(Stakeholder::model()->findAll(), 'cod_stakeholder', Stakeholder::representingColumn())); ?>
+<?php echo $form->dropDownListRow($model, 'stakeholder', CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn())); ?>
 
 <?php echo $form->datepickerRow($model, 'data_alteracao', array('prepend'=>'<i class="icon-calendar"></i>')); ?>
 

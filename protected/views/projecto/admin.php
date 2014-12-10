@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_projecto',
+        'id',
         'descricao',
         'data_inicio',
         'data_fim',

@@ -9,7 +9,7 @@
  * Columns in table "entidade" available as properties of the model,
  * followed by relations of table "entidade" available as properties of the model.
  *
- * @property integer $cod_entidade
+ * @property integer $id
  * @property string $nome
  * @property string $descricao
  *
@@ -34,7 +34,7 @@ abstract class BaseEntidade extends AweActiveRecord {
             array('nome, descricao', 'required'),
             array('nome', 'length', 'max'=>100),
             array('descricao', 'length', 'max'=>150),
-            array('cod_entidade, nome, descricao', 'safe', 'on'=>'search'),
+            array('id, nome, descricao', 'safe', 'on'=>'search'),
         );
     }
 
@@ -49,7 +49,7 @@ abstract class BaseEntidade extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_entidade' => Yii::t('app', 'Cod Entidade'),
+                'id' => Yii::t('app', 'ID'),
                 'nome' => Yii::t('app', 'Nome'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'casoUsos' => null,
@@ -59,7 +59,7 @@ abstract class BaseEntidade extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_entidade', $this->cod_entidade);
+        $criteria->compare('id', $this->id);
         $criteria->compare('nome', $this->nome, true);
         $criteria->compare('descricao', $this->descricao, true);
 

@@ -6,13 +6,13 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'method' => 'get',
 )); ?>
 
-<?php echo $form->textFieldRow($model, 'cod_requisito', array('class' => 'span5')); ?>
+<?php echo $form->textFieldRow($model, 'id', array('class' => 'span5')); ?>
 
-<?php echo $form->dropDownListRow($model, 'projecto', CHtml::listData(Projecto::model()->findAll(), 'cod_projecto', Projecto::representingColumn())); ?>
+<?php echo $form->dropDownListRow($model, 'projecto', CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn())); ?>
 
 <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 100)); ?>
 
-<?php echo $form->dropDownListRow($model, 'estado', CHtml::listData(Estado::model()->findAll(), 'cod_estado', Estado::representingColumn())); ?>
+<?php echo $form->dropDownListRow($model, 'estado', CHtml::listData(Estado::model()->findAll(), 'id', Estado::representingColumn())); ?>
 
 <div class="form-actions">
     <?php $this->widget('bootstrap.widgets.TbButton', array(

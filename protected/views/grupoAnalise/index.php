@@ -19,18 +19,4 @@ $this->menu = array(
 	'dataProvider' => $dataProvider,
 	'itemView' => '_view',
 )); ?>
-    <?php echo CHtml::beginForm(array('export')); ?>
-    <select name="fileType" style="width:150px;">
-        <option value="Excel5">EXCEL 5 (xls)</option>
-        <option value="Excel2007">EXCEL 2007 (xlsx)</option>
-        <option value="HTML">HTML</option>
-        <option value="PDF">PDF</option>
-        <option value="WORD">WORD (docx)</option>
-    </select>
-    <br>
-    <?php
-    $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit', 'icon' => 'fa fa-print', 'label' => 'Export', 'type' => 'primary'));
-    ?>
-    
 </fieldset>

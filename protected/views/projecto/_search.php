@@ -6,7 +6,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'method' => 'get',
 )); ?>
 
-<?php echo $form->textFieldRow($model, 'cod_projecto', array('class' => 'span5')); ?>
+<?php echo $form->textFieldRow($model, 'id', array('class' => 'span5')); ?>
 
 <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 100)); ?>
 

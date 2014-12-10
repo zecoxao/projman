@@ -9,7 +9,7 @@
  * Columns in table "estado" available as properties of the model,
  * followed by relations of table "estado" available as properties of the model.
  *
- * @property integer $cod_estado
+ * @property integer $id
  * @property string $descricao
  *
  * @property Requisitos[] $requisitoses
@@ -32,7 +32,7 @@ abstract class BaseEstado extends AweActiveRecord {
         return array(
             array('descricao', 'required'),
             array('descricao', 'length', 'max'=>100),
-            array('cod_estado, descricao', 'safe', 'on'=>'search'),
+            array('id, descricao', 'safe', 'on'=>'search'),
         );
     }
 
@@ -47,7 +47,7 @@ abstract class BaseEstado extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_estado' => Yii::t('app', 'Cod Estado'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'requisitoses' => null,
         );
@@ -56,7 +56,7 @@ abstract class BaseEstado extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_estado', $this->cod_estado);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
 
         return new CActiveDataProvider($this, array(

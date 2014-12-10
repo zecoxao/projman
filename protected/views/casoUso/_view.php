@@ -1,5 +1,5 @@
 <?php
-/** @var CasousoController $this */
+/** @var CasoUsoController $this */
 /** @var CasoUso $data */
 ?>
 <div class="view">

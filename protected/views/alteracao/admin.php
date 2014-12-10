@@ -42,11 +42,11 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_alteracao',
+        'id',
         array(
                     'name' => 'stakeholder',
                     'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
-                    'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'cod_stakeholder', Stakeholder::representingColumn()),
+                    'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
                 ),
         'data_alteracao',
         'descricao',

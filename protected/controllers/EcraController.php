@@ -1,6 +1,6 @@
 <?php
 
-class EcraController extends RController
+class EcraController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -18,27 +18,6 @@ class EcraController extends RController
 			'model' => $this->loadModel($id),
 		));
 	}
-        
-        public function actionExport() {
-        $model = new Ecra;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Ecra']))
-            $model->attributes = $_POST['Ecra'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Ecra',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_ecra',
-                'descricao',
-                'modelo_ecra',
-            ),
-        ));
-    }
 
 	/**
 	 * Creates a new model.
@@ -55,7 +34,7 @@ class EcraController extends RController
 			$model->attributes = $_POST['Ecra'];
 			if($model->save()) {
                 if (isset($_POST['Ecra']['casoUsos'])) $model->saveManyMany('casoUsos', $_POST['Ecra']['casoUsos']);
-                $this->redirect(array('view', 'id' => $model->cod_ecra));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -81,7 +60,7 @@ class EcraController extends RController
 			if($model->save()) {
                 if (isset($_POST['Ecra']['casoUsos'])) $model->saveManyMany('casoUsos', $_POST['Ecra']['casoUsos']);
                 else $model->saveManyMany('casoUsos', array());
-				$this->redirect(array('view','id' => $model->cod_ecra));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

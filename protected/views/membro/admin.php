@@ -42,12 +42,12 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_membro',
+        'id',
         'descricao',
         array(
                     'name' => 'pessoa',
                     'value' => 'isset($data->pessoa0) ? $data->pessoa0 : null',
-                    'filter' => CHtml::listData(Pessoa::model()->findAll(), 'cod_pessoa', Pessoa::representingColumn()),
+                    'filter' => CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn()),
                 ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

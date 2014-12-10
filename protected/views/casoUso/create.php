@@ -1,5 +1,5 @@
 <?php
-/** @var CasousoController $this */
+/** @var CasoUsoController $this */
 /** @var CasoUso $model */
 $this->breadcrumbs=array(
 	$model->label(2) => array('index'),

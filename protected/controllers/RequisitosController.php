@@ -1,6 +1,6 @@
 <?php
 
-class RequisitosController extends RController
+class RequisitosController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,37 +8,6 @@ class RequisitosController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-    
-        public function actionExport() {
-        $model = new Requisitos;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Requisitos']))
-            $model->attributes = $_POST['Requisitos'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Requisitos',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_requisito',
-                'projecto',
-                'descricao',
-                'estado',
-            ),
-        ));
-    }
-        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -66,7 +35,7 @@ class RequisitosController extends RController
 			if($model->save()) {
                 if (isset($_POST['Requisitos']['alteracaos'])) $model->saveManyMany('alteracaos', $_POST['Requisitos']['alteracaos']);
                 if (isset($_POST['Requisitos']['stakeholders'])) $model->saveManyMany('stakeholders', $_POST['Requisitos']['stakeholders']);
-                $this->redirect(array('view', 'id' => $model->cod_requisito));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -94,7 +63,7 @@ class RequisitosController extends RController
                 else $model->saveManyMany('alteracaos', array());
                 if (isset($_POST['Requisitos']['stakeholders'])) $model->saveManyMany('stakeholders', $_POST['Requisitos']['stakeholders']);
                 else $model->saveManyMany('stakeholders', array());
-				$this->redirect(array('view','id' => $model->cod_requisito));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

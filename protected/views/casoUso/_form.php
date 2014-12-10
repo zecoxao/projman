@@ -1,6 +1,6 @@
 <div class="form">
     <?php
-    /** @var CasousoController $this */
+    /** @var CasoUsoController $this */
     /** @var CasoUso $model */
     /** @var AweActiveForm $form */
     $form = $this->beginWidget('ext.AweCrud.components.AweActiveForm', array(
@@ -25,20 +25,20 @@
             <div class="row nm_row">
 <label for="ecras"><?php echo Yii::t('app', 'Ecras'); ?></label>
 <?php echo CHtml::checkBoxList('CasoUso[ecras]', array_map('AweHtml::getPrimaryKey', $model->ecras),
-CHtml::listData(Ecra::model()->findAll(), 'cod_ecra', 'descricao'),
-array('attributeitem' => 'cod_ecra', 'checkAll' => 'Select All')) ?></div>
+CHtml::listData(Ecra::model()->findAll(), 'id', 'descricao'),
+array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
 <div class="row nm_row">
 <label for="entidades"><?php echo Yii::t('app', 'Entidades'); ?></label>
 <?php echo CHtml::checkBoxList('CasoUso[entidades]', array_map('AweHtml::getPrimaryKey', $model->entidades),
-CHtml::listData(Entidade::model()->findAll(), 'cod_entidade', 'nome'),
-array('attributeitem' => 'cod_entidade', 'checkAll' => 'Select All')) ?></div>
+CHtml::listData(Entidade::model()->findAll(), 'id', 'nome'),
+array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
 <div class="row nm_row">
 <label for="membros"><?php echo Yii::t('app', 'Membros'); ?></label>
 <?php echo CHtml::checkBoxList('CasoUso[membros]', array_map('AweHtml::getPrimaryKey', $model->membros),
-CHtml::listData(Membro::model()->findAll(), 'cod_membro', 'descricao'),
-array('attributeitem' => 'cod_membro', 'checkAll' => 'Select All')) ?></div>
+CHtml::listData(Membro::model()->findAll(), 'id', 'descricao'),
+array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
     <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(

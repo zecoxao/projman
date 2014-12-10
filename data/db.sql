@@ -21,16 +21,18 @@ USE `root`;
 DROP TABLE IF EXISTS `alteracao`;
 
 CREATE TABLE `alteracao` (
-  `cod_alteracao` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `stakeholder` int(11) NOT NULL,
   `data_alteracao` date NOT NULL,
   `descricao` varchar(250) NOT NULL,
-  PRIMARY KEY (`cod_alteracao`),
+  PRIMARY KEY (`id`),
   KEY `stakeholder` (`stakeholder`),
-  CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`cod_stakeholder`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `alteracao` */
+
+insert  into `alteracao`(`id`,`stakeholder`,`data_alteracao`,`descricao`) values (1,1,'2010-12-12','alteração de dados');
 
 /*Table structure for table `alteracoes_requisito` */
 
@@ -41,11 +43,13 @@ CREATE TABLE `alteracoes_requisito` (
   `requisito` int(11) NOT NULL,
   PRIMARY KEY (`alteracao`,`requisito`),
   KEY `requisito` (`requisito`),
-  CONSTRAINT `alteracoes_requisito_ibfk_1` FOREIGN KEY (`alteracao`) REFERENCES `alteracao` (`cod_alteracao`),
-  CONSTRAINT `alteracoes_requisito_ibfk_2` FOREIGN KEY (`requisito`) REFERENCES `requisitos` (`cod_requisito`)
+  CONSTRAINT `alteracoes_requisito_ibfk_1` FOREIGN KEY (`alteracao`) REFERENCES `alteracao` (`id`),
+  CONSTRAINT `alteracoes_requisito_ibfk_2` FOREIGN KEY (`requisito`) REFERENCES `requisitos` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `alteracoes_requisito` */
+
+insert  into `alteracoes_requisito`(`alteracao`,`requisito`) values (1,1);
 
 /*Table structure for table `authassignment` */
 
@@ -62,7 +66,7 @@ CREATE TABLE `authassignment` (
 
 /*Data for the table `authassignment` */
 
-insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Admin','1',NULL,'N;'),('Authenticated','3',NULL,'N;'),('Guest','2',NULL,'N;');
+insert  into `authassignment`(`itemname`,`userid`,`bizrule`,`data`) values ('Admin','1',NULL,'N;'),('Gestor','5',NULL,'N;'),('Guest','2',NULL,'N;'),('Membro','4',NULL,'N;'),('Stakeholder','3',NULL,'N;');
 
 /*Table structure for table `authitem` */
 
@@ -79,7 +83,7 @@ CREATE TABLE `authitem` (
 
 /*Data for the table `authitem` */
 
-insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Admin',2,NULL,NULL,'N;'),('Authenticated',2,NULL,NULL,'N;'),('Guest',2,NULL,NULL,'N;');
+insert  into `authitem`(`name`,`type`,`description`,`bizrule`,`data`) values ('Admin',2,NULL,NULL,'N;'),('Alteracao.*',1,NULL,NULL,'N;'),('AlteracoesRequisito.*',1,NULL,NULL,'N;'),('Authenticated',2,NULL,NULL,'N;'),('CasoUso.*',1,NULL,NULL,'N;'),('Cliente.*',1,NULL,NULL,'N;'),('Ecra.*',1,NULL,NULL,'N;'),('EcraCaso.*',1,NULL,NULL,'N;'),('Entidade.*',1,NULL,NULL,'N;'),('EntidadeCaso.*',1,NULL,NULL,'N;'),('Estado.*',1,NULL,NULL,'N;'),('Gestor',2,'Gestor',NULL,'N;'),('GrupoAnalise.*',1,NULL,NULL,'N;'),('Guest',2,NULL,NULL,'N;'),('Membro',2,'Membro',NULL,'N;'),('Membro.*',1,NULL,NULL,'N;'),('MembrosCasoUso.*',1,NULL,NULL,'N;'),('MembrosProjecto.*',1,NULL,NULL,'N;'),('Pessoa.*',1,NULL,NULL,'N;'),('Projecto.*',1,NULL,NULL,'N;'),('Requisitos.*',1,NULL,NULL,'N;'),('RequisitosStakeholders.*',1,NULL,NULL,'N;'),('Site.*',1,NULL,NULL,'N;'),('Stakeholder',2,'Stakeholder',NULL,'N;'),('Stakeholder.*',1,NULL,NULL,'N;'),('StakeholderMembro.*',1,NULL,NULL,'N;');
 
 /*Table structure for table `authitemchild` */
 
@@ -96,12 +100,14 @@ CREATE TABLE `authitemchild` (
 
 /*Data for the table `authitemchild` */
 
+insert  into `authitemchild`(`parent`,`child`) values ('Gestor','Alteracao.*'),('Membro','Alteracao.*'),('Gestor','AlteracoesRequisito.*'),('Gestor','CasoUso.*'),('Membro','CasoUso.*'),('Gestor','Cliente.*'),('Membro','Cliente.*'),('Gestor','Ecra.*'),('Membro','Ecra.*'),('Gestor','EcraCaso.*'),('Membro','EcraCaso.*'),('Gestor','Entidade.*'),('Membro','Entidade.*'),('Gestor','EntidadeCaso.*'),('Membro','EntidadeCaso.*'),('Gestor','Estado.*'),('Membro','Estado.*'),('Gestor','GrupoAnalise.*'),('Membro','GrupoAnalise.*'),('Gestor','Membro.*'),('Membro','Membro.*'),('Gestor','MembrosCasoUso.*'),('Membro','MembrosCasoUso.*'),('Gestor','MembrosProjecto.*'),('Membro','MembrosProjecto.*'),('Gestor','Pessoa.*'),('Membro','Pessoa.*'),('Gestor','Projecto.*'),('Membro','Projecto.*'),('Gestor','Requisitos.*'),('Membro','Requisitos.*'),('Gestor','RequisitosStakeholders.*'),('Membro','RequisitosStakeholders.*'),('Stakeholder','RequisitosStakeholders.*'),('Gestor','Site.*'),('Membro','Site.*'),('Gestor','Stakeholder.*'),('Membro','Stakeholder.*'),('Gestor','StakeholderMembro.*'),('Membro','StakeholderMembro.*');
+
 /*Table structure for table `caso_uso` */
 
 DROP TABLE IF EXISTS `caso_uso`;
 
 CREATE TABLE `caso_uso` (
-  `cod_caso_uso` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `dominio` varchar(100) NOT NULL,
   `nivel` varchar(100) NOT NULL,
@@ -109,38 +115,44 @@ CREATE TABLE `caso_uso` (
   `pre_condicao` varchar(100) NOT NULL,
   `iniciador` varchar(100) NOT NULL,
   `cenario_sucesso` varchar(500) NOT NULL,
-  PRIMARY KEY (`cod_caso_uso`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `caso_uso` */
+
+insert  into `caso_uso`(`id`,`nome`,`dominio`,`nivel`,`actor_primario`,`pre_condicao`,`iniciador`,`cenario_sucesso`) values (1,'Testar coisas','Sistema','Sumario','Ana','o utilizador deverá estar registado no sistema','nenhum','1. 2. 3.');
 
 /*Table structure for table `cliente` */
 
 DROP TABLE IF EXISTS `cliente`;
 
 CREATE TABLE `cliente` (
-  `cod_cliente` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   `pessoa` int(11) NOT NULL,
-  PRIMARY KEY (`cod_cliente`),
+  PRIMARY KEY (`id`),
   KEY `pessoa` (`pessoa`),
-  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 /*Data for the table `cliente` */
+
+insert  into `cliente`(`id`,`descricao`,`pessoa`) values (1,'pessoa normal',1);
 
 /*Table structure for table `ecra` */
 
 DROP TABLE IF EXISTS `ecra`;
 
 CREATE TABLE `ecra` (
-  `cod_ecra` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   `modelo_ecra` varchar(500) NOT NULL,
-  PRIMARY KEY (`cod_ecra`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `ecra` */
+
+insert  into `ecra`(`id`,`descricao`,`modelo_ecra`) values (1,'Teste','<?xml>');
 
 /*Table structure for table `ecra_caso` */
 
@@ -151,24 +163,28 @@ CREATE TABLE `ecra_caso` (
   `caso_uso` int(11) NOT NULL,
   PRIMARY KEY (`ecra`,`caso_uso`),
   KEY `caso_uso` (`caso_uso`),
-  CONSTRAINT `ecra_caso_ibfk_1` FOREIGN KEY (`ecra`) REFERENCES `ecra` (`cod_ecra`),
-  CONSTRAINT `ecra_caso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`cod_caso_uso`)
+  CONSTRAINT `ecra_caso_ibfk_1` FOREIGN KEY (`ecra`) REFERENCES `ecra` (`id`),
+  CONSTRAINT `ecra_caso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `ecra_caso` */
+
+insert  into `ecra_caso`(`ecra`,`caso_uso`) values (1,1);
 
 /*Table structure for table `entidade` */
 
 DROP TABLE IF EXISTS `entidade`;
 
 CREATE TABLE `entidade` (
-  `cod_entidade` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `descricao` varchar(150) NOT NULL,
-  PRIMARY KEY (`cod_entidade`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `entidade` */
+
+insert  into `entidade`(`id`,`nome`,`descricao`) values (1,'Cliente','compra coisas');
 
 /*Table structure for table `entidade_caso` */
 
@@ -179,52 +195,58 @@ CREATE TABLE `entidade_caso` (
   `caso_uso` int(11) NOT NULL,
   PRIMARY KEY (`entidade`,`caso_uso`),
   KEY `caso_uso` (`caso_uso`),
-  CONSTRAINT `entidade_caso_ibfk_1` FOREIGN KEY (`entidade`) REFERENCES `entidade` (`cod_entidade`),
-  CONSTRAINT `entidade_caso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`cod_caso_uso`)
+  CONSTRAINT `entidade_caso_ibfk_1` FOREIGN KEY (`entidade`) REFERENCES `entidade` (`id`),
+  CONSTRAINT `entidade_caso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `entidade_caso` */
+
+insert  into `entidade_caso`(`entidade`,`caso_uso`) values (1,1);
 
 /*Table structure for table `estado` */
 
 DROP TABLE IF EXISTS `estado`;
 
 CREATE TABLE `estado` (
-  `cod_estado` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
-  PRIMARY KEY (`cod_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 /*Data for the table `estado` */
 
-insert  into `estado`(`cod_estado`,`descricao`) values (1,'CRIADO'),(2,'ANULADO'),(3,'EM_DESENVOLVIMENTO'),(4,'EM_TESTES'),(5,'ALTERADO');
+insert  into `estado`(`id`,`descricao`) values (1,'CRIADO'),(2,'ANULADO'),(3,'EM_DESENVOLVIMENTO'),(4,'EM_TESTES'),(5,'ALTERADO');
 
 /*Table structure for table `grupo_analise` */
 
 DROP TABLE IF EXISTS `grupo_analise`;
 
 CREATE TABLE `grupo_analise` (
-  `cod_grupo` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
-  PRIMARY KEY (`cod_grupo`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 /*Data for the table `grupo_analise` */
+
+insert  into `grupo_analise`(`id`,`descricao`) values (1,'2');
 
 /*Table structure for table `membro` */
 
 DROP TABLE IF EXISTS `membro`;
 
 CREATE TABLE `membro` (
-  `cod_membro` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   `pessoa` int(11) NOT NULL,
-  PRIMARY KEY (`cod_membro`),
+  PRIMARY KEY (`id`),
   KEY `pessoa` (`pessoa`),
-  CONSTRAINT `membro_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `membro_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `membro` */
+
+insert  into `membro`(`id`,`descricao`,`pessoa`) values (1,'Membro',1);
 
 /*Table structure for table `membros_caso_uso` */
 
@@ -235,11 +257,13 @@ CREATE TABLE `membros_caso_uso` (
   `caso_uso` int(11) NOT NULL,
   PRIMARY KEY (`membro`,`caso_uso`),
   KEY `caso_uso` (`caso_uso`),
-  CONSTRAINT `membros_caso_uso_ibfk_1` FOREIGN KEY (`membro`) REFERENCES `membro` (`cod_membro`),
-  CONSTRAINT `membros_caso_uso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`cod_caso_uso`)
+  CONSTRAINT `membros_caso_uso_ibfk_1` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`),
+  CONSTRAINT `membros_caso_uso_ibfk_2` FOREIGN KEY (`caso_uso`) REFERENCES `caso_uso` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `membros_caso_uso` */
+
+insert  into `membros_caso_uso`(`membro`,`caso_uso`) values (1,1);
 
 /*Table structure for table `membros_projecto` */
 
@@ -250,26 +274,30 @@ CREATE TABLE `membros_projecto` (
   `membro` int(11) NOT NULL,
   PRIMARY KEY (`projecto`,`membro`),
   KEY `membro` (`membro`),
-  CONSTRAINT `membros_projecto_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`cod_projecto`),
-  CONSTRAINT `membros_projecto_ibfk_2` FOREIGN KEY (`membro`) REFERENCES `membro` (`cod_membro`)
+  CONSTRAINT `membros_projecto_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`id`),
+  CONSTRAINT `membros_projecto_ibfk_2` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `membros_projecto` */
+
+insert  into `membros_projecto`(`projecto`,`membro`) values (1,1);
 
 /*Table structure for table `pessoa` */
 
 DROP TABLE IF EXISTS `pessoa`;
 
 CREATE TABLE `pessoa` (
-  `cod_pessoa` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(100) NOT NULL,
   `morada` varchar(150) NOT NULL,
   `tlm` int(11) NOT NULL,
   `data_nascimento` date NOT NULL,
-  PRIMARY KEY (`cod_pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `pessoa` */
+
+insert  into `pessoa`(`id`,`nome`,`morada`,`tlm`,`data_nascimento`) values (1,'jose','Rua Sr dos Passos 22',965350967,'2010-10-12');
 
 /*Table structure for table `profiles` */
 
@@ -281,11 +309,11 @@ CREATE TABLE `profiles` (
   `firstname` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`),
   CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `profiles` */
 
-insert  into `profiles`(`user_id`,`lastname`,`firstname`) values (1,'Admin','Administrator'),(2,'Demo','Demo'),(3,'Coixao','Jose');
+insert  into `profiles`(`user_id`,`lastname`,`firstname`) values (1,'Admin','Administrator'),(2,'Demo','Demo'),(3,'Coixao','Jose'),(4,'Maria','Ana'),(5,'Lopes','André');
 
 /*Table structure for table `profiles_fields` */
 
@@ -321,34 +349,38 @@ insert  into `profiles_fields`(`id`,`varname`,`title`,`field_type`,`field_size`,
 DROP TABLE IF EXISTS `projecto`;
 
 CREATE TABLE `projecto` (
-  `cod_projecto` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   `data_inicio` date NOT NULL,
   `data_fim` date NOT NULL,
   `duracao` int(11) NOT NULL,
   `ambito` varchar(100) NOT NULL,
-  PRIMARY KEY (`cod_projecto`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 /*Data for the table `projecto` */
+
+insert  into `projecto`(`id`,`descricao`,`data_inicio`,`data_fim`,`duracao`,`ambito`) values (1,'Gestao de Casos de Uso','0000-00-00','0000-00-00',29,'Gerir casos de uso');
 
 /*Table structure for table `requisitos` */
 
 DROP TABLE IF EXISTS `requisitos`;
 
 CREATE TABLE `requisitos` (
-  `cod_requisito` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `projecto` int(11) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   `estado` int(11) NOT NULL,
-  PRIMARY KEY (`cod_requisito`),
+  PRIMARY KEY (`id`),
   KEY `projecto` (`projecto`),
   KEY `estado` (`estado`),
-  CONSTRAINT `requisitos_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`cod_projecto`),
-  CONSTRAINT `requisitos_ibfk_2` FOREIGN KEY (`estado`) REFERENCES `estado` (`cod_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  CONSTRAINT `requisitos_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`id`),
+  CONSTRAINT `requisitos_ibfk_2` FOREIGN KEY (`estado`) REFERENCES `estado` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Data for the table `requisitos` */
+
+insert  into `requisitos`(`id`,`projecto`,`descricao`,`estado`) values (1,1,'Dinheiro',1);
 
 /*Table structure for table `requisitos_stakeholders` */
 
@@ -359,8 +391,8 @@ CREATE TABLE `requisitos_stakeholders` (
   `stakeholder` int(11) NOT NULL,
   PRIMARY KEY (`requisito`,`stakeholder`),
   KEY `stakeholder` (`stakeholder`),
-  CONSTRAINT `requisitos_stakeholders_ibfk_1` FOREIGN KEY (`requisito`) REFERENCES `requisitos` (`cod_requisito`),
-  CONSTRAINT `requisitos_stakeholders_ibfk_2` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`cod_stakeholder`)
+  CONSTRAINT `requisitos_stakeholders_ibfk_1` FOREIGN KEY (`requisito`) REFERENCES `requisitos` (`id`),
+  CONSTRAINT `requisitos_stakeholders_ibfk_2` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `requisitos_stakeholders` */
@@ -384,21 +416,23 @@ CREATE TABLE `rights` (
 DROP TABLE IF EXISTS `stakeholder`;
 
 CREATE TABLE `stakeholder` (
-  `cod_stakeholder` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(100) NOT NULL,
   `grupo` int(11) NOT NULL,
   `cliente` int(11) NOT NULL,
   `pessoa` int(11) NOT NULL,
-  PRIMARY KEY (`cod_stakeholder`),
+  PRIMARY KEY (`id`),
   KEY `grupo` (`grupo`),
   KEY `cliente` (`cliente`),
   KEY `pessoa` (`pessoa`),
-  CONSTRAINT `stakeholder_ibfk_2` FOREIGN KEY (`grupo`) REFERENCES `grupo_analise` (`cod_grupo`),
-  CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`cod_cliente`),
-  CONSTRAINT `stakeholder_ibfk_4` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`cod_pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  CONSTRAINT `stakeholder_ibfk_2` FOREIGN KEY (`grupo`) REFERENCES `grupo_analise` (`id`),
+  CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`),
+  CONSTRAINT `stakeholder_ibfk_4` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
 
 /*Data for the table `stakeholder` */
+
+insert  into `stakeholder`(`id`,`descricao`,`grupo`,`cliente`,`pessoa`) values (1,'pessoa com dinheiro',1,1,1),(32,'teste2',1,1,1),(33,'2',1,1,1);
 
 /*Table structure for table `stakeholder_membro` */
 
@@ -409,11 +443,13 @@ CREATE TABLE `stakeholder_membro` (
   `membro` int(11) NOT NULL,
   PRIMARY KEY (`stakeholder`,`membro`),
   KEY `membro` (`membro`),
-  CONSTRAINT `stakeholder_membro_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`cod_stakeholder`),
-  CONSTRAINT `stakeholder_membro_ibfk_2` FOREIGN KEY (`membro`) REFERENCES `membro` (`cod_membro`)
+  CONSTRAINT `stakeholder_membro_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`),
+  CONSTRAINT `stakeholder_membro_ibfk_2` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `stakeholder_membro` */
+
+insert  into `stakeholder_membro`(`stakeholder`,`membro`) values (1,1);
 
 /*Table structure for table `users` */
 
@@ -434,11 +470,11 @@ CREATE TABLE `users` (
   UNIQUE KEY `email` (`email`),
   KEY `status` (`status`),
   KEY `superuser` (`superuser`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `users` */
 
-insert  into `users`(`id`,`username`,`password`,`email`,`activkey`,`create_at`,`lastvisit_at`,`superuser`,`status`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','webmaster@example.com','9a24eff8c15a6a141ece27eb6947da0f','2014-10-31 22:52:59','2014-11-02 15:16:57',1,1),(2,'demo','fe01ce2a7fbac8fafaed7c982a04e229','demo@example.com','618497a9b5963eb8d1366e39b768720a','2014-10-31 22:52:59','2014-11-01 19:16:13',0,1),(3,'zecoxao','4c4999ac17adcef1a5a75fab71e5c857','zecoxao1@gmail.com','e0f7428dad7167a80a4d8f183083b605','2014-10-31 23:58:41','2014-11-02 14:57:57',1,1);
+insert  into `users`(`id`,`username`,`password`,`email`,`activkey`,`create_at`,`lastvisit_at`,`superuser`,`status`) values (1,'admin','21232f297a57a5a743894a0e4a801fc3','webmaster@example.com','9a24eff8c15a6a141ece27eb6947da0f','2014-10-31 22:52:59','2014-12-02 23:45:00',1,1),(2,'demo','fe01ce2a7fbac8fafaed7c982a04e229','demo@example.com','618497a9b5963eb8d1366e39b768720a','2014-10-31 22:52:59','2014-11-01 19:16:13',0,1),(3,'zecoxao','4c4999ac17adcef1a5a75fab71e5c857','zecoxao1@gmail.com','e0f7428dad7167a80a4d8f183083b605','2014-10-31 23:58:41','2014-11-21 10:50:37',1,1),(4,'maria','4c4999ac17adcef1a5a75fab71e5c857','ana_maria@hotmail.com','24330fd5a4c0d49b864424f790039af2','2014-11-21 09:52:10','0000-00-00 00:00:00',0,1),(5,'andre','4c4999ac17adcef1a5a75fab71e5c857','andre_lopes@hotmail.com','eca4b8e445be252a64fcc7ac202b3298','2014-11-21 09:54:11','0000-00-00 00:00:00',0,0);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

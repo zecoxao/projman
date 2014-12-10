@@ -1,6 +1,6 @@
 <?php
 
-class PessoaController extends RController
+class PessoaController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,38 +8,6 @@ class PessoaController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-    
-        public function actionExport() {
-        $model = new Pessoa;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['Pessoa']))
-            $model->attributes = $_POST['Pessoa'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of Pessoa',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_pessoa',
-                'nome',
-                'morada',
-                'data_nascimento',
-                'tlm',
-            ),
-        ));
-    }
-        
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -65,7 +33,7 @@ class PessoaController extends RController
 		{
 			$model->attributes = $_POST['Pessoa'];
 			if($model->save()) {
-                $this->redirect(array('view', 'id' => $model->cod_pessoa));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -89,7 +57,7 @@ class PessoaController extends RController
 		{
 			$model->attributes = $_POST['Pessoa'];
 			if($model->save()) {
-				$this->redirect(array('view','id' => $model->cod_pessoa));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

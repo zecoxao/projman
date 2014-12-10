@@ -9,7 +9,7 @@
  * Columns in table "cliente" available as properties of the model,
  * followed by relations of table "cliente" available as properties of the model.
  *
- * @property integer $cod_cliente
+ * @property integer $id
  * @property string $descricao
  * @property integer $pessoa
  *
@@ -35,7 +35,7 @@ abstract class BaseCliente extends AweActiveRecord {
             array('descricao, pessoa', 'required'),
             array('pessoa', 'numerical', 'integerOnly'=>true),
             array('descricao', 'length', 'max'=>100),
-            array('cod_cliente, descricao, pessoa', 'safe', 'on'=>'search'),
+            array('id, descricao, pessoa', 'safe', 'on'=>'search'),
         );
     }
 
@@ -51,7 +51,7 @@ abstract class BaseCliente extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_cliente' => Yii::t('app', 'Cod Cliente'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'pessoa' => Yii::t('app', 'Pessoa'),
                 'pessoa0' => null,
@@ -62,7 +62,7 @@ abstract class BaseCliente extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_cliente', $this->cod_cliente);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
         $criteria->compare('pessoa', $this->pessoa);
 

@@ -1,6 +1,6 @@
 <?php
 
-class GrupoanaliseController extends RController
+class GrupoanaliseController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -8,35 +8,6 @@ class GrupoanaliseController extends RController
 	 */
     public $layout = '//layouts/column2';
 
-    public function filters()
-	{
-		return array(
-						
-			'rights - index, view',
-						
-		);
-	}
-        
-        public function actionExport() {
-        $model = new GrupoAnalise;
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_POST['GrupoAnalise']))
-            $model->attributes = $_POST['GrupoAnalise'];
-
-        $exportType = $_POST['fileType'];
-        $this->widget('ext.heart.export.EHeartExport', array(
-            'title' => 'List of GrupoAnalise',
-            'dataProvider' => $model->search(),
-            'filter' => $model,
-            'grid_mode' => 'export',
-            'exportType' => $exportType,
-            'columns' => array(
-                'cod_grupo',
-                'descricao',
-            ),
-        ));
-    }
-    
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -62,7 +33,7 @@ class GrupoanaliseController extends RController
 		{
 			$model->attributes = $_POST['GrupoAnalise'];
 			if($model->save()) {
-                $this->redirect(array('view', 'id' => $model->cod_grupo));
+                $this->redirect(array('view', 'id' => $model->id));
             }
 		}
 
@@ -86,7 +57,7 @@ class GrupoanaliseController extends RController
 		{
 			$model->attributes = $_POST['GrupoAnalise'];
 			if($model->save()) {
-				$this->redirect(array('view','id' => $model->cod_grupo));
+				$this->redirect(array('view','id' => $model->id));
             }
 		}
 

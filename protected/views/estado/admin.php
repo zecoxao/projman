@@ -42,7 +42,7 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_estado',
+        'id',
         'descricao',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

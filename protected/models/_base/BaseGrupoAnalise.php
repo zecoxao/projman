@@ -9,7 +9,7 @@
  * Columns in table "grupo_analise" available as properties of the model,
  * followed by relations of table "grupo_analise" available as properties of the model.
  *
- * @property integer $cod_grupo
+ * @property integer $id
  * @property string $descricao
  *
  * @property Stakeholder[] $stakeholders
@@ -32,7 +32,7 @@ abstract class BaseGrupoAnalise extends AweActiveRecord {
         return array(
             array('descricao', 'required'),
             array('descricao', 'length', 'max'=>100),
-            array('cod_grupo, descricao', 'safe', 'on'=>'search'),
+            array('id, descricao', 'safe', 'on'=>'search'),
         );
     }
 
@@ -47,7 +47,7 @@ abstract class BaseGrupoAnalise extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_grupo' => Yii::t('app', 'Cod Grupo'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'stakeholders' => null,
         );
@@ -56,7 +56,7 @@ abstract class BaseGrupoAnalise extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_grupo', $this->cod_grupo);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
 
         return new CActiveDataProvider($this, array(

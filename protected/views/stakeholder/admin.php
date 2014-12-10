@@ -42,22 +42,22 @@ $('.search-form form').submit(function(){
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
-        'cod_stakeholder',
+        'id',
         'descricao',
         array(
                     'name' => 'grupo',
                     'value' => 'isset($data->grupo0) ? $data->grupo0 : null',
-                    'filter' => CHtml::listData(GrupoAnalise::model()->findAll(), 'cod_grupo', GrupoAnalise::representingColumn()),
+                    'filter' => CHtml::listData(GrupoAnalise::model()->findAll(), 'id', GrupoAnalise::representingColumn()),
                 ),
         array(
                     'name' => 'cliente',
                     'value' => 'isset($data->cliente0) ? $data->cliente0 : null',
-                    'filter' => CHtml::listData(Cliente::model()->findAll(), 'cod_cliente', Cliente::representingColumn()),
+                    'filter' => CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn()),
                 ),
         array(
                     'name' => 'pessoa',
                     'value' => 'isset($data->pessoa0) ? $data->pessoa0 : null',
-                    'filter' => CHtml::listData(Pessoa::model()->findAll(), 'cod_pessoa', Pessoa::representingColumn()),
+                    'filter' => CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn()),
                 ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

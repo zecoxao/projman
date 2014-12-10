@@ -9,7 +9,7 @@
  * Columns in table "ecra" available as properties of the model,
  * followed by relations of table "ecra" available as properties of the model.
  *
- * @property integer $cod_ecra
+ * @property integer $id
  * @property string $descricao
  * @property string $modelo_ecra
  *
@@ -34,7 +34,7 @@ abstract class BaseEcra extends AweActiveRecord {
             array('descricao, modelo_ecra', 'required'),
             array('descricao', 'length', 'max'=>100),
             array('modelo_ecra', 'length', 'max'=>500),
-            array('cod_ecra, descricao, modelo_ecra', 'safe', 'on'=>'search'),
+            array('id, descricao, modelo_ecra', 'safe', 'on'=>'search'),
         );
     }
 
@@ -49,7 +49,7 @@ abstract class BaseEcra extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_ecra' => Yii::t('app', 'Cod Ecra'),
+                'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'modelo_ecra' => Yii::t('app', 'Modelo Ecra'),
                 'casoUsos' => null,
@@ -59,7 +59,7 @@ abstract class BaseEcra extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_ecra', $this->cod_ecra);
+        $criteria->compare('id', $this->id);
         $criteria->compare('descricao', $this->descricao, true);
         $criteria->compare('modelo_ecra', $this->modelo_ecra, true);
 

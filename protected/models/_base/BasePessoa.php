@@ -9,7 +9,7 @@
  * Columns in table "pessoa" available as properties of the model,
  * followed by relations of table "pessoa" available as properties of the model.
  *
- * @property integer $cod_pessoa
+ * @property integer $id
  * @property string $nome
  * @property string $morada
  * @property integer $tlm
@@ -39,7 +39,7 @@ abstract class BasePessoa extends AweActiveRecord {
             array('tlm', 'numerical', 'integerOnly'=>true),
             array('nome', 'length', 'max'=>100),
             array('morada', 'length', 'max'=>150),
-            array('cod_pessoa, nome, morada, tlm, data_nascimento', 'safe', 'on'=>'search'),
+            array('id, nome, morada, tlm, data_nascimento', 'safe', 'on'=>'search'),
         );
     }
 
@@ -56,7 +56,7 @@ abstract class BasePessoa extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
-                'cod_pessoa' => Yii::t('app', 'Cod Pessoa'),
+                'id' => Yii::t('app', 'ID'),
                 'nome' => Yii::t('app', 'Nome'),
                 'morada' => Yii::t('app', 'Morada'),
                 'tlm' => Yii::t('app', 'Tlm'),
@@ -70,7 +70,7 @@ abstract class BasePessoa extends AweActiveRecord {
     public function search() {
         $criteria = new CDbCriteria;
 
-        $criteria->compare('cod_pessoa', $this->cod_pessoa);
+        $criteria->compare('id', $this->id);
         $criteria->compare('nome', $this->nome, true);
         $criteria->compare('morada', $this->morada, true);
         $criteria->compare('tlm', $this->tlm);
