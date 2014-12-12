@@ -14,12 +14,14 @@
  * @property integer $grupo
  * @property integer $cliente
  * @property integer $pessoa
+ * @property integer $projecto
  *
  * @property Alteracao[] $alteracaos
- * @property Requisitos[] $requisitoses
- * @property GrupoAnalise $grupo0
+ * @property Requisito[] $requisitos
+ * @property Grupo $grupo0
  * @property Cliente $cliente0
  * @property Pessoa $pessoa0
+ * @property Projecto $projecto0
  * @property Membro[] $membros
  */
 abstract class BaseStakeholder extends AweActiveRecord {
@@ -38,20 +40,21 @@ abstract class BaseStakeholder extends AweActiveRecord {
 
     public function rules() {
         return array(
-            array('descricao, grupo, cliente, pessoa', 'required'),
-            array('grupo, cliente, pessoa', 'numerical', 'integerOnly'=>true),
+            array('descricao, grupo, cliente, pessoa, projecto', 'required'),
+            array('grupo, cliente, pessoa, projecto', 'numerical', 'integerOnly'=>true),
             array('descricao', 'length', 'max'=>100),
-            array('id, descricao, grupo, cliente, pessoa', 'safe', 'on'=>'search'),
+            array('id, descricao, grupo, cliente, pessoa, projecto', 'safe', 'on'=>'search'),
         );
     }
 
     public function relations() {
         return array(
             'alteracaos' => array(self::HAS_MANY, 'Alteracao', 'stakeholder'),
-            'requisitoses' => array(self::MANY_MANY, 'Requisitos', 'requisitos_stakeholders(stakeholder, requisito)'),
-            'grupo0' => array(self::BELONGS_TO, 'GrupoAnalise', 'grupo'),
+            'requisitos' => array(self::MANY_MANY, 'Requisito', 'requisitos_stakeholders(stakeholder, requisito)'),
+            'grupo0' => array(self::BELONGS_TO, 'Grupo', 'grupo'),
             'cliente0' => array(self::BELONGS_TO, 'Cliente', 'cliente'),
             'pessoa0' => array(self::BELONGS_TO, 'Pessoa', 'pessoa'),
+            'projecto0' => array(self::BELONGS_TO, 'Projecto', 'projecto'),
             'membros' => array(self::MANY_MANY, 'Membro', 'stakeholder_membro(stakeholder, membro)'),
         );
     }
@@ -66,11 +69,13 @@ abstract class BaseStakeholder extends AweActiveRecord {
                 'grupo' => Yii::t('app', 'Grupo'),
                 'cliente' => Yii::t('app', 'Cliente'),
                 'pessoa' => Yii::t('app', 'Pessoa'),
+                'projecto' => Yii::t('app', 'Projecto'),
                 'alteracaos' => null,
-                'requisitoses' => null,
+                'requisitos' => null,
                 'grupo0' => null,
                 'cliente0' => null,
                 'pessoa0' => null,
+                'projecto0' => null,
                 'membros' => null,
         );
     }
@@ -83,6 +88,22 @@ abstract class BaseStakeholder extends AweActiveRecord {
         $criteria->compare('grupo', $this->grupo);
         $criteria->compare('cliente', $this->cliente);
         $criteria->compare('pessoa', $this->pessoa);
+        $criteria->compare('projecto', $this->projecto);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Projecto($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('descricao', $this->descricao, true);
+        $criteria->compare('grupo', $this->grupo);
+        $criteria->compare('cliente', $this->cliente);
+        $criteria->compare('pessoa', $this->pessoa);
+        $criteria->compare('projecto', $parentID);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

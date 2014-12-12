@@ -3108,3 +3108,791 @@ in C:\xampp\htdocs\projman\index.php (13)
 in C:\xampp\htdocs\projman\index.php (13)
 2014/12/10 22:53:07 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
 in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:20:22 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:20:26 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:20:35 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:20:51 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:20:57 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:21:05 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:21:15 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:22:50 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:22:54 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:28:06 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:28:09 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:30:23 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:30:27 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/10 23:31:05 [warning] [application] Failed to set unsafe attribute "requisitos" of "Alteracao".
+in C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweActiveRecord.php (78)
+in C:\xampp\htdocs\projman\protected\controllers\AlteracaoController.php (139)
+in C:\xampp\htdocs\projman\protected\controllers\AlteracaoController.php (30)
+2014/12/10 23:33:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "grupoanalise/index".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('grupoanalise/in...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/projman/index.php?r=grupoanalise/index
+HTTP_REFERER=https://localhost/projman/index.php?r=estado/admin
+---
+2014/12/10 23:33:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "grupoanalise/index".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('grupoanalise/in...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/projman/index.php?r=grupoanalise/index
+HTTP_REFERER=https://localhost/projman/index.php?r=estado/admin
+---
+2014/12/10 23:58:03 [error] [php] include(Physician.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\views\cliente\_form.php(37): spl_autoload_call()
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): ClienteController->renderInternal()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(869): ClienteController->renderFile()
+#4 C:\xampp\htdocs\projman\protected\views\cliente\create.php(18): ClienteController->renderPartial()
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#6 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): ClienteController->renderInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(869): ClienteController->renderFile()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(782): ClienteController->renderPartial()
+#9 C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php(255): ClienteController->render()
+#10 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(77): ClienteController->render()
+#11 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ClienteController->actionCreate()
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(286): ClienteController->runAction()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ClienteController->run()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\projman\index.php(13): CWebApplication->run()
+REQUEST_URI=/projman/index.php?r=cliente/create
+in C:\xampp\htdocs\projman\protected\views\cliente\_form.php (37)
+in C:\xampp\htdocs\projman\protected\views\cliente\create.php (18)
+in C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php (255)
+2014/12/10 23:58:41 [error] [exception.CException] exception 'CException' with message 'Alias "ext.multimodelform.MultiModelForm" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:322
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.multimodelf...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ClienteController), 'ext.multimodelf...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.multimodelf...', Array)
+#3 C:\xampp\htdocs\projman\protected\views\cliente\_form.php(67): CBaseController->widget('ext.multimodelf...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\projman\protected\views\cliente\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php(255): CController->render('create', Array, false)
+#13 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(77): AweController->render('create', Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ClienteController->actionCreate()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/projman/index.php?r=cliente/create
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/index
+---
+2014/12/10 23:59:27 [error] [exception.CException] exception 'CException' with message 'Alias "ext.multimodelform.MultiModelForm" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:322
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.multimodelf...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ClienteController), 'ext.multimodelf...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.multimodelf...', Array)
+#3 C:\xampp\htdocs\projman\protected\views\cliente\_form.php(60): CBaseController->widget('ext.multimodelf...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\projman\protected\views\cliente\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php(255): CController->render('create', Array, false)
+#13 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(77): AweController->render('create', Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ClienteController->actionCreate()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/projman/index.php?r=cliente/create
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/index
+---
+2014/12/11 00:00:11 [error] [exception.CException] exception 'CException' with message 'Alias "ext.multimodelform.MultiModelForm" is invalid. Make sure it points to an existing PHP file and the file is readable.' in C:\xampp\htdocs\yii\framework\YiiBase.php:322
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWidgetFactory.php(146): YiiBase::import('ext.multimodelf...', true)
+#1 C:\xampp\htdocs\yii\framework\web\CBaseController.php(146): CWidgetFactory->createWidget(Object(ClienteController), 'ext.multimodelf...', Array)
+#2 C:\xampp\htdocs\yii\framework\web\CBaseController.php(172): CBaseController->createWidget('ext.multimodelf...', Array)
+#3 C:\xampp\htdocs\projman\protected\views\cliente\_form.php(67): CBaseController->widget('ext.multimodelf...', Array)
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#7 C:\xampp\htdocs\projman\protected\views\cliente\create.php(18): CController->renderPartial('_form', Array)
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#9 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#12 C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php(255): CController->render('create', Array, false)
+#13 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(77): AweController->render('create', Array)
+#14 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): ClienteController->actionCreate()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#16 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#19 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/create')
+#20 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#21 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/projman/index.php?r=cliente/create
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/index
+---
+2014/12/11 00:05:56 [error] [php] Undefined variable: id (C:\xampp\htdocs\projman\protected\controllers\ClienteController.php:105)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(286): ClienteController->runAction()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ClienteController->run()
+#3 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 C:\xampp\htdocs\projman\index.php(13): CWebApplication->run()
+REQUEST_URI=/projman/index.php?r=cliente/update&id=62
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (105)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:07:09 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: INSERT INTO `stakeholder` (`descricao`, `grupo`, `cliente`, `pessoa`, `id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in C:\xampp\htdocs\projman\protected\extensions\multimodelform\MultiModelForm.php (809)
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (119)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:07:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: INSERT INTO `stakeholder` (`descricao`, `grupo`, `cliente`, `pessoa`, `id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\projman\protected\extensions\multimodelform\MultiModelForm.php(809): CActiveRecord->save()
+#3 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(119): MultiModelForm::save(Object(Stakeholder), Array, Array, Array)
+#4 [internal function]: ClienteController->actionUpdate('62')
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClienteController), Array)
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClienteController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/update')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/projman/index.php?r=cliente/update&id=62
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/update&id=62
+---
+2014/12/11 00:19:07 [warning] [application] Failed to set unsafe attribute "membros" of "Stakeholder".
+in C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweActiveRecord.php (78)
+in C:\xampp\htdocs\projman\protected\controllers\StakeholderController.php (60)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:25:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `stakeholder` (`descricao`, `grupo`, `cliente`, `pessoa`, `id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in C:\xampp\htdocs\projman\protected\extensions\multimodelform\MultiModelForm.php (809)
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (119)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:25:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `stakeholder` (`descricao`, `grupo`, `cliente`, `pessoa`, `id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4)' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1077): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\projman\protected\extensions\multimodelform\MultiModelForm.php(809): CActiveRecord->save()
+#3 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(119): MultiModelForm::save(Object(Stakeholder), Array, Array, Array)
+#4 [internal function]: ClienteController->actionUpdate('1')
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClienteController), Array)
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClienteController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/update')
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/projman/index.php?r=cliente/update&id=1
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/update&id=1
+---
+2014/12/11 00:33:40 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=72.
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (146)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:33:40 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=72' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('72')
+#2 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(146): CActiveRecord->delete()
+#3 [internal function]: ClienteController->actionDelete('72')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClienteController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClienteController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/projman/index.php?ajax=cliente-grid&id=72&r=cliente%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/admin
+---
+2014/12/11 00:44:42 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=73.
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (146)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/11 00:44:42 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=73' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('73')
+#2 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(146): CActiveRecord->delete()
+#3 [internal function]: ClienteController->actionDelete('73')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClienteController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClienteController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#11 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/projman/index.php?ajax=cliente-grid&id=73&r=cliente%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/admin
+---
+2014/12/11 01:03:52 [error] [php] Undefined variable: validatedStakeholders (C:\xampp\htdocs\projman\protected\views\cliente\create.php:18)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): ClienteController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): ClienteController->renderPartial()
+#2 C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php(255): ClienteController->render()
+#3 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(135): ClienteController->render()
+#4 unknown(0): ClienteController->actionUpdate()
+#5 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#6 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 C:\xampp\htdocs\yii\framework\web\CController.php(286): ClienteController->runAction()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(265): ClienteController->runActionWithFilters()
+#10 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ClienteController->run()
+#11 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\projman\index.php(13): CWebApplication->run()
+REQUEST_URI=/projman/index.php?r=cliente/update&id=1
+in C:\xampp\htdocs\projman\protected\views\cliente\create.php (18)
+in C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweController.php (255)
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (135)
+2014/12/12 11:21:52 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('alteracao/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=alteracao/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=alteracao/index
+---
+2014/12/12 11:21:56 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('casouso/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=casouso/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=casouso/index
+---
+2014/12/12 11:22:00 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=cliente/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/index
+---
+2014/12/12 11:22:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('ecra/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=ecra/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=ecra/index
+---
+2014/12/12 11:22:09 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('entidade/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=entidade/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=entidade/index
+---
+2014/12/12 11:22:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('estado/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=estado/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=estado/index
+---
+2014/12/12 11:22:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('grupo/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=grupo/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=grupo/index
+---
+2014/12/12 11:22:21 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('membro/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=membro/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=membro/index
+---
+2014/12/12 11:22:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('requisito/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=requisito/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=requisito/index
+---
+2014/12/12 11:22:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stakeholder/adm...')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=stakeholder/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=stakeholder/index
+---
+2014/12/12 11:31:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 C:\xampp\htdocs\projman\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(38): RightsFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#4 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('admin')
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('grupo/admin')
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/projman/index.php?r=grupo/admin
+HTTP_REFERER=https://localhost/projman/index.php?r=grupo/index
+---
+2014/12/12 11:32:42 [warning] [application] Failed to set unsafe attribute "requisitos" of "Alteracao".
+in C:\xampp\htdocs\projman\protected\extensions\AweCrud\components\AweActiveRecord.php (78)
+in C:\xampp\htdocs\projman\protected\controllers\AlteracaoController.php (61)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+2014/12/12 17:43:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracao`, CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)). The SQL statement executed was: DELETE FROM `stakeholder` WHERE `stakeholder`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\StakeholderController.php (90)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracao`, CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)). The SQL statement executed was: DELETE FROM `stakeholder` WHERE `stakeholder`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\StakeholderController.php(90): CActiveRecord->delete()
+#3 [internal function]: StakeholderController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(StakeholderController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(StakeholderController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stakeholder/del...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=stakeholder-grid&id=1&r=stakeholder%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=stakeholder/admin
+---
+2014/12/12 17:43:26 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracoes_requisito`, CONSTRAINT `alteracoes_requisito_ibfk_2` FOREIGN KEY (`requisito`) REFERENCES `requisito` (`id`)). The SQL statement executed was: DELETE FROM `requisito` WHERE `requisito`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\RequisitoController.php (90)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracoes_requisito`, CONSTRAINT `alteracoes_requisito_ibfk_2` FOREIGN KEY (`requisito`) REFERENCES `requisito` (`id`)). The SQL statement executed was: DELETE FROM `requisito` WHERE `requisito`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\RequisitoController.php(90): CActiveRecord->delete()
+#3 [internal function]: RequisitoController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(RequisitoController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(RequisitoController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('requisito/delet...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=requisito-grid&id=1&r=requisito%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=requisito/admin
+---
+2014/12/12 17:43:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`membros_projecto`, CONSTRAINT `membros_projecto_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`id`)). The SQL statement executed was: DELETE FROM `projecto` WHERE `projecto`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\ProjectoController.php (84)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`membros_projecto`, CONSTRAINT `membros_projecto_ibfk_1` FOREIGN KEY (`projecto`) REFERENCES `projecto` (`id`)). The SQL statement executed was: DELETE FROM `projecto` WHERE `projecto`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\ProjectoController.php(84): CActiveRecord->delete()
+#3 [internal function]: ProjectoController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectoController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectoController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('projecto/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=projecto-grid&id=1&r=projecto%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=projecto/admin
+---
+2014/12/12 17:43:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\PessoaController.php (78)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\PessoaController.php(78): CActiveRecord->delete()
+#3 [internal function]: PessoaController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PessoaController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PessoaController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pessoa/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=pessoa-grid&id=1&r=pessoa%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=pessoa/admin
+---
+2014/12/12 17:43:46 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`membros_caso_uso`, CONSTRAINT `membros_caso_uso_ibfk_1` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`)). The SQL statement executed was: DELETE FROM `membro` WHERE `membro`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\MembroController.php (96)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:46 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`membros_caso_uso`, CONSTRAINT `membros_caso_uso_ibfk_1` FOREIGN KEY (`membro`) REFERENCES `membro` (`id`)). The SQL statement executed was: DELETE FROM `membro` WHERE `membro`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\MembroController.php(96): CActiveRecord->delete()
+#3 [internal function]: MembroController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(MembroController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(MembroController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('membro/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=membro-grid&id=1&r=membro%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=membro/admin
+---
+2014/12/12 17:43:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracao`, CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)). The SQL statement executed was: DELETE FROM `stakeholder` WHERE `stakeholder`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\StakeholderController.php (90)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:43:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`alteracao`, CONSTRAINT `alteracao_ibfk_1` FOREIGN KEY (`stakeholder`) REFERENCES `stakeholder` (`id`)). The SQL statement executed was: DELETE FROM `stakeholder` WHERE `stakeholder`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\StakeholderController.php(90): CActiveRecord->delete()
+#3 [internal function]: StakeholderController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(StakeholderController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(StakeholderController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('stakeholder/del...')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=stakeholder-grid&id=1&r=stakeholder%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=stakeholder/admin
+---
+2014/12/12 17:44:27 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\PessoaController.php (78)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:44:27 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\PessoaController.php(78): CActiveRecord->delete()
+#3 [internal function]: PessoaController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PessoaController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PessoaController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pessoa/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=pessoa-grid&id=1&r=pessoa%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=pessoa/admin
+---
+2014/12/12 17:44:59 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_2` FOREIGN KEY (`grupo`) REFERENCES `grupo` (`id`)). The SQL statement executed was: DELETE FROM `grupo` WHERE `grupo`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\GrupoController.php (78)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:44:59 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_2` FOREIGN KEY (`grupo`) REFERENCES `grupo` (`id`)). The SQL statement executed was: DELETE FROM `grupo` WHERE `grupo`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\GrupoController.php(78): CActiveRecord->delete()
+#3 [internal function]: GrupoController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(GrupoController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(GrupoController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('grupo/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=grupo-grid&id=1&r=grupo%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=grupo/admin
+---
+2014/12/12 17:45:36 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\ClienteController.php (78)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:45:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`stakeholder`, CONSTRAINT `stakeholder_ibfk_3` FOREIGN KEY (`cliente`) REFERENCES `cliente` (`id`)). The SQL statement executed was: DELETE FROM `cliente` WHERE `cliente`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\ClienteController.php(78): CActiveRecord->delete()
+#3 [internal function]: ClienteController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClienteController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClienteController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('cliente/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=cliente-grid&id=1&r=cliente%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=cliente/admin
+---
+2014/12/12 17:46:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1.
+in C:\xampp\htdocs\projman\protected\controllers\PessoaController.php (78)
+in C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php (36)
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:46:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1451 Cannot delete or update a parent row: a foreign key constraint fails (`root`.`cliente`, CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`pessoa`) REFERENCES `pessoa` (`id`)). The SQL statement executed was: DELETE FROM `pessoa` WHERE `pessoa`.`id`=1' in C:\xampp\htdocs\yii\framework\db\CDbCommand.php:358
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1802): CDbCommand->execute()
+#1 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(1222): CActiveRecord->deleteByPk('1')
+#2 C:\xampp\htdocs\projman\protected\controllers\PessoaController.php(78): CActiveRecord->delete()
+#3 [internal function]: PessoaController->actionDelete('1')
+#4 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(PessoaController), Array)
+#5 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(PessoaController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#9 C:\xampp\htdocs\projman\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#11 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('delete')
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('pessoa/delete')
+#16 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/projman/index.php?ajax=pessoa-grid&id=1&r=pessoa%2Fdelete
+HTTP_REFERER=https://localhost/projman/index.php?r=pessoa/admin
+---
+2014/12/12 17:59:07 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:59:15 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:59:27 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 17:59:31 [warning] [application] Failed to set unsafe attribute "layout" of "AweCrudCode".
+in C:\xampp\htdocs\projman\index.php (13)
+2014/12/12 18:12:23 [error] [exception.CException] exception 'CException' with message 'Projecto and its behaviors do not have a method or closure named "search_Projecto".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('search_Projecto', Array)
+#1 C:\xampp\htdocs\projman\protected\views\projecto\view.php(37): CActiveRecord->__call('search_Projecto', Array)
+#2 C:\xampp\htdocs\projman\protected\views\projecto\view.php(37): Projecto->search_Projecto('2')
+#3 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require('C:\\xampp\\htdocs...')
+#4 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('C:\\xampp\\htdocs...', Array, true)
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(869): CBaseController->renderFile('C:\\xampp\\htdocs...', Array, true)
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#7 C:\xampp\htdocs\projman\protected\controllers\ProjectoController.php(29): CController->render('view', Array)
+#8 [internal function]: ProjectoController->actionView('2')
+#9 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectoController), Array)
+#10 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectoController), Object(ReflectionMethod), Array)
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('projecto/view')
+#17 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\projman\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/projman/index.php?r=projecto/view&id=2
+HTTP_REFERER=https://localhost/projman/index.php?r=projecto/create
+---

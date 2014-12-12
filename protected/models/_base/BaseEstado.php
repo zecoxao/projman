@@ -12,7 +12,7 @@
  * @property integer $id
  * @property string $descricao
  *
- * @property Requisitos[] $requisitoses
+ * @property Requisito[] $requisitos
  */
 abstract class BaseEstado extends AweActiveRecord {
 
@@ -38,7 +38,7 @@ abstract class BaseEstado extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'requisitoses' => array(self::HAS_MANY, 'Requisitos', 'estado'),
+            'requisitos' => array(self::HAS_MANY, 'Requisito', 'estado'),
         );
     }
 
@@ -49,7 +49,7 @@ abstract class BaseEstado extends AweActiveRecord {
         return array(
                 'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
-                'requisitoses' => null,
+                'requisitos' => null,
         );
     }
 

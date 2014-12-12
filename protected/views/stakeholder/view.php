@@ -25,7 +25,7 @@ $this->menu=array(
         'descricao',
         array(
 			'name'=>'grupo',
-			'value'=>($model->grupo0 !== null) ? CHtml::link($model->grupo0, array('/grupoAnalise/view', 'id' => $model->grupo0->id)).' ' : null,
+			'value'=>($model->grupo0 !== null) ? CHtml::link($model->grupo0, array('/grupo/view', 'id' => $model->grupo0->id)).' ' : null,
 			'type'=>'html',
 		),
         array(
@@ -36,6 +36,11 @@ $this->menu=array(
         array(
 			'name'=>'pessoa',
 			'value'=>($model->pessoa0 !== null) ? CHtml::link($model->pessoa0, array('/pessoa/view', 'id' => $model->pessoa0->id)).' ' : null,
+			'type'=>'html',
+		),
+        array(
+			'name'=>'projecto',
+			'value'=>($model->projecto0 !== null) ? CHtml::link($model->projecto0, array('/projecto/view', 'id' => $model->projecto0->id)).' ' : null,
 			'type'=>'html',
 		),
 	),

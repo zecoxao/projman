@@ -47,7 +47,7 @@ $('.search-form form').submit(function(){
         array(
                     'name' => 'grupo',
                     'value' => 'isset($data->grupo0) ? $data->grupo0 : null',
-                    'filter' => CHtml::listData(GrupoAnalise::model()->findAll(), 'id', GrupoAnalise::representingColumn()),
+                    'filter' => CHtml::listData(Grupo::model()->findAll(), 'id', Grupo::representingColumn()),
                 ),
         array(
                     'name' => 'cliente',
@@ -58,6 +58,11 @@ $('.search-form form').submit(function(){
                     'name' => 'pessoa',
                     'value' => 'isset($data->pessoa0) ? $data->pessoa0 : null',
                     'filter' => CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn()),
+                ),
+        array(
+                    'name' => 'projecto',
+                    'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
+                    'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
                 ),
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

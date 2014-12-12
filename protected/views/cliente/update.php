@@ -18,5 +18,5 @@ $this->menu=array(
 
 <fieldset>
     <legend><?php echo Yii::t('AweCrud.app', 'Update') . ' ' . Cliente::label(); ?> <?php echo CHtml::encode($model) ?></legend>
-    <?php echo $this->renderPartial('_form',array('model' => $model)); ?>
+    <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
 </fieldset>

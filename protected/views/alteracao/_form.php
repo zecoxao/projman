@@ -19,9 +19,9 @@
                         <?php echo $form->datepickerRow($model, 'data_alteracao', array('prepend'=>'<i class="icon-calendar"></i>')) ?>
                         <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 250)) ?>
             <div class="row nm_row">
-<label for="requisitoses"><?php echo Yii::t('app', 'Requisitoses'); ?></label>
-<?php echo CHtml::checkBoxList('Alteracao[requisitoses]', array_map('AweHtml::getPrimaryKey', $model->requisitoses),
-CHtml::listData(Requisitos::model()->findAll(), 'id', 'descricao'),
+<label for="requisitos"><?php echo Yii::t('app', 'Requisitos'); ?></label>
+<?php echo CHtml::checkBoxList('Alteracao[requisitos]', array_map('AweHtml::getPrimaryKey', $model->requisitos),
+CHtml::listData(Requisito::model()->findAll(), 'id', 'descricao'),
 array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
     <div class="form-actions">

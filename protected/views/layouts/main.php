@@ -43,11 +43,11 @@
 				array('label'=>'Ecra', 'url'=>array('/ecra/index')),
 				array('label'=>'Entidade', 'url'=>array('/entidade/index')),
 				array('label'=>'Estado', 'url'=>array('/estado/index')),
-				array('label'=>'GrupoAnalise', 'url'=>array('/grupoanalise/index')),
+				array('label'=>'Grupo', 'url'=>array('/grupo/index')),
 				array('label'=>'Membro', 'url'=>array('/membro/index')),
 				array('label'=>'Pessoa', 'url'=>array('/pessoa/index')),
 				array('label'=>'Projecto', 'url'=>array('/projecto/index')),
-				array('label'=>'Requisito', 'url'=>array('/requisitos/index')),
+				array('label'=>'Requisito', 'url'=>array('/requisito/index')),
 				array('label'=>'Stakeholder', 'url'=>array('/stakeholder/index')),
                                 
 			),

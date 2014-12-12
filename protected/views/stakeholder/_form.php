@@ -16,13 +16,14 @@
     <?php echo $form->errorSummary($model) ?>
 
                             <?php echo $form->textFieldRow($model, 'descricao', array('class' => 'span5', 'maxlength' => 100)) ?>
-                        <?php echo $form->dropDownListRow($model, 'grupo', CHtml::listData(GrupoAnalise::model()->findAll(), 'id', GrupoAnalise::representingColumn())) ?>
+                        <?php echo $form->dropDownListRow($model, 'grupo', CHtml::listData(Grupo::model()->findAll(), 'id', Grupo::representingColumn())) ?>
                         <?php echo $form->dropDownListRow($model, 'cliente', CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn())) ?>
                         <?php echo $form->dropDownListRow($model, 'pessoa', CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn())) ?>
+                        <?php echo $form->dropDownListRow($model, 'projecto', CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn())) ?>
             <div class="row nm_row">
-<label for="requisitoses"><?php echo Yii::t('app', 'Requisitoses'); ?></label>
-<?php echo CHtml::checkBoxList('Stakeholder[requisitoses]', array_map('AweHtml::getPrimaryKey', $model->requisitoses),
-CHtml::listData(Requisitos::model()->findAll(), 'id', 'descricao'),
+<label for="requisitos"><?php echo Yii::t('app', 'Requisitos'); ?></label>
+<?php echo CHtml::checkBoxList('Stakeholder[requisitos]', array_map('AweHtml::getPrimaryKey', $model->requisitos),
+CHtml::listData(Requisito::model()->findAll(), 'id', 'descricao'),
 array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
 
 <div class="row nm_row">
