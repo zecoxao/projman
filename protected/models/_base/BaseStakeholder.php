@@ -109,6 +109,36 @@ abstract class BaseStakeholder extends AweActiveRecord {
             'criteria' => $criteria,
         ));
     }
+    
+    public function search_Cliente($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('descricao', $this->descricao, true);
+        $criteria->compare('grupo', $this->grupo);
+        $criteria->compare('cliente', $parentID);
+        $criteria->compare('pessoa', $this->pessoa);
+        $criteria->compare('projecto', $this->projecto);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Grupo($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('descricao', $this->descricao, true);
+        $criteria->compare('grupo', $parentID);
+        $criteria->compare('cliente', $this->cliente);
+        $criteria->compare('pessoa', $this->pessoa);
+        $criteria->compare('projecto', $this->projecto);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
     public function behaviors() {
         return array_merge(array(

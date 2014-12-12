@@ -23,9 +23,12 @@ class ProjectoController extends RController {
         $child_model = new
                 Stakeholder("search");
         
+        $child_model_2 = new Requisito("search");
+        
         $this->render('view', array(
             'model' => $this->loadModel($id),
             'child_model' => $child_model,
+            'child_model_2'=> $child_model_2,
             'parentID' => $id));
     }
 

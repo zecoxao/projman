@@ -19,9 +19,13 @@ class StakeholderController extends RController {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $child_model = new
+                Alteracao("search");
+        
         $this->render('view', array(
             'model' => $this->loadModel($id),
-        ));
+            'child_model' => $child_model,
+            'parentID' => $id));
     }
 
     /**

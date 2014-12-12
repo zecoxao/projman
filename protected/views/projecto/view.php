@@ -33,7 +33,7 @@ $this->menu = array(
     ?>
 </fieldset>
 <br>
-<legend><?php echo Yii::t('AweCrud.app', 'Stakeholders de') . ' ' . Projecto::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+<legend><?php echo Yii::t('AweCrud.app', 'Stakeholders do') . ' ' . Projecto::label(); ?> <?php echo CHtml::encode($model) ?></legend>
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'stakeholder-grid',
@@ -64,6 +64,46 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("stakeholder/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("stakeholder/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("stakeholder/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Requisitos do') . ' ' . Projecto::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'requisito-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_2->search_Projecto($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'projecto',
+            'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
+            'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
+        ),
+        'descricao',
+        array(
+            'name' => 'estado',
+            'value' => 'isset($data->estado0) ? $data->estado0 : null',
+            'filter' => CHtml::listData(Estado::model()->findAll(), 'id', Estado::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("requisito/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("requisito/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("requisito/delete",
+            "id"=>$data->id)',
         ),
     ),
 ));

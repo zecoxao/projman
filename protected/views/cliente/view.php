@@ -31,3 +31,46 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Stakeholders do') . ' ' . Cliente::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'stakeholder-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Cliente($parentID),
+    'columns' => array(
+        'id',
+        'descricao',
+        array(
+            'name' => 'grupo',
+            'value' => 'isset($data->grupo0) ? $data->grupo0 : null',
+            'filter' => CHtml::listData(Grupo::model()->findAll(), 'id', Grupo::representingColumn()),
+        ),
+        array(
+            'name' => 'cliente',
+            'value' => 'isset($data->cliente0) ? $data->cliente0 : null',
+            'filter' => CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn()),
+        ),
+        array(
+            'name' => 'pessoa',
+            'value' => 'isset($data->pessoa0) ? $data->pessoa0 : null',
+            'filter' => CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn()),
+        ),
+        array(
+            'name' => 'projecto',
+            'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
+            'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("stakeholder/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("stakeholder/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("stakeholder/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

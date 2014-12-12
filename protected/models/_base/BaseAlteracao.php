@@ -73,6 +73,19 @@ abstract class BaseAlteracao extends AweActiveRecord {
             'criteria' => $criteria,
         ));
     }
+    
+    public function search_Stakeholder($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('stakeholder', $parentID);
+        $criteria->compare('data_alteracao', $this->data_alteracao, true);
+        $criteria->compare('descricao', $this->descricao, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
     public function behaviors() {
         return array_merge(array(

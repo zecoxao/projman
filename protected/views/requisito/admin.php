@@ -37,24 +37,24 @@ $('.search-form form').submit(function(){
 </div><!-- search-form -->
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-    'id' => 'requisito-grid',
+     'id' => 'requisito-grid',
     'type' => 'striped condensed',
     'dataProvider' => $model->search(),
     'filter' => $model,
     'columns' => array(
         'id',
         array(
-                    'name' => 'projecto',
-                    'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
-                    'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
-                ),
+            'name' => 'projecto',
+            'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
+            'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
+        ),
         'descricao',
         array(
-                    'name' => 'estado',
-                    'value' => 'isset($data->estado0) ? $data->estado0 : null',
-                    'filter' => CHtml::listData(Estado::model()->findAll(), 'id', Estado::representingColumn()),
-                ),
-		array(
+            'name' => 'estado',
+            'value' => 'isset($data->estado0) ? $data->estado0 : null',
+            'filter' => CHtml::listData(Estado::model()->findAll(), 'id', Estado::representingColumn()),
+        ),
+        array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
 	),

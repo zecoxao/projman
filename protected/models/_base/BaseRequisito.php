@@ -79,6 +79,32 @@ abstract class BaseRequisito extends AweActiveRecord {
             'criteria' => $criteria,
         ));
     }
+    
+    public function search_Estado($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('projecto', $this->projecto);
+        $criteria->compare('descricao', $this->descricao, true);
+        $criteria->compare('estado', $parentID);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Projecto($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('projecto', $parentID);
+        $criteria->compare('descricao', $this->descricao, true);
+        $criteria->compare('estado', $this->estado);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
 
     public function behaviors() {
         return array_merge(array(
