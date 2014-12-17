@@ -15,7 +15,7 @@
  * @property string $descricao
  *
  * @property Stakeholder $stakeholder0
- * @property Requisito[] $requisitos
+ * @property AlteracaoRequisito[] $alteracaoRequisitos
  */
 abstract class BaseAlteracao extends AweActiveRecord {
 
@@ -43,7 +43,7 @@ abstract class BaseAlteracao extends AweActiveRecord {
     public function relations() {
         return array(
             'stakeholder0' => array(self::BELONGS_TO, 'Stakeholder', 'stakeholder'),
-            'requisitos' => array(self::MANY_MANY, 'Requisito', 'alteracoes_requisito(alteracao, requisito)'),
+            'alteracaoRequisitos' => array(self::HAS_MANY, 'AlteracaoRequisito', 'alteracao'),
         );
     }
 
@@ -57,7 +57,7 @@ abstract class BaseAlteracao extends AweActiveRecord {
                 'data_alteracao' => Yii::t('app', 'Data Alteracao'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'stakeholder0' => null,
-                'requisitos' => null,
+                'alteracaoRequisitos' => null,
         );
     }
 

@@ -14,9 +14,9 @@
  * @property integer $pessoa
  *
  * @property Pessoa $pessoa0
- * @property CasoUso[] $casoUsos
- * @property Projecto[] $projectos
- * @property Stakeholder[] $stakeholders
+ * @property MembroCaso[] $membroCasos
+ * @property MembroProjecto[] $membroProjectos
+ * @property StakeholderMembro[] $stakeholderMembros
  */
 abstract class BaseMembro extends AweActiveRecord {
 
@@ -44,9 +44,9 @@ abstract class BaseMembro extends AweActiveRecord {
     public function relations() {
         return array(
             'pessoa0' => array(self::BELONGS_TO, 'Pessoa', 'pessoa'),
-            'casoUsos' => array(self::MANY_MANY, 'CasoUso', 'membros_caso_uso(membro, caso_uso)'),
-            'projectos' => array(self::MANY_MANY, 'Projecto', 'membros_projecto(membro, projecto)'),
-            'stakeholders' => array(self::MANY_MANY, 'Stakeholder', 'stakeholder_membro(membro, stakeholder)'),
+            'membroCasos' => array(self::HAS_MANY, 'MembroCaso', 'membro'),
+            'membroProjectos' => array(self::HAS_MANY, 'MembroProjecto', 'membro'),
+            'stakeholderMembros' => array(self::HAS_MANY, 'StakeholderMembro', 'membro'),
         );
     }
 
@@ -59,9 +59,9 @@ abstract class BaseMembro extends AweActiveRecord {
                 'descricao' => Yii::t('app', 'Descricao'),
                 'pessoa' => Yii::t('app', 'Pessoa'),
                 'pessoa0' => null,
-                'casoUsos' => null,
-                'projectos' => null,
-                'stakeholders' => null,
+                'membroCasos' => null,
+                'membroProjectos' => null,
+                'stakeholderMembros' => null,
         );
     }
 

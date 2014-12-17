@@ -13,7 +13,7 @@
  * @property string $nome
  * @property string $descricao
  *
- * @property CasoUso[] $casoUsos
+ * @property EntidadeCaso[] $entidadeCasos
  */
 abstract class BaseEntidade extends AweActiveRecord {
 
@@ -40,7 +40,7 @@ abstract class BaseEntidade extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'casoUsos' => array(self::MANY_MANY, 'CasoUso', 'entidade_caso(entidade, caso_uso)'),
+            'entidadeCasos' => array(self::HAS_MANY, 'EntidadeCaso', 'entidade'),
         );
     }
 
@@ -52,7 +52,7 @@ abstract class BaseEntidade extends AweActiveRecord {
                 'id' => Yii::t('app', 'ID'),
                 'nome' => Yii::t('app', 'Nome'),
                 'descricao' => Yii::t('app', 'Descricao'),
-                'casoUsos' => null,
+                'entidadeCasos' => null,
         );
     }
 

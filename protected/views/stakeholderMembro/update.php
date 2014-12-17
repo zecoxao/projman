@@ -1,19 +1,22 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
+/** @var StakeholderMembroController $this */
+/** @var StakeholderMembro $model */
 $this->breadcrumbs=array(
-	'Stakeholders de Membros'=>array('index'),
-	'View'=>array('view', 'stakeholder'=>$model->stakeholder, 'membro'=>$model->membro),
-	'Update',
+	$model->label(2) => array('index'),
+	Yii::t('app', $model->id) => array('view', 'id'=>$model->id),
+	Yii::t('AweCrud.app', 'Update'),
 );
 
 $this->menu=array(
-	array('label'=>'List Stakeholders de Membro', 'url'=>array('index')),
-	array('label'=>'Create Stakeholders de Membro', 'url'=>array('create')),
-	array('label'=>'View Stakeholders de Membro', 'url'=>array('view', 'stakeholder'=>$model->stakeholder, 'membro'=>$model->membro)),
-	array('label'=>'Manage Stakeholders de Membro', 'url'=>array('admin')),
-); 
+    //array('label' => Yii::t('AweCrud.app', 'List') . ' ' . StakeholderMembro::label(2), 'icon' => 'list', 'url' => array('index')),
+	//array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . StakeholderMembro::label(), 'icon' => 'plus', 'url' => array('create')),
+	//array('label' => Yii::t('AweCrud.app', 'View'), 'icon' => 'eye-open', 'url'=>array('view', 'id' => $model->id)),
+    array('label' => Yii::t('AweCrud.app', 'Delete'), 'icon' => 'trash', 'url'=>'#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->id), 'confirm' => Yii::t('AweCrud.app', 'Are you sure you want to delete this item?'))),
+	array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
+);
 ?>
 
-<h1>Update Client</h1>
-
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<fieldset>
+    <legend><?php echo Yii::t('AweCrud.app', 'Update') . ' ' . StakeholderMembro::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+    <?php echo $this->renderPartial('_form',array('model' => $model)); ?>
+</fieldset>

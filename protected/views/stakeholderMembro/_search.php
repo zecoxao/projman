@@ -1,24 +1,22 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
-<div class="wide form">
+<?php
+/** @var StakeholderMembroController $this */
+/** @var AweActiveForm $form */
+$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+	'action' => Yii::app()->createUrl($this->route),
+	'method' => 'get',
+)); ?>
 
-	<?php $form=$this->beginWidget('CActiveForm', array(
-		'action'=>Yii::app()->createUrl($this->route),
-		'method'=>'get',
-	)); ?>
+<?php echo $form->textFieldRow($model, 'id', array('class' => 'span5')); ?>
 
-	<div class="row">
-		<?php echo $form->label($model,'stakeholder'); ?>
-		<?php echo $form->textField($model,'stakeholder'); ?>
-	</div>
-	<div class="row">
-		<?php echo $form->label($model,'membro'); ?>
-		<?php echo $form->textField($model,'membro'); ?>
-	</div>
+<?php echo $form->dropDownListRow($model, 'stakeholder', CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn())); ?>
 
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Search'); ?>
-	</div>
+<?php echo $form->dropDownListRow($model, 'membro', CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn())); ?>
+
+<div class="form-actions">
+    <?php $this->widget('bootstrap.widgets.TbButton', array(
+			'type' => 'primary',
+			'label' => Yii::t('AweCrud.app', 'Search'),
+		)); ?>
+</div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

@@ -16,7 +16,7 @@
  * @property integer $duracao
  * @property string $ambito
  *
- * @property Membro[] $membros
+ * @property MembroProjecto[] $membroProjectos
  * @property Requisito[] $requisitos
  * @property Stakeholder[] $stakeholders
  */
@@ -45,7 +45,7 @@ abstract class BaseProjecto extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'membros' => array(self::MANY_MANY, 'Membro', 'membros_projecto(projecto, membro)'),
+            'membroProjectos' => array(self::HAS_MANY, 'MembroProjecto', 'projecto'),
             'requisitos' => array(self::HAS_MANY, 'Requisito', 'projecto'),
             'stakeholders' => array(self::HAS_MANY, 'Stakeholder', 'projecto'),
         );
@@ -62,7 +62,7 @@ abstract class BaseProjecto extends AweActiveRecord {
                 'data_fim' => Yii::t('app', 'Data Fim'),
                 'duracao' => Yii::t('app', 'Duracao'),
                 'ambito' => Yii::t('app', 'Ambito'),
-                'membros' => null,
+                'membroProjectos' => null,
                 'requisitos' => null,
                 'stakeholders' => null,
         );

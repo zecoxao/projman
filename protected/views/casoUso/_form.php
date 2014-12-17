@@ -22,25 +22,7 @@
                         <?php echo $form->textFieldRow($model, 'pre_condicao', array('class' => 'span5', 'maxlength' => 100)) ?>
                         <?php echo $form->textFieldRow($model, 'iniciador', array('class' => 'span5', 'maxlength' => 100)) ?>
                         <?php echo $form->textFieldRow($model, 'cenario_sucesso', array('class' => 'span5', 'maxlength' => 500)) ?>
-            <div class="row nm_row">
-<label for="ecras"><?php echo Yii::t('app', 'Ecras'); ?></label>
-<?php echo CHtml::checkBoxList('CasoUso[ecras]', array_map('AweHtml::getPrimaryKey', $model->ecras),
-CHtml::listData(Ecra::model()->findAll(), 'id', 'descricao'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-<div class="row nm_row">
-<label for="entidades"><?php echo Yii::t('app', 'Entidades'); ?></label>
-<?php echo CHtml::checkBoxList('CasoUso[entidades]', array_map('AweHtml::getPrimaryKey', $model->entidades),
-CHtml::listData(Entidade::model()->findAll(), 'id', 'nome'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-<div class="row nm_row">
-<label for="membros"><?php echo Yii::t('app', 'Membros'); ?></label>
-<?php echo CHtml::checkBoxList('CasoUso[membros]', array_map('AweHtml::getPrimaryKey', $model->membros),
-CHtml::listData(Membro::model()->findAll(), 'id', 'descricao'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-    <div class="form-actions">
+                <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',

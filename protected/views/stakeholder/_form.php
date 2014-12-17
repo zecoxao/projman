@@ -20,19 +20,7 @@
                         <?php echo $form->dropDownListRow($model, 'cliente', CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn())) ?>
                         <?php echo $form->dropDownListRow($model, 'pessoa', CHtml::listData(Pessoa::model()->findAll(), 'id', Pessoa::representingColumn())) ?>
                         <?php echo $form->dropDownListRow($model, 'projecto', CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn())) ?>
-            <div class="row nm_row">
-<label for="requisitos"><?php echo Yii::t('app', 'Requisitos'); ?></label>
-<?php echo CHtml::checkBoxList('Stakeholder[requisitos]', array_map('AweHtml::getPrimaryKey', $model->requisitos),
-CHtml::listData(Requisito::model()->findAll(), 'id', 'descricao'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-<div class="row nm_row">
-<label for="membros"><?php echo Yii::t('app', 'Membros'); ?></label>
-<?php echo CHtml::checkBoxList('Stakeholder[membros]', array_map('AweHtml::getPrimaryKey', $model->membros),
-CHtml::listData(Membro::model()->findAll(), 'id', 'descricao'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-    <div class="form-actions">
+                <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',

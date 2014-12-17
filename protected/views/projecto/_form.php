@@ -20,13 +20,7 @@
                         <?php echo $form->datepickerRow($model, 'data_fim', array('prepend'=>'<i class="icon-calendar"></i>')) ?>
                         <?php echo $form->textFieldRow($model, 'duracao', array('class' => 'span5')) ?>
                         <?php echo $form->textFieldRow($model, 'ambito', array('class' => 'span5', 'maxlength' => 100)) ?>
-            <div class="row nm_row">
-<label for="membros"><?php echo Yii::t('app', 'Membros'); ?></label>
-<?php echo CHtml::checkBoxList('Projecto[membros]', array_map('AweHtml::getPrimaryKey', $model->membros),
-CHtml::listData(Membro::model()->findAll(), 'id', 'descricao'),
-array('attributeitem' => 'id', 'checkAll' => 'Select All')) ?></div>
-
-    <div class="form-actions">
+                <div class="form-actions">
                 <?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',

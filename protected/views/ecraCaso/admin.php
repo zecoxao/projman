@@ -1,13 +1,14 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
+/** @var EcraCasoController $this */
+/** @var EcraCaso $model */
 $this->breadcrumbs=array(
-	'Ecras de Casos'=>array('index'),
-	'Manage',
+	'Ecra Casos'=>array('index'),
+	Yii::t('AweCrud.app', 'Manage'),
 );
 
 $this->menu=array(
-	array('label'=>'List Ecras de Casos', 'url'=>array('index')),
-	array('label'=>'Create Ecras de Caso', 'url'=>array('create')),
+	array('label' => Yii::t('AweCrud.app', 'List') . ' ' . EcraCaso::label(2), 'icon' => 'list', 'url' => array('index')),
+	array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . EcraCaso::label(), 'icon' => 'plus', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -16,7 +17,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('ecraCasogrid', {
+	$.fn.yiiGridView.update('ecra-caso-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -24,65 +25,37 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Ecras de Casos</h1>
+<fieldset>
+    <legend>
+        <?php echo Yii::t('AweCrud.app', 'Manage') ?> <?php echo EcraCaso::label(2) ?>    </legend>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('<i class="icon-search"></i> ' . Yii::t('AweCrud.app', 'Advanced Search'), '#', array('class' => 'search-button btn')) ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
-	'model'=>$model,
+	'model' => $model,
 )); ?>
 </div><!-- search-form -->
 
-<?php 
-$this->widget('zii.widgets.grid.CGridView', array(
-    'id'=>'ecraCasogrid',
-    'dataProvider'=>$model->search(),
-    'filter'=>$model,
-    'columns'=>array(
-        //'ecra',
-        //'caso_uso',
+<?php $this->widget('bootstrap.widgets.TbGridView',array(
+    'id' => 'ecra-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'id',
         array(
-            'header' => 'Descrição de Ecrã',
-            'name' => 'ecra0.descricao',
-            'filter' => CHtml::activeTextField($model, 'descricao_ecra'),
-        ),
+                    'name' => 'ecra',
+                    'value' => 'isset($data->ecra0) ? $data->ecra0 : null',
+                    'filter' => CHtml::listData(Ecra::model()->findAll(), 'id', Ecra::representingColumn()),
+                ),
         array(
-            'header' => 'Nome de Caso de Uso',
-            'name' => 'caso_uso0.nome',
-            'filter' => CHtml::activeTextField($model, 'nome_caso'),
-        ),
-        array(
-            'class'=>'CButtonColumn',
-            'template'=>'{view}{update}{delete}',
-            'buttons'=>array
-            (
-                'view' => array
-                (
-                    'url'=>
-                    'Yii::app()->createUrl("ecraCaso/view/", 
-                                            array("ecra"=>$data->ecra, "caso_uso"=>$data->caso_uso
-											))',
+                    'name' => 'caso_uso',
+                    'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+                    'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
                 ),
-                'update' => array
-                (
-                    'url'=>
-                    'Yii::app()->createUrl("ecraCaso/update/", 
-                                            array("ecra"=>$data->ecra, "caso_uso"=>$data->caso_uso
-											))',
-                ),
-                'delete'=> array
-                (
-                    'url'=>
-                    'Yii::app()->createUrl("ecraCaso/delete/", 
-                                            array("ecra"=>$data->ecra, "caso_uso"=>$data->caso_uso
-											))',
-                ),
-            ),
-        ),
-    ),
+		array(
+			'class'=>'bootstrap.widgets.TbButtonColumn',
+		),
+	),
 )); ?>
+</fieldset>

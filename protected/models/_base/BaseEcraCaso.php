@@ -7,11 +7,14 @@
  * property or method in class "EcraCaso".
  *
  * Columns in table "ecra_caso" available as properties of the model,
- * and there are no model relations.
+ * followed by relations of table "ecra_caso" available as properties of the model.
  *
+ * @property integer $id
  * @property integer $ecra
  * @property integer $caso_uso
  *
+ * @property Ecra $ecra0
+ * @property CasoUso $casoUso
  */
 abstract class BaseEcraCaso extends AweActiveRecord {
 
@@ -24,22 +27,21 @@ abstract class BaseEcraCaso extends AweActiveRecord {
     }
 
     public static function representingColumn() {
-        return array(
-            'ecra',
-            'caso_uso',
-        );
+        return 'id';
     }
 
     public function rules() {
         return array(
             array('ecra, caso_uso', 'required'),
             array('ecra, caso_uso', 'numerical', 'integerOnly'=>true),
-            array('ecra, caso_uso', 'safe', 'on'=>'search'),
+            array('id, ecra, caso_uso', 'safe', 'on'=>'search'),
         );
     }
 
     public function relations() {
         return array(
+            'ecra0' => array(self::BELONGS_TO, 'Ecra', 'ecra'),
+            'casoUso' => array(self::BELONGS_TO, 'CasoUso', 'caso_uso'),
         );
     }
 
@@ -48,16 +50,44 @@ abstract class BaseEcraCaso extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
+                'id' => Yii::t('app', 'ID'),
                 'ecra' => Yii::t('app', 'Ecra'),
                 'caso_uso' => Yii::t('app', 'Caso Uso'),
+                'ecra0' => null,
+                'casoUso' => null,
         );
     }
 
     public function search() {
         $criteria = new CDbCriteria;
 
+        $criteria->compare('id', $this->id);
         $criteria->compare('ecra', $this->ecra);
         $criteria->compare('caso_uso', $this->caso_uso);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Ecra($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('ecra', $parentID);
+        $criteria->compare('caso_uso', $this->caso_uso);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Caso($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('ecra', $this->ecra);
+        $criteria->compare('caso_uso', $parentID);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

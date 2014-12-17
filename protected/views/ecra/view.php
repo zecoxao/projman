@@ -27,3 +27,36 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Casos de Uso do') . ' ' . Ecra::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'ecra-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Ecra($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'ecra',
+            'value' => 'isset($data->ecra0) ? $data->ecra0 : null',
+            'filter' => CHtml::listData(Ecra::model()->findAll(), 'id', Ecra::representingColumn()),
+        ),
+        array(
+            'name' => 'caso_uso',
+            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("ecraCaso/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("ecraCaso/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("ecraCaso/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

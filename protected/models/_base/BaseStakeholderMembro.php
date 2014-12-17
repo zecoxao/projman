@@ -7,11 +7,14 @@
  * property or method in class "StakeholderMembro".
  *
  * Columns in table "stakeholder_membro" available as properties of the model,
- * and there are no model relations.
+ * followed by relations of table "stakeholder_membro" available as properties of the model.
  *
+ * @property integer $id
  * @property integer $stakeholder
  * @property integer $membro
  *
+ * @property Stakeholder $stakeholder0
+ * @property Membro $membro0
  */
 abstract class BaseStakeholderMembro extends AweActiveRecord {
 
@@ -24,22 +27,21 @@ abstract class BaseStakeholderMembro extends AweActiveRecord {
     }
 
     public static function representingColumn() {
-        return array(
-            'stakeholder',
-            'membro',
-        );
+        return 'id';
     }
 
     public function rules() {
         return array(
             array('stakeholder, membro', 'required'),
             array('stakeholder, membro', 'numerical', 'integerOnly'=>true),
-            array('stakeholder, membro', 'safe', 'on'=>'search'),
+            array('id, stakeholder, membro', 'safe', 'on'=>'search'),
         );
     }
 
     public function relations() {
         return array(
+            'stakeholder0' => array(self::BELONGS_TO, 'Stakeholder', 'stakeholder'),
+            'membro0' => array(self::BELONGS_TO, 'Membro', 'membro'),
         );
     }
 
@@ -48,16 +50,44 @@ abstract class BaseStakeholderMembro extends AweActiveRecord {
      */
     public function attributeLabels() {
         return array(
+                'id' => Yii::t('app', 'ID'),
                 'stakeholder' => Yii::t('app', 'Stakeholder'),
                 'membro' => Yii::t('app', 'Membro'),
+                'stakeholder0' => null,
+                'membro0' => null,
         );
     }
 
     public function search() {
         $criteria = new CDbCriteria;
 
+        $criteria->compare('id', $this->id);
         $criteria->compare('stakeholder', $this->stakeholder);
         $criteria->compare('membro', $this->membro);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+    
+    public function search_Stakeholder($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('stakeholder', $parentID);
+        $criteria->compare('membro', $this->membro);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+        ));
+    }
+
+    public function search_Membro($parentID) {
+        $criteria = new CDbCriteria;
+
+        $criteria->compare('id', $this->id);
+        $criteria->compare('stakeholder', $this->stakeholder);
+        $criteria->compare('membro', $parentID);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,

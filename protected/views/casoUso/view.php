@@ -32,3 +32,102 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Ecras do') . ' ' . CasoUso::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'ecra-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Caso($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'ecra',
+            'value' => 'isset($data->ecra0) ? $data->ecra0 : null',
+            'filter' => CHtml::listData(Ecra::model()->findAll(), 'id', Ecra::representingColumn()),
+        ),
+        array(
+            'name' => 'caso_uso',
+            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("ecraCaso/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("ecraCaso/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("ecraCaso/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Entidades do') . ' ' . CasoUso::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'entidade-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_2->search_Caso($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'entidade',
+            'value' => 'isset($data->entidade0) ? $data->entidade0 : null',
+            'filter' => CHtml::listData(Entidade::model()->findAll(), 'id', Entidade::representingColumn()),
+        ),
+        array(
+            'name' => 'caso_uso',
+            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("entidadeCaso/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("entidadeCaso/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("entidadeCaso/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Membros do') . ' ' . CasoUso::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'membro-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_3->search_Caso($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'membro',
+            'value' => 'isset($data->membro0) ? $data->membro0 : null',
+            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
+        ),
+        array(
+            'name' => 'caso_uso',
+            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("membroCaso/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("membroCaso/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("membroCaso/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

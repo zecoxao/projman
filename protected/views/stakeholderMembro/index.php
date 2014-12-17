@@ -1,18 +1,22 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
-$this->breadcrumbs=array(
-	'Stakeholders de Membros',
+/** @var StakeholderMembroController $this */
+/** @var StakeholderMembro $model */
+$this->breadcrumbs = array(
+	'Stakeholder Membros',
 );
 
-$this->menu=array(
-	array('label'=>'Create Stakeholders de Membro', 'url'=>array('create')),
-	array('label'=>'Manage Stakeholders de Membro', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . StakeholderMembro::label(), 'icon' => 'plus', 'url' => array('create')),
+    array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<h1>Stakeholders de Membros</h1>
+<fieldset>
+    <legend>
+        <?php echo Yii::t('AweCrud.app', 'List') ?> <?php echo StakeholderMembro::label(2) ?>    </legend>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<?php $this->widget('bootstrap.widgets.TbListView',array(
+	'dataProvider' => $dataProvider,
+	'itemView' => '_view',
 )); ?>
+</fieldset>

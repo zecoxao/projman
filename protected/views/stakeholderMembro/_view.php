@@ -1,13 +1,30 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
+<?php
+/** @var StakeholderMembroController $this */
+/** @var StakeholderMembro $data */
+?>
 <div class="view">
-	<b>
-	<?php echo CHtml::link(">> ", array('view', 
-	'stakeholder'=>$data->stakeholder, 'membro'=>$data->membro)); ?><br/></b>
-	
-	
-    <b><?php echo CHtml::encode($data->getAttributeLabel('stakeholder')); ?>:</b>
-	<?php echo CHtml::encode($data->stakeholder); ?><br />
-	
-    <b><?php echo CHtml::encode($data->getAttributeLabel('membro')); ?>:</b>
-	<?php echo CHtml::encode($data->membro); ?><br />
-</div>
+                    
+        <?php if (!empty($data->stakeholder0->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('stakeholder')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->stakeholder0->descricao); ?>
+            </div>
+        </div>
+
+        <?php endif; ?>
+                
+        <?php if (!empty($data->membro0->descricao)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('membro')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->membro0->descricao); ?>
+            </div>
+        </div>
+
+        <?php endif; ?>
+    </div>

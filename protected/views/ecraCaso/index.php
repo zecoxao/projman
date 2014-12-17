@@ -1,18 +1,22 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
-$this->breadcrumbs=array(
-	'Ecras de Casos',
+/** @var EcraCasoController $this */
+/** @var EcraCaso $model */
+$this->breadcrumbs = array(
+	'Ecra Casos',
 );
 
-$this->menu=array(
-	array('label'=>'Create Ecras de Caso', 'url'=>array('create')),
-	array('label'=>'Manage Ecras de Caso', 'url'=>array('admin')),
+$this->menu = array(
+    array('label' => Yii::t('AweCrud.app', 'Create') . ' ' . EcraCaso::label(), 'icon' => 'plus', 'url' => array('create')),
+    array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<h1>Ecras de Casos</h1>
+<fieldset>
+    <legend>
+        <?php echo Yii::t('AweCrud.app', 'List') ?> <?php echo EcraCaso::label(2) ?>    </legend>
 
-<?php $this->widget('zii.widgets.CListView', array(
-	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view',
+<?php $this->widget('bootstrap.widgets.TbListView',array(
+	'dataProvider' => $dataProvider,
+	'itemView' => '_view',
 )); ?>
+</fieldset>

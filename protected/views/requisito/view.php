@@ -36,3 +36,69 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Alteracoes do') . ' ' . Requisito::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'alteracao-requisito-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Requisito($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'alteracao',
+            'value' => 'isset($data->alteracao0) ? $data->alteracao0 : null',
+            'filter' => CHtml::listData(Alteracao::model()->findAll(), 'id', Alteracao::representingColumn()),
+        ),
+        array(
+            'name' => 'requisito',
+            'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
+            'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("alteracaoRequisito/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("alteracaoRequisito/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("alteracaoRequisito/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Stakeholders do') . ' ' . Requisito::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'requisito-stakeholder-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_2->search_Requisito($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'requisito',
+            'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
+            'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
+        ),
+        array(
+            'name' => 'stakeholder',
+            'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
+            'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("requisitoStakeholder/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("requisitoStakeholder/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("requisitoStakeholder/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

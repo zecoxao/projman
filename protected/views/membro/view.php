@@ -31,3 +31,102 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Casos de Uso do') . ' ' . Membro::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'membro-caso-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Membro($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'membro',
+            'value' => 'isset($data->membro0) ? $data->membro0 : null',
+            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
+        ),
+        array(
+            'name' => 'caso_uso',
+            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
+            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("membroCaso/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("membroCaso/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("membroCaso/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Projectos do') . ' ' . Membro::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'membro-projecto-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_2->search_Membro($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'membro',
+            'value' => 'isset($data->membro0) ? $data->membro0 : null',
+            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
+        ),
+        array(
+            'name' => 'projecto',
+            'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
+            'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("membroProjecto/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("membroProjecto/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("membroProjecto/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Stakeholders do') . ' ' . Membro::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'stakeholder-membro-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model_3->search_Membro($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'stakeholder',
+            'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
+            'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
+        ),
+        array(
+            'name' => 'membro',
+            'value' => 'isset($data->membro0) ? $data->membro0 : null',
+            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("stakeholderMembro/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("stakeholderMembro/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("stakeholderMembro/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

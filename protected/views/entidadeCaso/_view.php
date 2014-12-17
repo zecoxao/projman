@@ -1,13 +1,30 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
+<?php
+/** @var EntidadeCasoController $this */
+/** @var EntidadeCaso $data */
+?>
 <div class="view">
-	<b>
-	<?php echo CHtml::link(">> ", array('view', 
-	'entidade'=>$data->entidade, 'caso_uso'=>$data->caso_uso)); ?><br/></b>
-	
-	
-    <b><?php echo CHtml::encode($data->getAttributeLabel('entidade')); ?>:</b>
-	<?php echo CHtml::encode($data->entidade); ?><br />
-	
-    <b><?php echo CHtml::encode($data->getAttributeLabel('caso_uso')); ?>:</b>
-	<?php echo CHtml::encode($data->caso_uso); ?><br />
-</div>
+                    
+        <?php if (!empty($data->entidade0->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('entidade')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->entidade0->nome); ?>
+            </div>
+        </div>
+
+        <?php endif; ?>
+                
+        <?php if (!empty($data->casoUso->nome)): ?>
+        <div class="field">
+            <div class="field_name">
+                <b><?php echo CHtml::encode($data->getAttributeLabel('caso_uso')); ?>:</b>
+            </div>
+            <div class="field_value">
+                <?php echo CHtml::encode($data->casoUso->nome); ?>
+            </div>
+        </div>
+
+        <?php endif; ?>
+    </div>

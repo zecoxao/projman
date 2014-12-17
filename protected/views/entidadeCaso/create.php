@@ -1,15 +1,18 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
+/** @var EntidadeCasoController $this */
+/** @var EntidadeCaso $model */
 $this->breadcrumbs=array(
-	'Entidades de Casos'=>array('index'),
-	'Create',
+	$model->label(2) => array('index'),
+	Yii::t('AweCrud.app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Entidades de Casos', 'url'=>array('index')),
-    array('label'=>'Manage Entidades de Caso', 'url'=>array('admin')),
+    //array('label' => Yii::t('AweCrud.app', 'List').' '.EntidadeCaso::label(2), 'icon' => 'list', 'url' => array('index')),
+    array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<h1>Create Entidades de Caso</h1>
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<fieldset>
+    <legend><?php echo Yii::t('AweCrud.app', 'Create') . ' ' . EntidadeCaso::label(); ?></legend>
+    <?php echo $this->renderPartial('_form', array('model' => $model)); ?>
+</fieldset>

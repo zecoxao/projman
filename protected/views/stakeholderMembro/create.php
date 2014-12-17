@@ -1,15 +1,18 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
+/** @var StakeholderMembroController $this */
+/** @var StakeholderMembro $model */
 $this->breadcrumbs=array(
-	'Stakeholders de Membros'=>array('index'),
-	'Create',
+	$model->label(2) => array('index'),
+	Yii::t('AweCrud.app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Stakeholders de Membros', 'url'=>array('index')),
-    array('label'=>'Manage Stakeholders de Membro', 'url'=>array('admin')),
+    //array('label' => Yii::t('AweCrud.app', 'List').' '.StakeholderMembro::label(2), 'icon' => 'list', 'url' => array('index')),
+    array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<h1>Create Stakeholders de Membro</h1>
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<fieldset>
+    <legend><?php echo Yii::t('AweCrud.app', 'Create') . ' ' . StakeholderMembro::label(); ?></legend>
+    <?php echo $this->renderPartial('_form', array('model' => $model)); ?>
+</fieldset>

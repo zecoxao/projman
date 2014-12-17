@@ -13,7 +13,7 @@
  * @property string $descricao
  * @property string $modelo_ecra
  *
- * @property CasoUso[] $casoUsos
+ * @property EcraCaso[] $ecraCasos
  */
 abstract class BaseEcra extends AweActiveRecord {
 
@@ -40,7 +40,7 @@ abstract class BaseEcra extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'casoUsos' => array(self::MANY_MANY, 'CasoUso', 'ecra_caso(ecra, caso_uso)'),
+            'ecraCasos' => array(self::HAS_MANY, 'EcraCaso', 'ecra'),
         );
     }
 
@@ -52,7 +52,7 @@ abstract class BaseEcra extends AweActiveRecord {
                 'id' => Yii::t('app', 'ID'),
                 'descricao' => Yii::t('app', 'Descricao'),
                 'modelo_ecra' => Yii::t('app', 'Modelo Ecra'),
-                'casoUsos' => null,
+                'ecraCasos' => null,
         );
     }
 

@@ -18,9 +18,9 @@
  * @property string $iniciador
  * @property string $cenario_sucesso
  *
- * @property Ecra[] $ecras
- * @property Entidade[] $entidades
- * @property Membro[] $membros
+ * @property EcraCaso[] $ecraCasos
+ * @property EntidadeCaso[] $entidadeCasos
+ * @property MembroCaso[] $membroCasos
  */
 abstract class BaseCasoUso extends AweActiveRecord {
 
@@ -47,9 +47,9 @@ abstract class BaseCasoUso extends AweActiveRecord {
 
     public function relations() {
         return array(
-            'ecras' => array(self::MANY_MANY, 'Ecra', 'ecra_caso(caso_uso, ecra)'),
-            'entidades' => array(self::MANY_MANY, 'Entidade', 'entidade_caso(caso_uso, entidade)'),
-            'membros' => array(self::MANY_MANY, 'Membro', 'membros_caso_uso(caso_uso, membro)'),
+            'ecraCasos' => array(self::HAS_MANY, 'EcraCaso', 'caso_uso'),
+            'entidadeCasos' => array(self::HAS_MANY, 'EntidadeCaso', 'caso_uso'),
+            'membroCasos' => array(self::HAS_MANY, 'MembroCaso', 'caso_uso'),
         );
     }
 
@@ -66,9 +66,9 @@ abstract class BaseCasoUso extends AweActiveRecord {
                 'pre_condicao' => Yii::t('app', 'Pre Condicao'),
                 'iniciador' => Yii::t('app', 'Iniciador'),
                 'cenario_sucesso' => Yii::t('app', 'Cenario Sucesso'),
-                'ecras' => null,
-                'entidades' => null,
-                'membros' => null,
+                'ecraCasos' => null,
+                'entidadeCasos' => null,
+                'membroCasos' => null,
         );
     }
 

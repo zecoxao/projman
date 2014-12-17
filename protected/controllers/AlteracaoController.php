@@ -7,10 +7,12 @@ class AlteracaoController extends RController {
      * using two-column layout. See 'protected/views/layouts/column2.php'.
      */
     public $layout = '//layouts/column2';
-
-    public function filters() {
+    
+    public function filters()
+    {
         return array(
-            'rights - index, view',
+            'rights', // perform access control for CRUD operations
+ 
         );
     }
 
@@ -19,8 +21,13 @@ class AlteracaoController extends RController {
      * @param integer $id the ID of the model to be displayed
      */
     public function actionView($id) {
+        $child_model = new AlteracaoRequisito("search");
+
+
         $this->render('view', array(
             'model' => $this->loadModel($id),
+            'child_model' => $child_model,
+            'parentID' => $id
         ));
     }
 
@@ -36,8 +43,6 @@ class AlteracaoController extends RController {
         if (isset($_POST['Alteracao'])) {
             $model->attributes = $_POST['Alteracao'];
             if ($model->save()) {
-                if (isset($_POST['Alteracao']['requisitos']))
-                    $model->saveManyMany('requisitos', $_POST['Alteracao']['requisitos']);
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }
@@ -60,10 +65,6 @@ class AlteracaoController extends RController {
         if (isset($_POST['Alteracao'])) {
             $model->attributes = $_POST['Alteracao'];
             if ($model->save()) {
-                if (isset($_POST['Alteracao']['requisitos']))
-                    $model->saveManyMany('requisitos', $_POST['Alteracao']['requisitos']);
-                else
-                    $model->saveManyMany('requisitos', array());
                 $this->redirect(array('view', 'id' => $model->id));
             }
         }

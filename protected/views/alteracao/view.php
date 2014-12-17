@@ -32,3 +32,36 @@ $this->menu=array(
 	),
 )); ?>
 </fieldset>
+
+<legend><?php echo Yii::t('AweCrud.app', 'Requisitos da') . ' ' . Alteracao::label(); ?> <?php echo CHtml::encode($model) ?></legend>
+
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'alteracao-requisito-grid',
+    'type' => 'striped condensed',
+    'dataProvider' => $child_model->search_Alteracao($parentID),
+    'columns' => array(
+        'id',
+        array(
+            'name' => 'alteracao',
+            'value' => 'isset($data->alteracao0) ? $data->alteracao0 : null',
+            'filter' => CHtml::listData(Alteracao::model()->findAll(), 'id', Alteracao::representingColumn()),
+        ),
+        array(
+            'name' => 'requisito',
+            'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
+            'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
+        ),
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+            'template' => '{view}|{update}|{delete}',
+            'viewButtonUrl' => 'array("alteracaoRequisito/view",
+            "id"=>$data->id)',
+            'updateButtonUrl' => 'array("alteracaoRequisito/update",
+            "id"=>$data->id)',
+            'deleteButtonUrl' => 'array("alteracaoRequisito/delete",
+            "id"=>$data->id)',
+        ),
+    ),
+));
+?>

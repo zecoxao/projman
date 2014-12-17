@@ -1,15 +1,18 @@
-<!--Generated using Gimme CRUD freeware from www.HandsOnCoding.net -->
 <?php
+/** @var EcraCasoController $this */
+/** @var EcraCaso $model */
 $this->breadcrumbs=array(
-	'Ecras de Casos'=>array('index'),
-	'Create',
+	$model->label(2) => array('index'),
+	Yii::t('AweCrud.app', 'Create'),
 );
 
 $this->menu=array(
-	array('label'=>'List Ecras de Casos', 'url'=>array('index')),
-    array('label'=>'Manage Ecras de Caso', 'url'=>array('admin')),
+    //array('label' => Yii::t('AweCrud.app', 'List').' '.EcraCaso::label(2), 'icon' => 'list', 'url' => array('index')),
+    array('label' => Yii::t('AweCrud.app', 'Manage'), 'icon' => 'list-alt', 'url' => array('admin')),
 );
 ?>
 
-<h1>Create Ecras de Caso</h1>
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<fieldset>
+    <legend><?php echo Yii::t('AweCrud.app', 'Create') . ' ' . EcraCaso::label(); ?></legend>
+    <?php echo $this->renderPartial('_form', array('model' => $model)); ?>
+</fieldset>
