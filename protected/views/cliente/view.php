@@ -46,11 +46,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->grupo0) ? $data->grupo0 : null',
             'filter' => CHtml::listData(Grupo::model()->findAll(), 'id', Grupo::representingColumn()),
         ),
-        array(
-            'name' => 'cliente',
-            'value' => 'isset($data->cliente0) ? $data->cliente0 : null',
-            'filter' => CHtml::listData(Cliente::model()->findAll(), 'id', Cliente::representingColumn()),
-        ),
+        
         array(
             'name' => 'pessoa',
             'value' => 'isset($data->pessoa0) ? $data->pessoa0 : null',

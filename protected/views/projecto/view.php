@@ -121,11 +121,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->membro0) ? $data->membro0 : null',
             'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
         ),
-        array(
-            'name' => 'projecto',
-            'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
-            'filter' => CHtml::listData(Projecto::model()->findAll(), 'id', Projecto::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',

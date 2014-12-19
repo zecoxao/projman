@@ -37,11 +37,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model->search_Entidade($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'entidade',
-            'value' => 'isset($data->entidade0) ? $data->entidade0 : null',
-            'filter' => CHtml::listData(Entidade::model()->findAll(), 'id', Entidade::representingColumn()),
-        ),
+       
         array(
             'name' => 'caso_uso',
             'value' => 'isset($data->casoUso) ? $data->casoUso : null',

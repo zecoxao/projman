@@ -51,11 +51,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->alteracao0) ? $data->alteracao0 : null',
             'filter' => CHtml::listData(Alteracao::model()->findAll(), 'id', Alteracao::representingColumn()),
         ),
-        array(
-            'name' => 'requisito',
-            'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
-            'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',
@@ -79,11 +75,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model_2->search_Requisito($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'requisito',
-            'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
-            'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
-        ),
+        
         array(
             'name' => 'stakeholder',
             'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',

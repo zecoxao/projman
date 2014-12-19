@@ -41,11 +41,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model->search_Membro($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'membro',
-            'value' => 'isset($data->membro0) ? $data->membro0 : null',
-            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
-        ),
+        
         array(
             'name' => 'caso_uso',
             'value' => 'isset($data->casoUso) ? $data->casoUso : null',
@@ -74,11 +70,8 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model_2->search_Membro($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'membro',
-            'value' => 'isset($data->membro0) ? $data->membro0 : null',
-            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
-        ),
+       
+        
         array(
             'name' => 'projecto',
             'value' => 'isset($data->projecto0) ? $data->projecto0 : null',
@@ -112,11 +105,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
             'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
         ),
-        array(
-            'name' => 'membro',
-            'value' => 'isset($data->membro0) ? $data->membro0 : null',
-            'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',

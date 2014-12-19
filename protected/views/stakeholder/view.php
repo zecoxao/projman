@@ -56,11 +56,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model->search_Stakeholder($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'stakeholder',
-            'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
-            'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
-        ),
+        
         'data_alteracao',
         'descricao',
         array(
@@ -91,11 +87,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
             'filter' => CHtml::listData(Requisito::model()->findAll(), 'id', Requisito::representingColumn()),
         ),
-        array(
-            'name' => 'stakeholder',
-            'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
-            'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',
@@ -120,11 +112,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model_3->search_Stakeholder($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'stakeholder',
-            'value' => 'isset($data->stakeholder0) ? $data->stakeholder0 : null',
-            'filter' => CHtml::listData(Stakeholder::model()->findAll(), 'id', Stakeholder::representingColumn()),
-        ),
+        
         array(
             'name' => 'membro',
             'value' => 'isset($data->membro0) ? $data->membro0 : null',

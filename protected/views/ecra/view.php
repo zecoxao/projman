@@ -37,11 +37,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model->search_Ecra($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'ecra',
-            'value' => 'isset($data->ecra0) ? $data->ecra0 : null',
-            'filter' => CHtml::listData(Ecra::model()->findAll(), 'id', Ecra::representingColumn()),
-        ),
+        
         array(
             'name' => 'caso_uso',
             'value' => 'isset($data->casoUso) ? $data->casoUso : null',

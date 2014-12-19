@@ -47,11 +47,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->ecra0) ? $data->ecra0 : null',
             'filter' => CHtml::listData(Ecra::model()->findAll(), 'id', Ecra::representingColumn()),
         ),
-        array(
-            'name' => 'caso_uso',
-            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
-            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',
@@ -80,11 +76,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->entidade0) ? $data->entidade0 : null',
             'filter' => CHtml::listData(Entidade::model()->findAll(), 'id', Entidade::representingColumn()),
         ),
-        array(
-            'name' => 'caso_uso',
-            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
-            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',
@@ -113,11 +105,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
             'value' => 'isset($data->membro0) ? $data->membro0 : null',
             'filter' => CHtml::listData(Membro::model()->findAll(), 'id', Membro::representingColumn()),
         ),
-        array(
-            'name' => 'caso_uso',
-            'value' => 'isset($data->casoUso) ? $data->casoUso : null',
-            'filter' => CHtml::listData(CasoUso::model()->findAll(), 'id', CasoUso::representingColumn()),
-        ),
+        
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
             'template' => '{view}|{update}|{delete}',

@@ -42,11 +42,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'dataProvider' => $child_model->search_Alteracao($parentID),
     'columns' => array(
         'id',
-        array(
-            'name' => 'alteracao',
-            'value' => 'isset($data->alteracao0) ? $data->alteracao0 : null',
-            'filter' => CHtml::listData(Alteracao::model()->findAll(), 'id', Alteracao::representingColumn()),
-        ),
+        
         array(
             'name' => 'requisito',
             'value' => 'isset($data->requisito0) ? $data->requisito0 : null',
