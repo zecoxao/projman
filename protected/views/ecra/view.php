@@ -45,14 +45,26 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}|{update}|{delete}',
-            'viewButtonUrl' => 'array("ecraCaso/view",
-            "id"=>$data->id)',
-            'updateButtonUrl' => 'array("ecraCaso/update",
-            "id"=>$data->id)',
-            'deleteButtonUrl' => 'array("ecraCaso/delete",
-            "id"=>$data->id)',
+            'template' => '{create}{view}{update}{delete}',
+            'buttons' => array(
+                'create' => array(
+                    'label' => '+', // text label of the button
+                    'url' => 'Yii::app()->createUrl("ecraCaso/create", array("id"=>$data->id))',
+                ),
+                'view' => array(
+                    'label' => 'r', // text label of the button
+                    'url' => 'Yii::app()->createUrl("ecraCaso/view", array("id"=>$data->id))',
+                ),
+                'update' => array(
+                    'label' => 'u', // text label of the button
+                    'url' => 'Yii::app()->createUrl("ecraCaso/update", array("id"=>$data->id))',
+                ),
+                'delete' => array(
+                    'label' => 'd', // text label of the button
+                    'url' => 'Yii::app()->createUrl("ecraCaso/delete", array("id"=>$data->id))',
+                ),
+            ),
         ),
-    ),
+    )
 ));
 ?>

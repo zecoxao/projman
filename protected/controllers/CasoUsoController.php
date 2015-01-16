@@ -24,13 +24,14 @@ class CasoUsoController extends RController
         $child_model = new EcraCaso("search");
         $child_model_2 = new EntidadeCaso("search");
         $child_model_3 = new MembroCaso("search");
-        
+        $child_model_4 = new CasoRequisito("search");
         
         $this->render('view', array(
             'model' => $this->loadModel($id),
             'child_model' => $child_model,
             'child_model_2' => $child_model_2,
             'child_model_3' => $child_model_3,
+            'child_model_4' => $child_model_4,
             'parentID' => $id
         ));
     }

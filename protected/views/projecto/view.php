@@ -62,15 +62,27 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}|{update}|{delete}',
-            'viewButtonUrl' => 'array("stakeholder/view",
-            "id"=>$data->id)',
-            'updateButtonUrl' => 'array("stakeholder/update",
-            "id"=>$data->id)',
-            'deleteButtonUrl' => 'array("stakeholder/delete",
-            "id"=>$data->id)',
+            'template' => '{create}{view}{update}{delete}',
+            'buttons' => array(
+                'create' => array(
+                    'label' => '+', // text label of the button
+                    'url' => 'Yii::app()->createUrl("stakeholder/create", array("id"=>$data->id))',
+                ),
+                'view' => array(
+                    'label' => 'r', // text label of the button
+                    'url' => 'Yii::app()->createUrl("stakeholder/view", array("id"=>$data->id))',
+                ),
+                'update' => array(
+                    'label' => 'u', // text label of the button
+                    'url' => 'Yii::app()->createUrl("stakeholder/update", array("id"=>$data->id))',
+                ),
+                'delete' => array(
+                    'label' => 'd', // text label of the button
+                    'url' => 'Yii::app()->createUrl("stakeholder/delete", array("id"=>$data->id))',
+                ),
+            ),
         ),
-    ),
+    )
 ));
 ?>
 
@@ -95,15 +107,27 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}|{update}|{delete}',
-            'viewButtonUrl' => 'array("requisito/view",
-            "id"=>$data->id)',
-            'updateButtonUrl' => 'array("requisito/update",
-            "id"=>$data->id)',
-            'deleteButtonUrl' => 'array("requisito/delete",
-            "id"=>$data->id)',
+            'template' => '{create}{view}{update}{delete}',
+            'buttons' => array(
+                'create' => array(
+                    'label' => '+', // text label of the button
+                    'url' => 'Yii::app()->createUrl("requisito/create", array("id"=>$data->id))',
+                ),
+                'view' => array(
+                    'label' => 'r', // text label of the button
+                    'url' => 'Yii::app()->createUrl("requisito/view", array("id"=>$data->id))',
+                ),
+                'update' => array(
+                    'label' => 'u', // text label of the button
+                    'url' => 'Yii::app()->createUrl("requisito/update", array("id"=>$data->id))',
+                ),
+                'delete' => array(
+                    'label' => 'd', // text label of the button
+                    'url' => 'Yii::app()->createUrl("requisito/delete", array("id"=>$data->id))',
+                ),
+            ),
         ),
-    ),
+    )
 ));
 ?>
 
@@ -124,14 +148,26 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
-            'template' => '{view}|{update}|{delete}',
-            'viewButtonUrl' => 'array("membroProjecto/view",
-            "id"=>$data->id)',
-            'updateButtonUrl' => 'array("membroProjecto/update",
-            "id"=>$data->id)',
-            'deleteButtonUrl' => 'array("membroProjecto/delete",
-            "id"=>$data->id)',
+            'template' => '{create}{view}{update}{delete}',
+            'buttons' => array(
+                'create' => array(
+                    'label' => '+', // text label of the button
+                    'url' => 'Yii::app()->createUrl("membroProjecto/create", array("id"=>$data->id))',
+                ),
+                'view' => array(
+                    'label' => 'r', // text label of the button
+                    'url' => 'Yii::app()->createUrl("membroProjecto/view", array("id"=>$data->id))',
+                ),
+                'update' => array(
+                    'label' => 'u', // text label of the button
+                    'url' => 'Yii::app()->createUrl("membroProjecto/update", array("id"=>$data->id))',
+                ),
+                'delete' => array(
+                    'label' => 'd', // text label of the button
+                    'url' => 'Yii::app()->createUrl("membroProjecto/delete", array("id"=>$data->id))',
+                ),
+            ),
         ),
-    ),
+    )
 ));
 ?>

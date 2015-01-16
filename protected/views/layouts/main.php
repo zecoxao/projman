@@ -50,13 +50,15 @@
                         array('label' => 'Projecto', 'url' => array('/projecto/index')),
                         array('label' => 'Requisito', 'url' => array('/requisito/index')),
                         array('label' => 'Stakeholder', 'url' => array('/stakeholder/index')),
-                        array('label' => 'Alteracao Requisito', 'url' => array('/alteracaoRequisito/index')),
+                        /*array('label' => 'Alteracao Requisito', 'url' => array('/alteracaoRequisito/index')),
                         array('label' => 'Ecra Caso', 'url' => array('/ecraCaso/index')),
                         array('label' => 'Entidade Caso', 'url' => array('/entidadeCaso/index')),
                         array('label' => 'Membro Caso', 'url' => array('/membroCaso/index')),
                         array('label' => 'Membro Projecto', 'url' => array('/membroProjecto/index')),
                         array('label' => 'Requisito Stakeholder', 'url' => array('/requisitoStakeholder/index')),
                         array('label' => 'Stakeholder Membro', 'url' => array('/stakeholderMembro/index')),
+                         * 
+                         */
                     ),
                 ));
                 ?>

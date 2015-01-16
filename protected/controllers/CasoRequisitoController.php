@@ -1,39 +1,23 @@
 <?php
 
-class RequisitoController extends RController
+class CasoRequisitoController extends AweController
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
     public $layout = '//layouts/column2';
-    
-    public function filters()
-    {
-        return array(
-            'rights', // perform access control for CRUD operations
- 
-        );
-    }
 
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
 	 */
-	public function actionView($id) {
-       $child_model = new AlteracaoRequisito("search");
-       $child_model_2 = new RequisitoStakeholder("search");
-       $child_model_3 = new CasoRequisito("search");
-        
-        
-        $this->render('view', array(
-            'model' => $this->loadModel($id),
-            'child_model' => $child_model,
-            'child_model_2' => $child_model_2,
-            'child_model_3' => $child_model_3,
-            'parentID' => $id
-        ));
-    }
+	public function actionView($id)
+	{
+		$this->render('view', array(
+			'model' => $this->loadModel($id),
+		));
+	}
 
 	/**
 	 * Creates a new model.
@@ -41,13 +25,13 @@ class RequisitoController extends RController
 	 */
 	public function actionCreate()
 	{
-		$model = new Requisito;
+		$model = new CasoRequisito;
 
-        $this->performAjaxValidation($model, 'requisito-form');
+        $this->performAjaxValidation($model, 'caso-requisito-form');
 
-        if(isset($_POST['Requisito']))
+        if(isset($_POST['CasoRequisito']))
 		{
-			$model->attributes = $_POST['Requisito'];
+			$model->attributes = $_POST['CasoRequisito'];
 			if($model->save()) {
                 $this->redirect(array('view', 'id' => $model->id));
             }
@@ -67,11 +51,11 @@ class RequisitoController extends RController
 	{
 		$model = $this->loadModel($id);
 
-        $this->performAjaxValidation($model, 'requisito-form');
+        $this->performAjaxValidation($model, 'caso-requisito-form');
 
-		if(isset($_POST['Requisito']))
+		if(isset($_POST['CasoRequisito']))
 		{
-			$model->attributes = $_POST['Requisito'];
+			$model->attributes = $_POST['CasoRequisito'];
 			if($model->save()) {
 				$this->redirect(array('view','id' => $model->id));
             }
@@ -107,7 +91,7 @@ class RequisitoController extends RController
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Requisito');
+		$dataProvider=new CActiveDataProvider('CasoRequisito');
 		$this->render('index', array(
 			'dataProvider' => $dataProvider,
 		));
@@ -118,10 +102,10 @@ class RequisitoController extends RController
 	 */
 	public function actionAdmin()
 	{
-		$model = new Requisito('search');
+		$model = new CasoRequisito('search');
 		$model->unsetAttributes(); // clear any default values
-		if(isset($_GET['Requisito']))
-			$model->attributes = $_GET['Requisito'];
+		if(isset($_GET['CasoRequisito']))
+			$model->attributes = $_GET['CasoRequisito'];
 
 		$this->render('admin', array(
 			'model' => $model,
@@ -135,7 +119,7 @@ class RequisitoController extends RController
 	 */
 	public function loadModel($id, $modelClass=__CLASS__)
 	{
-		$model = Requisito::model()->findByPk($id);
+		$model = CasoRequisito::model()->findByPk($id);
 		if($model === null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -147,7 +131,7 @@ class RequisitoController extends RController
 	 */
 	protected function performAjaxValidation($model, $form=null)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax'] === 'requisito-form')
+		if(isset($_POST['ajax']) && $_POST['ajax'] === 'caso-requisito-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
